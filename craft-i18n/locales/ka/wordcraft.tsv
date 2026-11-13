@@ -48,7 +48,7 @@
 	a drawing canvas can't be ungrouped	სახატავი ტილოს დაჯგუფების მოხსნა შეუძლებელია
 	a drawing canvas can't go inside a text box	ტექსტურ ბლოკში სახატავი ტილოს ჩასმა შეუძლებელია
 	A file dialog is already open.	ფაილის ფანჯარა უკვე გახსნილია.
-	A free, open-source word processor written from scratch in Rust.\nPart of the Crafting Apps from the crocwork team.	უფასო, ღია კოდის ტექსტური რედაქტორი, თავიდან დაწერილი Rust-ზე.\nArtCraft-ის გუნდის Crafting Apps-ის ნაწილი.
+	A free, open-source word processor written from scratch in Rust.\nPart of the Crafting Apps from the crocwork team.	უფასო, ღია კოდის ტექსტური რედაქტორი, თავიდან დაწერილი Rust-ზე.\ncrocwork-ის გუნდის Crafting Apps-ის ნაწილი.
 	a group holding Word ink can't be ungrouped yet	Word-ის მელნის შემცველი ჯგუფის დაჯგუფების მოხსნა ჯერჯერობით შეუძლებელია
 	A mail merge field	წერილების შერწყმის ველი
 	A numbered sequence (figures, tables…)	დანომრილი თანმიმდევრობა (ილუსტრაციები, ცხრილები…)

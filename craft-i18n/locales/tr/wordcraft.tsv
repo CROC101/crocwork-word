@@ -45,7 +45,7 @@
 	a drawing canvas can't be ungrouped	çizim tuvalinin grubu çözülemez
 	a drawing canvas can't go inside a text box	çizim tuvali bir metin kutusunun içine konamaz
 	A file dialog is already open.	Bir dosya iletişim kutusu zaten açık.
-	A free, open-source word processor written from scratch in Rust.\nPart of the Crafting Apps from the crocwork team.	Rust ile sıfırdan yazılmış ücretsiz, açık kaynak bir kelime işlemci.\nArtCraft ekibinin Crafting Apps ailesinin bir parçası.
+	A free, open-source word processor written from scratch in Rust.\nPart of the Crafting Apps from the crocwork team.	Rust ile sıfırdan yazılmış ücretsiz, açık kaynak bir kelime işlemci.\ncrocwork ekibinin Crafting Apps ailesinin bir parçası.
 	a group holding Word ink can't be ungrouped yet	Word mürekkebi içeren bir grubun grubu henüz çözülemez
 	A mail merge field	Bir posta birleştirme alanı
 	A numbered sequence (figures, tables…)	Numaralı bir dizi (şekiller, tablolar…)

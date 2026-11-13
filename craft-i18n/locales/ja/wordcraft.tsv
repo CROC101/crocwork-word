@@ -32,7 +32,7 @@
 	a drawing canvas can't be ungrouped	描画キャンバスはグループ解除できません
 	a drawing canvas can't go inside a text box	描画キャンバスはテキスト ボックス内に配置できません
 	A file dialog is already open.	ファイル ダイアログが既に開いています。
-	A free, open-source word processor written from scratch in Rust.\nPart of the Crafting Apps from the crocwork team.	Rust でゼロから書かれた、無料のオープンソース ワープロです。\nArtCraft チームの Crafting Apps のひとつです。
+	A free, open-source word processor written from scratch in Rust.\nPart of the Crafting Apps from the crocwork team.	Rust でゼロから書かれた、無料のオープンソース ワープロです。\ncrocwork チームの Crafting Apps のひとつです。
 	a group holding Word ink can't be ungrouped yet	Word のインクを含むグループはまだグループ解除できません
 	A mail merge field	差し込み用のフィールド
 	A numbered sequence (figures, tables…)	連番 (図、表…)

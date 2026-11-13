@@ -56,7 +56,7 @@
 	a, b, c, …	a, b, c, …
 	AaBbCcDd	AaBbCcDd
 	AaBbYyZz	AaBbYyZz
-	About crocwork Word	O WordCraftu
+	About crocwork Word	O crocwork Word
 	Above Chart	Iznad grafikona
 	Above the item	Iznad stavke
 	Above/below	Iznad/ispod
@@ -118,7 +118,7 @@
 	Advanced Properties…	Napredna svojstva…
 	After:	Poslije:
 	Agents	Agenti
-	Agents connected to crocwork Word can show you messages through the Assistant. Muted, they're told you'd rather not.	Agenti povezani s WordCraftom mogu vam prikazivati poruke putem Asistenta. Kad su utišani, obavještavaju se da to ne želite.
+	Agents connected to crocwork Word can show you messages through the Assistant. Muted, they're told you'd rather not.	Agenti povezani s crocwork Word mogu vam prikazivati poruke putem Asistenta. Kad su utišani, obavještavaju se da to ne želite.
 	Ah, Latin. The language of deadlines.	Ah, latinski. Jezik rokova.
 	Ah, the editing phase. My favourite. Very decisive.	Ah, faza uređivanja. Moja omiljena. Vrlo odlučno.
 	Align Bottom Center	Poravnaj dolje po sredini
@@ -221,7 +221,7 @@ numerals	Arabic	Arapski
 	Automatically Update Document Styles	Automatski ažuriraj stilove dokumenta
 	Automatically update document styles	Automatski ažuriraj stilove dokumenta
 	AutoSave	Automatsko čuvanje
-	AutoSave documents you have saved in crocwork Word	Automatski čuvaj dokumente koje ste sačuvali u WordCraftu
+	AutoSave documents you have saved in crocwork Word	Automatski čuvaj dokumente koje ste sačuvali u crocwork Word
 	AutoSave failed: {error}. Save the document to turn AutoSave back on.	Automatsko čuvanje nije uspjelo: {error}. Sačuvajte dokument da ponovo uključite automatsko čuvanje.
 	AutoSave isn't available in the browser: it can't write to your files. Save downloads a copy.	Automatsko čuvanje nije dostupno u pregledniku: ne može pisati u vaše datoteke. Sačuvaj preuzima kopiju.
 	AutoSave only keeps .docx, .odt and .rtf files; {name} can't keep all formatting. Save as .docx to turn on AutoSave.	Automatsko čuvanje zadržava samo .docx, .odt i .rtf datoteke; {name} ne može zadržati sve oblikovanje. Sačuvajte kao .docx da uključite automatsko čuvanje.
@@ -296,7 +296,7 @@ numerals	Arabic	Arapski
 	Breve	Breve
 	Brighter +20%	Svjetlije +20%
 	Brightness, contrast and sharpness	Svjetlina, kontrast i oštrina
-	Browse in crocwork Word…	Pregledaj u WordCraftu…
+	Browse in crocwork Word…	Pregledaj u crocwork Word…
 	Building Block Gallery Content Control	Kontrola sadržaja galerije gradivnih blokova
 	Built-In	Ugrađeno
 	Built-in style	Ugrađeni stil
@@ -1371,8 +1371,8 @@ template	Letter	Pismo
 	New documents will use this page setup.	Novi dokumenti će koristiti ove postavke stranice.
 	New documents will use this paragraph formatting.	Novi dokumenti će koristiti ovo oblikovanje pasusa.
 	New documents will use this style.	Novi dokumenti će koristiti ovaj stil.
-	New documents will use crocwork Word's built-in formatting.	Novi dokumenti će koristiti ugrađeno oblikovanje WordCrafta.
-	New documents will use crocwork Word's built-in formatting. Your saved defaults can't be recovered. Reset?	Novi dokumenti će koristiti ugrađeno oblikovanje WordCrafta. Vaše sačuvane zadane postavke se ne mogu vratiti. Vratiti na početno?
+	New documents will use crocwork Word's built-in formatting.	Novi dokumenti će koristiti ugrađeno oblikovanje crocwork Word.
+	New documents will use crocwork Word's built-in formatting. Your saved defaults can't be recovered. Reset?	Novi dokumenti će koristiti ugrađeno oblikovanje crocwork Word. Vaše sačuvane zadane postavke se ne mogu vratiti. Vratiti na početno?
 	New Drawing Canvas	Novo platno za crtanje
 	New Entry	Novi unos
 	New Label	Nova oznaka
@@ -1509,10 +1509,10 @@ template	Letter	Pismo
 	Only web (http, https) and email (mailto) links can be followed	Mogu se pratiti samo web (http, https) i e-mail (mailto) veze
 spacing	Open	Otvoreno
 	Open a document first	Prvo otvorite dokument
-	Open a file with crocwork Word's own browser when the system file dialog doesn't appear.	Otvorite datoteku pomoću vlastitog preglednika WordCrafta kad se sistemski dijalog za datoteke ne pojavi.
+	Open a file with crocwork Word's own browser when the system file dialog doesn't appear.	Otvorite datoteku pomoću vlastitog preglednika crocwork Word kad se sistemski dijalog za datoteke ne pojavi.
 	OpenDocument Text (*.odt)	OpenDocument tekst (*.odt)
 	Opening print dialog…	Otvaranje dijaloga za štampanje…
-	Opens .docx, .doc, .rtf and .odt files and Word templates with crocwork Word from now on.	Od sada otvara .docx, .doc, .rtf i .odt datoteke i Word predloške pomoću WordCrafta.
+	Opens .docx, .doc, .rtf and .odt files and Word templates with crocwork Word from now on.	Od sada otvara .docx, .doc, .rtf i .odt datoteke i Word predloške pomoću crocwork Word.
 	Opens Settings › Default apps, where you choose crocwork Word for .docx and the other document types.	Otvara Postavke › Zadane aplikacije, gdje birate crocwork Word za .docx i ostale vrste dokumenata.
 	Operator	Operator
 	Operator Structures	Strukture operatora
@@ -2235,7 +2235,7 @@ numerals	System	Sistem
 	The margins don't fit on a page this size; make the margins smaller first.	Margine ne staju na stranicu ove veličine; prvo smanjite margine.
 	The measurement must be between {min} and {max}.	Mjera mora biti između {min} i {max}.
 	The new style takes the formatting of the current paragraph.	Novi stil preuzima oblikovanje trenutnog pasusa.
-	The Normal template couldn't be read, so this document uses crocwork Word's built-in formatting.	Predložak Normal nije moguće pročitati, pa ovaj dokument koristi ugrađeno oblikovanje WordCrafta.
+	The Normal template couldn't be read, so this document uses crocwork Word's built-in formatting.	Predložak Normal nije moguće pročitati, pa ovaj dokument koristi ugrađeno oblikovanje crocwork Word.
 	The number must be a divisor of {max}.	Broj mora biti djelilac broja {max}.
 	The number must be between 1 and {max}.	Broj mora biti između 1 i {max}.
 	the paragraph is empty	pasus je prazan
@@ -2292,7 +2292,7 @@ preview	Title	Naslov
 	Title Bar	Naslovna traka
 	Title from the document properties	Naslov iz svojstava dokumenta
 	Title:	Naslov:
-	To open Word documents with crocwork Word by default: select one in Finder, choose File › Get Info, pick crocwork Word under Open with, then click Change All.	Da Word dokumente zadano otvarate WordCraftom: odaberite jedan u Finderu, izaberite File › Get Info, odaberite crocwork Word pod Open with, pa kliknite Change All.
+	To open Word documents with crocwork Word by default: select one in Finder, choose File › Get Info, pick crocwork Word under Open with, then click Change All.	Da Word dokumente zadano otvarate crocwork Word: odaberite jedan u Finderu, izaberite File › Get Info, odaberite crocwork Word pod Open with, pa kliknite Change All.
 	To:	Za:
 	TOA Heading	Naslov tabele izvora
 	TOC Heading	Naslov sadržaja

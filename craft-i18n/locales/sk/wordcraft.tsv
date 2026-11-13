@@ -246,7 +246,7 @@ numerals	Arabic	Západné číslice
 	Automatically Update Document Styles	Automaticky aktualizovať štýly dokumentu
 	Automatically update document styles	Automaticky aktualizovať štýly dokumentu
 	AutoSave	Automatické ukladanie
-	AutoSave documents you have saved in crocwork Word	Automaticky ukladať dokumenty uložené vo WordCrafte
+	AutoSave documents you have saved in crocwork Word	Automaticky ukladať dokumenty uložené vo crocwork Word
 	AutoSave failed: {error}. Save the document to turn AutoSave back on.	Automatické ukladanie zlyhalo: {error}. Uložte dokument, aby sa znova zaplo.
 	AutoSave isn't available in the browser: it can't write to your files. Save downloads a copy.	Automatické ukladanie nie je v prehliadači dostupné: nemôže zapisovať do vašich súborov. Uložením sa stiahne kópia.
 	AutoSave only keeps .docx, .odt and .rtf files; {name} can't keep all formatting. Save as .docx to turn on AutoSave.	Automatické ukladanie podporuje iba súbory .docx, .odt a .rtf; formát {name} nezachová celé formátovanie. Uložte ako .docx, aby sa zaplo automatické ukladanie.
@@ -331,7 +331,7 @@ numerals	Arabic	Západné číslice
 	Brighter +20%	Jas +20 %
 	Brightness, contrast and sharpness	Jas, kontrast a ostrosť
 	Bring Forward	Preniesť dopredu
-	Browse in crocwork Word…	Prehľadávať vo WordCrafte…
+	Browse in crocwork Word…	Prehľadávať vo crocwork Word…
 	Browse…	Prehľadávať…
 	Building Block Gallery Content Control	Ovládací prvok obsahu galérie preddefinovaných prvkov
 	Built-In	Vstavané
@@ -1303,7 +1303,7 @@ numerals	Hindi	Východoarabské číslice
 	Keep Lines Together	Zviazať riadky
 	Keep lines together	Zviazať riadky
 	Keep Text Only	Ponechať len text
-	Keep the password somewhere safe: without it nobody, crocwork Word included, can open the document. Leave both boxes empty to remove the password.	Heslo si bezpečne uschovajte: bez neho dokument neotvorí nikto vrátane WordCraftu. Ak chcete heslo odstrániť, nechajte obe polia prázdne.
+	Keep the password somewhere safe: without it nobody, crocwork Word included, can open the document. Leave both boxes empty to remove the password.	Heslo si bezpečne uschovajte: bez neho dokument neotvorí nikto vrátane crocwork Word. Ak chcete heslo odstrániť, nechajte obe polia prázdne.
 	Keep with Next	Zviazať s nasledujúcim
 	Keep with next	Zviazať s nasledujúcim
 	Keeps the fonts and formatting of the copied text.	Zachová písma a formátovanie skopírovaného textu.
@@ -1587,8 +1587,8 @@ template	Letter	List
 	New documents will use this page setup.	Nové dokumenty budú používať toto nastavenie strany.
 	New documents will use this paragraph formatting.	Nové dokumenty budú používať toto formátovanie odseku.
 	New documents will use this style.	Nové dokumenty budú používať tento štýl.
-	New documents will use crocwork Word's built-in formatting.	Nové dokumenty budú používať vstavané formátovanie WordCraftu.
-	New documents will use crocwork Word's built-in formatting. Your saved defaults can't be recovered. Reset?	Nové dokumenty budú používať vstavané formátovanie WordCraftu. Uložené predvolené nastavenia sa už nebudú dať vrátiť. Obnoviť?
+	New documents will use crocwork Word's built-in formatting.	Nové dokumenty budú používať vstavané formátovanie crocwork Word.
+	New documents will use crocwork Word's built-in formatting. Your saved defaults can't be recovered. Reset?	Nové dokumenty budú používať vstavané formátovanie crocwork Word. Uložené predvolené nastavenia sa už nebudú dať vrátiť. Obnoviť?
 	New Drawing Canvas	Nové kresliace plátno
 	New Entry	Nová položka
 	New from Template	Nový zo šablóny
@@ -1743,10 +1743,10 @@ template	Letter	List
 	Only web (http, https) and email (mailto) links can be followed	Otvárať možno len webové odkazy (http, https) a e-mailové odkazy (mailto)
 	Open	Otvoriť
 	Open a document first	Najprv otvorte dokument
-	Open a file with crocwork Word's own browser when the system file dialog doesn't appear.	Keď sa nezobrazí systémové okno na výber súboru, otvorte súbor vo vlastnom prehliadači súborov WordCraftu.
+	Open a file with crocwork Word's own browser when the system file dialog doesn't appear.	Keď sa nezobrazí systémové okno na výber súboru, otvorte súbor vo vlastnom prehliadači súborov crocwork Word.
 	OpenDocument Text (*.odt)	Text OpenDocument (*.odt)
 	Opening print dialog…	Otvára sa okno tlače…
-	Opens .docx, .doc, .rtf and .odt files and Word templates with crocwork Word from now on.	Odteraz sa súbory .docx, .doc, .rtf a .odt a šablóny Wordu budú otvárať vo WordCrafte.
+	Opens .docx, .doc, .rtf and .odt files and Word templates with crocwork Word from now on.	Odteraz sa súbory .docx, .doc, .rtf a .odt a šablóny Wordu budú otvárať vo crocwork Word.
 	Opens Settings › Default apps, where you choose crocwork Word for .docx and the other document types.	Otvorí nastavenia › Predvolené aplikácie, kde vyberiete crocwork Word pre súbory .docx a ďalšie typy dokumentov.
 	Operator	Operátor
 	Operator Structures	Štruktúry operátorov
@@ -2304,7 +2304,7 @@ template	Letter	List
 	Show the equation on a line of its own	Zobraziť rovnicu na samostatnom riadku
 	Show the mini toolbar when text is selected	Pri výbere textu zobraziť minipanel nástrojov
 	Show the ribbon	Zobraziť pás s nástrojmi
-	Show the Start screen when crocwork Word starts	Pri spustení WordCraftu zobraziť úvodnú obrazovku
+	Show the Start screen when crocwork Word starts	Pri spustení crocwork Word zobraziť úvodnú obrazovku
 	Show/Hide ¶	Zobraziť alebo skryť ¶
 	Show\nComments	Zobraziť\nkomentáre
 	Showing the first {count} items.	Zobrazené položky od začiatku: {count}.
@@ -2569,7 +2569,7 @@ numerals	System	Podľa systému
 	The margins don't fit on a page this size; make the margins smaller first.	Okraje sa na stranu tejto veľkosti nezmestia; najprv ich zmenšite.
 	The measurement must be between {min} and {max}.	Rozmer musí byť od {min} do {max}.
 	The new style takes the formatting of the current paragraph.	Nový štýl prevezme formátovanie aktuálneho odseku.
-	The Normal template couldn't be read, so this document uses crocwork Word's built-in formatting.	Šablónu Normálne sa nepodarilo prečítať, preto tento dokument používa vstavané formátovanie WordCraftu.
+	The Normal template couldn't be read, so this document uses crocwork Word's built-in formatting.	Šablónu Normálne sa nepodarilo prečítať, preto tento dokument používa vstavané formátovanie crocwork Word.
 	The number must be a divisor of {max}.	Číslo musí byť deliteľom čísla {max}.
 	The number must be between 1 and {max}.	Číslo musí byť od 1 do {max}.
 	the paragraph is empty	odsek je prázdny
@@ -2628,7 +2628,7 @@ preview	Title	Názov
 	Title Bar	Záhlavie okna
 	Title from the document properties	Názov z vlastností dokumentu
 	Title:	Názov:
-	To open Word documents with crocwork Word by default: select one in Finder, choose File › Get Info, pick crocwork Word under Open with, then click Change All.	Ak chcete otvárať dokumenty Wordu predvolene vo WordCrafte, vo Finderi vyberte dokument, zvoľte Súbor › Informácie, v časti Otvoriť pomocou vyberte crocwork Word a potom kliknite na Zmeniť všetky.
+	To open Word documents with crocwork Word by default: select one in Finder, choose File › Get Info, pick crocwork Word under Open with, then click Change All.	Ak chcete otvárať dokumenty Wordu predvolene vo crocwork Word, vo Finderi vyberte dokument, zvoľte Súbor › Informácie, v časti Otvoriť pomocou vyberte crocwork Word a potom kliknite na Zmeniť všetky.
 	To:	Do:
 	TOA Heading	Nadpis zoznamu právnych citácií
 	TOC Heading	Nadpis obsahu

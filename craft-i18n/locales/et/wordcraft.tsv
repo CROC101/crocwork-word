@@ -29,7 +29,7 @@
 	a drawing canvas can't be ungrouped	joonistuslõuendi rühmitust ei saa tühistada
 	a drawing canvas can't go inside a text box	joonistuslõuendit ei saa panna tekstivälja sisse
 	A file dialog is already open.	Failidialoog on juba avatud.
-	A free, open-source word processor written from scratch in Rust.\nPart of the Crafting Apps from the crocwork team.	Tasuta avatud lähtekoodiga tekstitöötlusprogramm, mis on kirjutatud Rustis.\nArtCrafti meeskonna Crafting Appsi osa.
+	A free, open-source word processor written from scratch in Rust.\nPart of the Crafting Apps from the crocwork team.	Tasuta avatud lähtekoodiga tekstitöötlusprogramm, mis on kirjutatud Rustis.\ncrocwork meeskonna Crafting Appsi osa.
 	a group holding Word ink can't be ungrouped yet	Wordi tindiga rühma ei saa veel lahutada
 	A mail merge field	Kirjakoostevälja
 	A numbered sequence (figures, tables…)	Nummerdatud jada (joonised, tabelid…)
@@ -38,7 +38,7 @@
 	A, B, C, …	A, B, C, …
 	a, b, c, …	a, b, c, …
 	AaBbYyZz	AaBbYyZz ÕõÄäÖöÜü
-	About crocwork Word	WordCrafti teave
+	About crocwork Word	crocwork Word teave
 	Above Chart	Diagrammi kohal
 	Above the item	Objekti kohal
 	Accent	Rõhumärk
@@ -93,7 +93,7 @@
 	Advanced Find…	Täpsem otsing…
 	After:	Pärast:
 	Agents	Agendid
-	Agents connected to crocwork Word can show you messages through the Assistant. Muted, they're told you'd rather not.	WordCraftiga ühendatud agendid saavad assistendi kaudu sulle sõnumeid näidata. Kui need on vaigistatud, antakse agentidele teada, et sa seda ei soovi.
+	Agents connected to crocwork Word can show you messages through the Assistant. Muted, they're told you'd rather not.	crocwork Word ühendatud agendid saavad assistendi kaudu sulle sõnumeid näidata. Kui need on vaigistatud, antakse agentidele teada, et sa seda ei soovi.
 	Ah, Latin. The language of deadlines.	Ah, ladina keel. Sama surnud kui eilne tähtaeg.
 	Ah, the editing phase. My favourite. Very decisive.	Ah, toimetamise faas. Minu lemmik. Väga otsustav.
 	Align Bottom Center	Joonda alla keskele
@@ -183,7 +183,7 @@
 	Automatically Update Document Styles	Uuenda dokumendi stiile automaatselt
 	Automatically update document styles	Uuenda dokumendi stiile automaatselt
 	AutoSave	Automaatsalvestus
-	AutoSave documents you have saved in crocwork Word	Salvesta WordCraftis salvestatud dokumendid automaatselt
+	AutoSave documents you have saved in crocwork Word	Salvesta crocwork Word salvestatud dokumendid automaatselt
 	AutoSave failed: {error}. Save the document to turn AutoSave back on.	Automaatsalvestus ebaõnnestus: {error}. Selle uuesti sisse lülitamiseks salvesta dokument.
 	AutoSave isn't available in the browser: it can't write to your files. Save downloads a copy.	Automaatsalvestus pole brauseris saadaval: see ei saa sinu faile kirjutada. Salvestamine laadib alla koopia.
 	AutoSave only keeps .docx, .odt and .rtf files; {name} can't keep all formatting. Save as .docx to turn on AutoSave.	Automaatsalvestus hoiab ainult .docx-, .odt- ja .rtf-faile; {name} ei säilita kogu vormingut. Automaatsalvestuse sisselülitamiseks salvesta .docx-failina.
@@ -236,7 +236,7 @@
 	Box	Kast
 	Bracket	Sulg
 	Breaks	Piirid
-	Browse in crocwork Word…	Sirvi WordCraftis…
+	Browse in crocwork Word…	Sirvi crocwork Word…
 	Building Block Gallery Content Control	Ehitusplokkide galerii sisujuhtelement
 	Built-In	Sisseehitatud
 	Built-in style	Sisseehitatud stiil
@@ -400,7 +400,7 @@
 	Correct TWo INitial CApitals	Paranda KAks SUurt algustähte
 	Corrections	Parandused
 	Couldn't download {name}: {error}	Faili {name} allalaadimine ebaõnnestus: {error}
-	Couldn't make crocwork Word the default: {error}	WordCrafti ei õnnestunud vaikerakenduseks määrata: {error}
+	Couldn't make crocwork Word the default: {error}	crocwork Word ei õnnestunud vaikerakenduseks määrata: {error}
 	Couldn't open {path}: {error}	Faili {path} avamine ebaõnnestus: {error}
 	Count by:	Samm:
 	Count words in text boxes and notes	Loenda sõnad ka tekstiväljadel ja märkustes
@@ -904,7 +904,7 @@
 	Is not blank	Pole tühi
 	Issue	Number
 	It looks like you're writing a letter. Want an envelope for it, or a letter template to start from?	Paistab, et kirjutad kirja. Kas soovid sellele ümbrikku või kirjamalli, millest alustada?
-	Join the crocwork community on Discord	Liitu ArtCrafti kogukonnaga Discordis
+	Join the crocwork community on Discord	Liitu crocwork kogukonnaga Discordis
 	Join us on Discord: discord.gg/artcraft	Liitu meiega Discordis: discord.gg/artcraft
 	Journal	Ajakiri
 	Justified	Rööpjoondatud
@@ -1101,8 +1101,8 @@
 	New documents will use this page setup.	Uued dokumendid kasutavad seda lehe seadistust.
 	New documents will use this paragraph formatting.	Uued dokumendid kasutavad seda lõiguvormingut.
 	New documents will use this style.	Uued dokumendid kasutavad seda stiili.
-	New documents will use crocwork Word's built-in formatting.	Uued dokumendid kasutavad WordCrafti sisseehitatud vormingut.
-	New documents will use crocwork Word's built-in formatting. Your saved defaults can't be recovered. Reset?	Uued dokumendid kasutavad WordCrafti sisseehitatud vormingut. Salvestatud vaikesätteid ei saa taastada. Kas lähtestada?
+	New documents will use crocwork Word's built-in formatting.	Uued dokumendid kasutavad crocwork Word sisseehitatud vormingut.
+	New documents will use crocwork Word's built-in formatting. Your saved defaults can't be recovered. Reset?	Uued dokumendid kasutavad crocwork Word sisseehitatud vormingut. Salvestatud vaikesätteid ei saa taastada. Kas lähtestada?
 	New Drawing Canvas	Uus joonistuslõuend
 	New Entry	Uus kirje
 	New Label	Uus silt
@@ -1225,11 +1225,11 @@
 	Only the allowed styles can be applied.	Rakendada saab ainult lubatud laade.
 	Only web (http, https) and email (mailto) links can be followed	Avada saab ainult veebi- (http, https) ja e-posti (mailto) linke
 	Open a document first	Avage kõigepealt dokument
-	Open a file with crocwork Word's own browser when the system file dialog doesn't appear.	Ava fail WordCrafti enda failisirvijaga, kui süsteemi failidialoog ei ilmu.
+	Open a file with crocwork Word's own browser when the system file dialog doesn't appear.	Ava fail crocwork Word enda failisirvijaga, kui süsteemi failidialoog ei ilmu.
 	OpenDocument Text (*.odt)	OpenDocumenti tekst (*.odt)
 	Opening print dialog…	Prindidialoogi avamine…
-	Opens .docx, .doc, .rtf and .odt files and Word templates with crocwork Word from now on.	Edaspidi avatakse .docx-, .doc-, .rtf- ja .odt-failid ning Wordi mallid WordCraftiga.
-	Opens Settings › Default apps, where you choose crocwork Word for .docx and the other document types.	Avab Sätted › Vaikerakendused, kus saad valida WordCrafti .docx-i ja teiste dokumenditüüpide jaoks.
+	Opens .docx, .doc, .rtf and .odt files and Word templates with crocwork Word from now on.	Edaspidi avatakse .docx-, .doc-, .rtf- ja .odt-failid ning Wordi mallid crocwork Word.
+	Opens Settings › Default apps, where you choose crocwork Word for .docx and the other document types.	Avab Sätted › Vaikerakendused, kus saad valida crocwork Word .docx-i ja teiste dokumenditüüpide jaoks.
 	Operator	Operaator
 	Optional Hyphen	Valikuline poolitusmärk
 	Or	Või
@@ -1664,7 +1664,7 @@
 	Show the community button in the title bar	Kuva tiitliribal kogukonna nupp
 	Show the mini toolbar when text is selected	Kuva teksti valimisel minitööriistariba
 	Show the ribbon	Kuva menüülint
-	Show the Start screen when crocwork Word starts	Näita WordCrafti käivitamisel avakuva
+	Show the Start screen when crocwork Word starts	Näita crocwork Word käivitamisel avakuva
 	Show the tips you asked not to see again.	Näitab uuesti nõuandeid, mille peitsid.
 	Show/Hide ¶	Kuva/peida ¶
 	Show/Hide ¶ ({key}) shows the spaces, tabs and breaks hiding in your text.	Kuva/peida ¶ ({key}) näitab sinu tekstis peituvaid tühikuid, tabulaatoreid ja katkestusi.
@@ -1842,7 +1842,7 @@
 	The margins don't fit on a page this size; make the margins smaller first.	Veerised ei mahu selle suurusega lehele; vähendage esmalt veeriseid.
 	The measurement must be between {min} and {max}.	Mõõt peab olema vahemikus {min} kuni {max}.
 	The new style takes the formatting of the current paragraph.	Uus stiil kasutab praeguse lõigu vormindust.
-	The Normal template couldn't be read, so this document uses crocwork Word's built-in formatting.	Malli Tavaline ei õnnestunud lugeda, seega kasutab see dokument WordCrafti sisseehitatud vormingut.
+	The Normal template couldn't be read, so this document uses crocwork Word's built-in formatting.	Malli Tavaline ei õnnestunud lugeda, seega kasutab see dokument crocwork Word sisseehitatud vormingut.
 	The number must be between 1 and {max}.	Arv peab olema vahemikus 1 kuni {max}.
 	the paragraph is empty	lõik on tühi
 	the paragraph starts with a space	lõik algab tühikuga
@@ -1891,7 +1891,7 @@
 	Title Bar	Tiitliriba
 	Title from the document properties	Pealkiri dokumendi atribuutidest
 	Title:	Pealkiri:
-	To open Word documents with crocwork Word by default: select one in Finder, choose File › Get Info, pick crocwork Word under Open with, then click Change All.	Wordi dokumentide vaikimisi avamiseks WordCraftiga vali Finderis üks dokument, vali Fail › Hangi teave, vali jaotises „Ava rakendusega“ crocwork Word ja klõpsa „Muuda kõiki“.
+	To open Word documents with crocwork Word by default: select one in Finder, choose File › Get Info, pick crocwork Word under Open with, then click Change All.	Wordi dokumentide vaikimisi avamiseks crocwork Word vali Finderis üks dokument, vali Fail › Hangi teave, vali jaotises „Ava rakendusega“ crocwork Word ja klõpsa „Muuda kõiki“.
 	To:	Kuni:
 	TOC Heading	Sisukorra pealkiri
 	TOC {n}	Sisukord {n}

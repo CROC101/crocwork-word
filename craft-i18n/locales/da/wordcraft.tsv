@@ -1371,8 +1371,8 @@
 	New documents will use this page setup.	Nye dokumenter bruger denne sideopsætning.
 	New documents will use this paragraph formatting.	Nye dokumenter bruger denne afsnitsformatering.
 	New documents will use this style.	Nye dokumenter bruger denne stil.
-	New documents will use crocwork Word's built-in formatting.	Nye dokumenter bruger WordCrafts indbyggede formatering.
-	New documents will use crocwork Word's built-in formatting. Your saved defaults can't be recovered. Reset?	Nye dokumenter bruger WordCrafts indbyggede formatering. Dine gemte standarder kan ikke gendannes. Vil du nulstille?
+	New documents will use crocwork Word's built-in formatting.	Nye dokumenter bruger crocwork Word indbyggede formatering.
+	New documents will use crocwork Word's built-in formatting. Your saved defaults can't be recovered. Reset?	Nye dokumenter bruger crocwork Word indbyggede formatering. Dine gemte standarder kan ikke gendannes. Vil du nulstille?
 	New Drawing Canvas	Nyt lærred
 	New Entry	Ny post
 	New from Template	Ny fra skabelon
@@ -1508,7 +1508,7 @@
 	Only the allowed styles can be applied.	Der kan kun anvendes tilladte stile.
 	Only web (http, https) and email (mailto) links can be followed	Kun weblinks (http, https) og e-mail-links (mailto) kan følges
 	Open a document first	Åbn først et dokument
-	Open a file with crocwork Word's own browser when the system file dialog doesn't appear.	Åbn en fil i WordCrafts egen filbrowser, når systemets filedialog ikke vises.
+	Open a file with crocwork Word's own browser when the system file dialog doesn't appear.	Åbn en fil i crocwork Word egen filbrowser, når systemets filedialog ikke vises.
 	OpenDocument Text (*.odt)	OpenDocument-tekst (*.odt)
 	Opening print dialog…	Åbner udskrivningsdialog…
 	Opens .docx, .doc, .rtf and .odt files and Word templates with crocwork Word from now on.	Åbner .docx-, .doc-, .rtf- og .odt-filer samt Word-skabeloner med crocwork Word fra nu af.
@@ -2230,7 +2230,7 @@
 	The document you are editing keeps the names and dates; only the saved file leaves them out.	Det dokument, du redigerer, bevarer navnene og datoerne; det er kun den gemte fil, der udelader dem.
 	The margins don't fit on a page this size; make the margins smaller first.	Margenerne passer ikke på en side i denne størrelse; gør margenerne mindre først.
 	The new style takes the formatting of the current paragraph.	Den nye stil bruger formateringen af det aktuelle afsnit.
-	The Normal template couldn't be read, so this document uses crocwork Word's built-in formatting.	Skabelonen Normal kunne ikke læses, så dette dokument bruger WordCrafts indbyggede formatering.
+	The Normal template couldn't be read, so this document uses crocwork Word's built-in formatting.	Skabelonen Normal kunne ikke læses, så dette dokument bruger crocwork Word indbyggede formatering.
 	the paragraph is empty	afsnittet er tomt
 	the paragraph starts with a space	afsnittet starter med et mellemrum
 	The password is optional; without it anyone can stop the protection.	Adgangskoden er valgfri; uden den kan alle slå beskyttelsen fra.

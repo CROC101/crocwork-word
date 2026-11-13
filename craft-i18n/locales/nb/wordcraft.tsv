@@ -1486,7 +1486,7 @@ template	Letter	Brev
 	Only web (http, https) and email (mailto) links can be followed	Bare nettlenker (http, https) og e-postlenker (mailto) kan følges
 spacing	Open	Åpen
 	Open a document first	Åpne et dokument først
-	Open a file with crocwork Word's own browser when the system file dialog doesn't appear.	Åpne en fil med WordCrafts egen filutforsker når systemets fildialog ikke vises.
+	Open a file with crocwork Word's own browser when the system file dialog doesn't appear.	Åpne en fil med crocwork Word egen filutforsker når systemets fildialog ikke vises.
 	OpenDocument Text (*.odt)	OpenDocument-tekst (*.odt)
 	Opening print dialog…	Åpner utskriftsdialogen…
 	Opens .docx, .doc, .rtf and .odt files and Word templates with crocwork Word from now on.	Åpner .docx-, .doc-, .rtf- og .odt-filer og Word-maler med crocwork Word fra nå av.

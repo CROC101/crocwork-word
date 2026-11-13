@@ -118,7 +118,7 @@
 	Advanced Find…	Napredno iskanje …
 	After:	Za:
 	Agents	Agenti
-	Agents connected to crocwork Word can show you messages through the Assistant. Muted, they're told you'd rather not.	Agenti, povezani z WordCraftom, vam lahko prek Pomočnika prikazujejo sporočila. Če so utišani, izvedo, da raje ne bi bili moteni.
+	Agents connected to crocwork Word can show you messages through the Assistant. Muted, they're told you'd rather not.	Agenti, povezani z crocwork Word, vam lahko prek Pomočnika prikazujejo sporočila. Če so utišani, izvedo, da raje ne bi bili moteni.
 	Ah, Latin. The language of deadlines.	Ah, latinščina. Materni jezik vseh rokov za oddajo.
 	Ah, the editing phase. My favourite. Very decisive.	Ah, faza urejanja. Moja najljubša. Zelo odločna.
 	Align Bottom Center	Poravnaj spodaj na sredino
@@ -1628,7 +1628,7 @@
 	Only the allowed styles can be applied.	Uporabiti je mogoče samo dovoljene sloge.
 	Only web (http, https) and email (mailto) links can be followed	Slediti je mogoče samo spletnim (http, https) in e-poštnim (mailto) povezavam
 	Open a document first	Najprej odprite dokument
-	Open a file with crocwork Word's own browser when the system file dialog doesn't appear.	Odpri datoteko z WordCraftovim brskalnikom, kadar se sistemsko pogovorno okno ne prikaže.
+	Open a file with crocwork Word's own browser when the system file dialog doesn't appear.	Odpri datoteko z crocwork Word brskalnikom, kadar se sistemsko pogovorno okno ne prikaže.
 	OpenDocument Text (*.odt)	Besedilo OpenDocument (*.odt)
 	Opening print dialog…	Odpiranje pogovornega okna za tiskanje …
 	Opens .docx, .doc, .rtf and .odt files and Word templates with crocwork Word from now on.	Odslej odpira datoteke .docx, .doc, .rtf in .odt ter predloge Word s programom crocwork Word.

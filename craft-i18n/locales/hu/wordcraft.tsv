@@ -115,7 +115,7 @@
 	Advanced Find…	Részletes keresés…
 	After:	Utána:
 	Agents	Ágensek
-	Agents connected to crocwork Word can show you messages through the Assistant. Muted, they're told you'd rather not.	A WordCrafthoz kapcsolódó ügynökök az asszisztensen keresztül üzeneteket mutathatnak. Némítás esetén jelezzük nekik, hogy ezt nem kéri.
+	Agents connected to crocwork Word can show you messages through the Assistant. Muted, they're told you'd rather not.	A crocwork Word kapcsolódó ügynökök az asszisztensen keresztül üzeneteket mutathatnak. Némítás esetén jelezzük nekik, hogy ezt nem kéri.
 	Ah, Latin. The language of deadlines.	Á, latin. Holt nyelv, akárcsak a tegnapi határidő.
 	Ah, the editing phase. My favourite. Very decisive.	Á, a szerkesztési fázis. A kedvencem. Nagyon határozott.
 	Align Bottom Center	Igazítás középre le
@@ -215,7 +215,7 @@
 	Automatically Update Document Styles	Dokumentumstílusok automatikus frissítése
 	Automatically update document styles	Dokumentumstílusok automatikus frissítése
 	AutoSave	Automatikus mentés
-	AutoSave documents you have saved in crocwork Word	A WordCraftban mentett dokumentumok automatikus mentése
+	AutoSave documents you have saved in crocwork Word	A crocwork Word mentett dokumentumok automatikus mentése
 	AutoSave failed: {error}. Save the document to turn AutoSave back on.	Az automatikus mentés sikertelen: {error}. Az újbóli bekapcsolásához mentsd a dokumentumot.
 	AutoSave isn't available in the browser: it can't write to your files. Save downloads a copy.	A böngészőben nincs automatikus mentés, mert nem tud írni a fájljaidba. A Mentés egy másolatot tölt le.
 	AutoSave only keeps .docx, .odt and .rtf files; {name} can't keep all formatting. Save as .docx to turn on AutoSave.	Az automatikus mentés csak .docx, .odt és .rtf fájlt tart naprakészen; ez a formátum ({name}) nem őriz meg minden formázást. Az automatikus mentéshez mentsd .docx formátumban.
@@ -286,7 +286,7 @@
 	Break Link	Csatolás megszüntetése
 	Breaks	Törések
 	Breve	Breve
-	Browse in crocwork Word…	Tallózás a WordCraftban…
+	Browse in crocwork Word…	Tallózás a crocwork Word…
 	Building Block Gallery Content Control	Építőelemgaléria-tartalomvezérlő
 	Built-In	Beépített
 	Built-in style	Beépített stílus
@@ -503,7 +503,7 @@
 	Cosine Function	Koszinuszfüggvény
 	Cotangent Function	Kotangensfüggvény
 	Couldn't download {name}: {error}	Nem sikerült letölteni: {name} ({error})
-	Couldn't make crocwork Word the default: {error}	Nem sikerült a WordCraftot alapértelmezetté tenni: {error}
+	Couldn't make crocwork Word the default: {error}	Nem sikerült a crocwork Word alapértelmezetté tenni: {error}
 	Couldn't open {path}: {error}	Nem sikerült megnyitni: {path} ({error})
 	Count by:	Lépésköz:
 	Count words in text boxes and notes	A szövegdobozok és a jegyzetek szavainak beszámítása
@@ -992,7 +992,7 @@
 	Immersive	Elmélyült
 	Immersive Reader	Elmélyült olvasás
 	Immersive\nReader	Elmélyült\nolvasás
-	In Default apps, choose crocwork Word for the document types you want it to open.	Az Alapértelmezett alkalmazások között válassza a WordCraftot azokhoz a dokumentumtípusokhoz, amelyeket meg kell nyitnia.
+	In Default apps, choose crocwork Word for the document types you want it to open.	Az Alapértelmezett alkalmazások között válassza a crocwork Word azokhoz a dokumentumtípusokhoz, amelyeket meg kell nyitnia.
 	In equations, typing a name after a backslash replaces it with its symbol.	Egyenletben a fordított perjel után beírt név helyére a hozzá tartozó szimbólum kerül.
 	In Front of Text	Szöveg előtt
 	In Line with Text	Szöveggel egy sorban
@@ -1488,8 +1488,8 @@
 	Open a file with crocwork Word's own browser when the system file dialog doesn't appear.	Fájl megnyitása a crocwork Word saját tallózójával, ha a rendszer fájlpárbeszédablaka nem jelenik meg.
 	OpenDocument Text (*.odt)	OpenDocument szöveg (*.odt)
 	Opening print dialog…	Nyomtatási párbeszédablak megnyitása…
-	Opens .docx, .doc, .rtf and .odt files and Word templates with crocwork Word from now on.	Mostantól a .docx, .doc, .rtf és .odt fájlok, valamint a Word-sablonok a WordCrafttal nyílnak meg.
-	Opens Settings › Default apps, where you choose crocwork Word for .docx and the other document types.	Megnyitja a Beállítások › Alapértelmezett alkalmazások lapot, ahol a WordCraftot választhatja a .docx és a többi dokumentumtípus számára.
+	Opens .docx, .doc, .rtf and .odt files and Word templates with crocwork Word from now on.	Mostantól a .docx, .doc, .rtf és .odt fájlok, valamint a Word-sablonok a crocwork Word nyílnak meg.
+	Opens Settings › Default apps, where you choose crocwork Word for .docx and the other document types.	Megnyitja a Beállítások › Alapértelmezett alkalmazások lapot, ahol a crocwork Word választhatja a .docx és a többi dokumentumtípus számára.
 	Operator	Operátor
 	Operator Structures	Operátorszerkezetek
 	Operators	Operátorok
@@ -2238,7 +2238,7 @@
 	Title Bar	Címsáv
 	Title from the document properties	A dokumentum tulajdonságaiban megadott cím
 	Title:	Cím:
-	To open Word documents with crocwork Word by default: select one in Finder, choose File › Get Info, pick crocwork Word under Open with, then click Change All.	Ha a Word-dokumentumokat alapértelmezés szerint a WordCrafttal szeretné megnyitni: jelöljön ki egyet a Finderben, válassza a Fájl › Információ parancsot, a „Megnyitás ezzel” alatt válassza a WordCraftot, majd kattintson az „Összes módosítása” gombra.
+	To open Word documents with crocwork Word by default: select one in Finder, choose File › Get Info, pick crocwork Word under Open with, then click Change All.	Ha a Word-dokumentumokat alapértelmezés szerint a crocwork Word szeretné megnyitni: jelöljön ki egyet a Finderben, válassza a Fájl › Információ parancsot, a „Megnyitás ezzel” alatt válassza a crocwork Word, majd kattintson az „Összes módosítása” gombra.
 	To:	Eddig:
 	TOA Heading	Jogforrásjegyzék címsora
 	TOC Heading	Tartalomjegyzék címsora
