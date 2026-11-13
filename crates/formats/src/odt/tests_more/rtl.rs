@@ -1,5 +1,5 @@
 //! Right-to-left paragraphs (ODF 1.3 §20.404 `style:writing-mode` on paragraph properties: `rl-tb`
-//! and `rl`), read as WordCraft's bidirectional paragraphs and written back.
+//! and `rl`), read as crocwork Word's bidirectional paragraphs and written back.
 
 use crate::odt::tests::{NS_T, package};
 use crate::odt::{export, import};

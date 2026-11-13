@@ -146,7 +146,7 @@ impl Body<'_> {
                     float: float.map(Box::new),
                     source: object.map(std::sync::Arc::new),
                 })),
-                // An object kept whole: shown by its replacement picture when WordCraft can show
+                // An object kept whole: shown by its replacement picture when crocwork Word can show
                 // it, else by a placeholder.
                 (None, None) if let Some(mut o) = object => {
                     if o.replacement.is_none() {
@@ -263,7 +263,7 @@ impl Body<'_> {
     }
 
     /// The connectors of paragraph `p` glued to shapes (see [`Self::conn_of`]): each end's glue
-    /// point made WordCraft's site of the shape it is glued to (an end glued to a shape not read,
+    /// point made crocwork Word's site of the shape it is glued to (an end glued to a shape not read,
     /// or to a glue point of the shape's own, is unglued); and a connector glued at both ends to
     /// shapes anchored in this paragraph, placed alike, runs between their sites. (A connector's
     /// own coordinates are in LibreOffice's drawing layer, not its anchor's.)
@@ -400,7 +400,7 @@ impl Body<'_> {
     }
 }
 
-/// Whether WordCraft can show these bytes as a picture (see the function below).
+/// Whether crocwork Word can show these bytes as a picture (see the function below).
 pub(in crate::odt) fn readable_picture(data: &[u8]) -> bool {
     wordcraft_metafile::is_metafile(data) || model::sniff_image(data).is_some()
 }

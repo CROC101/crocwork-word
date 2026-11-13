@@ -1,6 +1,6 @@
 //! Objects kept for writing back: charts, SmartArt diagrams and OLE objects.
 //!
-//! WordCraft draws charts and diagrams and shows an OLE object's picture, but doesn't edit them.
+//! crocwork Word draws charts and diagrams and shows an OLE object's picture, but doesn't edit them.
 //! So that saving doesn't lose them, the reader keeps each one's own markup (an `a:graphic` or a
 //! `w:object`) as a [`wordcraft_doc::graphic::Embedded`] on the object, and every part that markup
 //! reaches through relationships (chart, embedded workbook, colours and style; diagram data, layout,
@@ -163,7 +163,7 @@ impl Reader<'_> {
         }
     }
 
-    /// Keep the parts the package and the main document relate to that WordCraft neither models
+    /// Keep the parts the package and the main document relate to that crocwork Word neither models
     /// nor writes itself (web settings, styles-with-effects, add-in task panes, the thumbnail, a
     /// glossary…), with every part they reach, so saving carries them unchanged. Skipped: the
     /// relationship types the writer produces or the reader models ([`HANDLED_RELS`]) and any
@@ -263,7 +263,7 @@ impl Reader<'_> {
     /// Keep one part's bytes and content type (not its relationships).
     fn keep_part(&mut self, part: &str) -> bool {
         let lower = part.to_ascii_lowercase();
-        // `wordcraft:` names are WordCraft's own bookkeeping in `passthrough`, never a file's part.
+        // `wordcraft:` names are crocwork Word's own bookkeeping in `passthrough`, never a file's part.
         if !manifest_field_ok(part)
             || lower.ends_with(".rels")
             || lower == "[content_types].xml"
@@ -518,7 +518,7 @@ mod tests {
         assert!(roots.contains("keep.bin"), "the part is dropped: {roots}");
     }
 
-    /// A part named like WordCraft's own bookkeeping (`wordcraft:unmodelled.roots`) is not carried:
+    /// A part named like crocwork Word's own bookkeeping (`wordcraft:unmodelled.roots`) is not carried:
     /// kept, it would be read back as that bookkeeping and add relationships the file chose.
     #[test]
     fn a_part_named_like_bookkeeping_is_not_carried() {

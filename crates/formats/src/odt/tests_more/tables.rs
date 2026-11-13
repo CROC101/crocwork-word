@@ -1,6 +1,6 @@
 //! Table cell borders and padding (ODF 1.3 §20.183 `fo:border*`, §20.217–20.221 `fo:padding*`).
 //! LibreOffice gives each shared edge to one cell only (left and bottom, the first row's top, the
-//! last column's right); WordCraft's cells each have all four sides.
+//! last column's right); crocwork Word's cells each have all four sides.
 
 use crate::odt::tests::{NS_T, package};
 use crate::odt::{export, import};
@@ -115,9 +115,9 @@ fn only_rows_set_to_repeat_are_written_as_header_rows() {
 
 #[test]
 fn a_table_styles_look_is_written_into_its_cells() {
-    // A WordCraft table in a built-in style (blue header row, banded rows, bold header text):
+    // A crocwork Word table in a built-in style (blue header row, banded rows, bold header text):
     // ODF has no table styles of that kind, so each cell gets what the style gives it, and
-    // LibreOffice (and WordCraft, reopening it) draws the same table.
+    // LibreOffice (and crocwork Word, reopening it) draws the same table.
     let mut d = Document::new();
     let mut t = wordcraft_doc::Table::new(3, 2, 288.0);
     t.props.style = Some("GridTable4AccentBlue".into());

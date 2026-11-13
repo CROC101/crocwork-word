@@ -25,10 +25,10 @@ fn columns_xml(c: &Columns) -> String {
 
 /// One master page per entry of `pages` (name, setup), each with its own page layout `pm1`, `pm2`…
 /// (§16.5, §16.9); the first is the default one, "Standard".
-/// The styles WordCraft's paragraph kinds are written in (Heading 1–6, Title, Quotations,
+/// The styles crocwork Word's paragraph kinds are written in (Heading 1–6, Title, Quotations,
 /// Preformatted Text), each with the look of the document's own style: font, size, bold,
 /// italic, colour and the rest of its text formatting, spacing, indents, alignment and keep with
-/// next, written out in full so other programs show them as WordCraft does.
+/// next, written out in full so other programs show them as crocwork Word does.
 fn kind_styles(doc: &Document, on_outline: &std::collections::BTreeSet<String>) -> String {
     let mut s = String::new();
     let mut kinds: Vec<(String, String, String, Option<u8>, &str)> =
@@ -367,7 +367,7 @@ fn styles_xml(
     part_styles: &str,
     named: &std::collections::BTreeSet<String>,
 ) -> String {
-    // WordCraft's page layouts take another prefix next to the file's own (see `super::kept`).
+    // crocwork Word's page layouts take another prefix next to the file's own (see `super::kept`).
     let pm = if doc.kept.of("odt").is_some() { "wcpm" } else { "pm" };
     // The document defaults: Normal's font, spacing and indents, pair kerning and tab interval.
     let body_font = doc.styles.default_chr.font.clone().unwrap_or_else(|| wordcraft_doc::styles::BODY_FONT.to_string());
@@ -403,7 +403,7 @@ fn styles_xml(
         },
         tab = pt(tab),
         // The document's language, without which each reader uses its own default: Normal's, as
-        // WordCraft has it (a Word file's Normal may state another than its defaults).
+        // crocwork Word has it (a Word file's Normal may state another than its defaults).
         lang = doc.styles.resolve_char(None, &Default::default()).lang.as_deref().map(|l| super::writer::lang_attrs(l, "")).unwrap_or_default(),
         scripts = super::writer::script_attrs(&doc.styles.default_chr)
     ));
@@ -413,7 +413,7 @@ fn styles_xml(
     s.push_str(&kind_styles(doc, &on_outline));
     s.push_str(&outline_style(doc));
     s.push_str(&custom_styles(doc, named, &on_outline));
-    // The note text styles, as WordCraft's Footnote Text and Endnote Text: 10 pt, no spacing.
+    // The note text styles, as crocwork Word's Footnote Text and Endnote Text: 10 pt, no spacing.
     for (name, class) in [("Footnote", "extra"), ("Endnote", "extra")] {
         s.push_str(&format!(
             "<style:style style:name=\"{name}\" style:family=\"paragraph\" style:parent-style-name=\"Standard\" style:class=\"{class}\"><style:paragraph-properties fo:margin-top=\"0pt\" fo:margin-bottom=\"0pt\" fo:line-height=\"100%\"/><style:text-properties fo:font-size=\"10pt\"/></style:style>"
@@ -619,14 +619,14 @@ const WORD_COMPAT: &[(&str, bool)] = &[
 ];
 
 /// `settings.xml` (ODF 1.3 §3.10) for `doc`: an ODT's own, kept from opening it, or LibreOffice's
-/// switches for Word's layout. Either way tab stops are measured from the margin, as WordCraft
+/// switches for Word's layout. Either way tab stops are measured from the margin, as crocwork Word
 /// writes them (LibreOffice's own default measures them from the paragraph's indent).
-/// `settings.xml`: LibreOffice's layout settings for a document laid out as WordCraft lays it
+/// `settings.xml`: LibreOffice's layout settings for a document laid out as crocwork Word lays it
 /// out. The set's name, `ooo:configuration-settings`, is a qualified name: without the `ooo`
 /// namespace declared LibreOffice ignores the whole set (observed).
 fn settings_xml(doc: &Document) -> String {
-    // What WordCraft's own layout of the document needs LibreOffice to do the same: tab stops
-    // from the margin (as written), and the space between paragraphs as WordCraft lays it out
+    // What crocwork Word's own layout of the document needs LibreOffice to do the same: tab stops
+    // from the margin (as written), and the space between paragraphs as crocwork Word lays it out
     // (ODF leaves it open; LibreOffice's `AddParaTableSpacing` false takes the larger of the two).
     let ours = [("TabsRelativeToIndent", model::tabs_from_indent(doc)), ("AddParaTableSpacing", doc.settings.sum_paragraph_spacing)];
     let item = |name: &str, on: bool| format!("<config:config-item config:name=\"{name}\" config:type=\"boolean\">{on}</config:config-item>");
@@ -646,9 +646,9 @@ fn settings_xml(doc: &Document) -> String {
     let mut s = String::from(
         "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<office:document-settings xmlns:office=\"urn:oasis:names:tc:opendocument:xmlns:office:1.0\" xmlns:config=\"urn:oasis:names:tc:opendocument:xmlns:config:1.0\" xmlns:ooo=\"http://openoffice.org/2004/office\" office:version=\"1.3\"><office:settings><config:config-item-set config:name=\"ooo:configuration-settings\">",
     );
-    // LibreOffice's defaults; Word's layout rules for a document WordCraft lays out as Word does
+    // LibreOffice's defaults; Word's layout rules for a document crocwork Word lays out as Word does
     // (one opened from ODF is laid out by ODF's rules, `Settings::odf`, as LibreOffice's
-    // defaults have it); and what WordCraft's layout of this document needs.
+    // defaults have it); and what crocwork Word's layout of this document needs.
     let mut all: Vec<(&str, bool)> = LO_DEFAULTS.to_vec();
     let word = if doc.settings.odf.is_none() { WORD_COMPAT } else { &[] };
     for (name, on) in word.iter().copied().chain(ours) {
@@ -690,7 +690,7 @@ fn with_setting(own: &str, name: &str, on: bool, item: &str) -> Option<String> {
 
 fn meta_xml(m: &Meta, core: &wordcraft_doc::CoreProps, props: &[wordcraft_doc::CustomProp]) -> String {
     let mut s =
-        format!("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<office:document-meta {NS}><office:meta><meta:generator>WordCraft</meta:generator>");
+        format!("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<office:document-meta {NS}><office:meta><meta:generator>crocwork Word</meta:generator>");
     if !m.title.is_empty() {
         s.push_str(&format!("<dc:title>{}</dc:title>", x(&m.title)));
     }
@@ -905,7 +905,7 @@ fn whole_groups(blocks: &[FBlock]) -> std::collections::HashSet<u32> {
     seen.into_iter().filter(|(_, (n, size))| n == size).map(|(id, _)| id).collect()
 }
 
-/// The prefix of WordCraft's own automatic style names in a document with paragraphs kept as
+/// The prefix of crocwork Word's own automatic style names in a document with paragraphs kept as
 /// read (theirs keep the names they were read with).
 const KEPT_PREFIX: &str = "wc";
 
@@ -966,10 +966,10 @@ fn with_kept_defs(
     (content, styles)
 }
 
-/// `xml` (a part WordCraft wrote) with each font it declares that `faces` declare too (the file's
+/// `xml` (a part crocwork Word wrote) with each font it declares that `faces` declare too (the file's
 /// own `style:font-face` elements) as `faces` has it: under that name, or else of that family (a
-/// face named `F1` of the family `Mystery`, which WordCraft names by its family), then keeping
-/// WordCraft's name for it.
+/// face named `F1` of the family `Mystery`, which crocwork Word names by its family), then keeping
+/// crocwork Word's name for it.
 fn with_file_faces(xml: &mut String, faces: &[&str]) {
     use super::kept::{attr_text, raw_attr};
     let mut named = std::collections::HashMap::new();
@@ -987,7 +987,7 @@ fn with_file_faces(xml: &mut String, faces: &[&str]) {
             }
         }
     }
-    // WordCraft's own declarations are empty elements.
+    // crocwork Word's own declarations are empty elements.
     let (kids, _) = super::kept::children(xml, "office:font-face-decls", "font");
     let mut out = String::with_capacity(xml.len());
     let mut done = 0;
@@ -1035,7 +1035,7 @@ fn export_as(doc: &Document, mime: &str) -> Result<Vec<u8>, String> {
         model::FlowOpts { tracked: true, fields: true, notes: true, comments: true, lists: true, chars: true, paras: true, boxes: true },
     );
     let accents = doc.settings.theme_colors.get(4..10).map(<[_]>::to_vec).unwrap_or_default();
-    // Paragraphs kept as read name their own automatic styles: WordCraft's take another prefix.
+    // Paragraphs kept as read name their own automatic styles: crocwork Word's take another prefix.
     let kept = doc.kept.of("odt");
     let mut w = if kept.is_some() { Writer::with_prefix(KEPT_PREFIX) } else { Writer::default() };
     w.note_numbers = Some([false, true].map(|endnote| {
@@ -1093,7 +1093,7 @@ fn export_as(doc: &Document, mime: &str) -> Result<Vec<u8>, String> {
         if wrapped {
             w.close_ins(&mut body);
             let n = format!("{}{}", w.prefix, w.section_styles.len() + 1);
-            // Whether its columns end balanced, said so every reader does the same: as WordCraft
+            // Whether its columns end balanced, said so every reader does the same: as crocwork Word
             // lays it out (balanced when text follows on the page, or when the section says).
             let next_continuous = sections.get(k + 1).is_some_and(|(s, _)| s.start == SectionStart::Continuous);
             let balanced = match sec.balance_columns {
@@ -1139,7 +1139,7 @@ fn export_as(doc: &Document, mime: &str) -> Result<Vec<u8>, String> {
         format!("<text:sequence-decls>{d}</text:sequence-decls>")
     };
     let user_decls = user_field_decls(&doc.custom_props);
-    // The file's own declarations, with WordCraft's added to them; its scripts.
+    // The file's own declarations, with crocwork Word's added to them; its scripts.
     let kept_decl = |el: &str, ours: String| super::kept::merge_decls(kept.and_then(|k| k.defs.get(&format!("decls:{el}"))).map(|d| &**d), ours);
     let var_decls = kept_decl("text:variable-decls", var_decls);
     let user_decls = kept_decl("text:user-field-decls", user_decls);
@@ -1204,7 +1204,7 @@ fn export_as(doc: &Document, mime: &str) -> Result<Vec<u8>, String> {
     w.objects.append(&mut hw.objects);
     w.object_dirs.append(&mut hw.object_dirs);
     let meta = meta_xml(&flow.meta, &doc.core, &doc.custom_props);
-    // With the file's properties WordCraft doesn't model.
+    // With the file's properties crocwork Word doesn't model.
     let meta = match kept {
         Some(k) => super::kept::with_kept_meta(meta, &k.defs, &k.order),
         None => meta,
@@ -1228,7 +1228,7 @@ fn export_as(doc: &Document, mime: &str) -> Result<Vec<u8>, String> {
             x(dir)
         ));
     }
-    // The parts WordCraft doesn't read, as they were, unless one would take a path written here.
+    // The parts crocwork Word doesn't read, as they were, unless one would take a path written here.
     let (kept_files, kept_entries) = super::parts::kept(doc);
     let dirs: Vec<String> =
         w.objects.iter().map(|(d, _, _)| d).chain(w.object_dirs.iter().map(|(d, _)| d)).map(|d| format!("{}/", d.trim_end_matches('/'))).collect();
@@ -1301,7 +1301,7 @@ fn page_look(doc: &Document, sec: &SectionProps) -> String {
 }
 
 /// Page borders `b` as ODF writes them, and the margins (top, bottom, left, right) of the page
-/// they go round: each border at its distance from the edge (WordCraft's), which becomes the
+/// they go round: each border at its distance from the edge (crocwork Word's), which becomes the
 /// margin, with the rest of the way to the text as its padding.
 fn page_borders(b: Option<wordcraft_doc::props::Borders>, margins: [f32; 4]) -> (String, [f32; 4]) {
     let Some(b) = b.filter(|b| b.any_visible()) else { return (String::new(), margins) };

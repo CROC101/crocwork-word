@@ -2,7 +2,7 @@
 
 > **Last updated:** 2026-10-31 · Delivery review fixes for #2596: unknown outcomes are not replayed, including image exports to a path; invalid UTF-8 returns a parse error without stopping later requests.
 
-WordCraft speaks the [Model Context Protocol](https://modelcontextprotocol.io) over stdio, so
+crocwork Word speaks the [Model Context Protocol](https://modelcontextprotocol.io) over stdio, so
 Claude and other agents can write and edit documents.
 
 ```sh
@@ -17,7 +17,7 @@ With `--connect`, the bridge sends the app's control key, which it reads from
 `WORDCRAFT_CONTROL_KEY` or from the key file the app writes at start. It sends the key only to
 loopback addresses; see [Keys](control-protocol.md#keys). The bridge serves even when the app
 isn't open yet: tool calls return "not reachable … will retry on each call" and succeed once the
-app's port opens (#4078), so a client that starts before WordCraft doesn't lose the server for
+app's port opens (#4078), so a client that starts before crocwork Word doesn't lose the server for
 its whole session.
 
 ## Delivery failures
@@ -62,7 +62,7 @@ status 1, and nothing is saved. Every output is checked (known extension, folder
 
 ## Tracked changes by an agent
 
-Tracked changes and comments are recorded under the session's user name ("WordCraft User" by
+Tracked changes and comments are recorded under the session's user name ("crocwork Word User" by
 default). Name the agent so reviewers can tell its edits from people's: start the headless server
 with `wordcraft-cli mcp --author "Claude (copyedit)"`, or run
 `file.setAuthor {"name": "Claude (copyedit)"}`. Turn tracking on explicitly with
@@ -116,7 +116,7 @@ config works across the suite) keep the agent to the folders you give it:
   given once (`--flag <dir>` or `--flag=<dir>`).
 
 The flags confine the headless server; `--connect` with them is an error, since the server would
-otherwise talk to an app that isn't confined. WordCraft's desktop app has no equivalent flags yet,
+otherwise talk to an app that isn't confined. crocwork Word's desktop app has no equivalent flags yet,
 so a running app (`wordcraft --control`) is not confined.
 
 What the roots do not cover: commands that take no path (`text.insert`, `execute` of anything that
@@ -157,7 +157,7 @@ downloading on either: only the person's own click does; the app shows why inste
 
 Installing reads the pinned index of craft-i18n's language-packs-2 release (75 languages). For
 testing packs before they are released, set `CRAFT_LANGUAGE_PACK_INDEX` to another index (a URL or a path
-to an `index.json`) when starting WordCraft or `wordcraft-cli`. That index isn't pinned, so the
+to an `index.json`) when starting crocwork Word or `wordcraft-cli`. That index isn't pinned, so the
 sha256 of each archive only matches what that index says: it catches a broken download, not a
 changed pack. `proof.packs` then returns `"index_override": "<url or path>"`, and the app shows the
 test source in File › Options › Language and on the bar's Install.

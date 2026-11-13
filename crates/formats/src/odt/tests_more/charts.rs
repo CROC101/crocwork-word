@@ -1,7 +1,7 @@
 //! Charts (ODF 1.3 §10.4.3 embedded objects holding an `office:chart` sub-document, Part 3
-//! §11): read into WordCraft's editable chart (type, categories, series, title, legend, data
-//! labels) from the chart's own data table, so they're drawn and edited like charts WordCraft
-//! makes. Charts WordCraft can't edit keep their replacement picture.
+//! §11): read into crocwork Word's editable chart (type, categories, series, title, legend, data
+//! labels) from the chart's own data table, so they're drawn and edited like charts crocwork Word
+//! makes. Charts crocwork Word can't edit keep their replacement picture.
 
 use std::sync::Arc;
 
@@ -293,8 +293,8 @@ fn a_flat_document_holds_its_chart_inline() {
 
 #[test]
 fn an_unchanged_chart_is_written_back_as_it_was_and_an_edited_one_anew() {
-    // A chart keeps the look WordCraft doesn't model (its fonts, lines and colours) only if its
-    // object is written back whole; once edited, it's written from WordCraft's chart.
+    // A chart keeps the look crocwork Word doesn't model (its fonts, lines and colours) only if its
+    // object is written back whole; once edited, it's written from crocwork Word's chart.
     let original = chart_xml(
         "chart:bar",
         r#"chart:vertical="false""#,

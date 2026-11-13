@@ -1,5 +1,5 @@
 //! Form controls (ODF 1.3 §13): `office:forms` controls placed by `draw:control`, read as
-//! WordCraft content controls and written back as form controls LibreOffice shows.
+//! crocwork Word content controls and written back as form controls LibreOffice shows.
 
 use crate::model::Inline;
 use crate::odt::tests::{NS_T, entry, package, paras};
@@ -40,7 +40,7 @@ fn form_controls_open_as_content_controls() {
     let flow = parse(&package(&doc_xml(), None)).unwrap();
     let got = controls(&flow);
     assert_eq!(got.len(), 9, "a missing control is left out: {got:?}");
-    // A button, which WordCraft has no kind for, shows its label (see `buttons_are_kept`).
+    // A button, which crocwork Word has no kind for, shows its label (see `buttons_are_kept`).
     assert_eq!((got[8].1.as_str(), got[8].3.as_str()), ("Submit", "Send"));
     assert_eq!(got[0], (ControlKind::Text { multi_line: false }, "FullName".into(), String::new(), "Ada Lovelace".into(), false));
     assert!(matches!(got[1].0, ControlKind::CheckBox { checked: true, checked_char: '\u{2612}', unchecked_char: '\u{2610}', .. }));
@@ -224,7 +224,7 @@ fn controls_keep_their_place_on_the_line_and_a_text_area_its_lines() {
 
 #[test]
 fn password_number_time_and_grid_controls_are_kept() {
-    // ODF 1.3 §13.5 controls WordCraft has no kind for: kept as read, each in its place.
+    // ODF 1.3 §13.5 controls crocwork Word has no kind for: kept as read, each in its place.
     let controls = r#"<form:password form:name="Secret" xml:id="p1" form:id="p1" form:echo-char="*"/><form:number form:name="Count" xml:id="n1" form:id="n1" form:value="3"/><form:time form:name="At" xml:id="t1" form:id="t1" form:value="10:30:00"/><form:grid form:name="Rows" xml:id="g1" form:id="g1"><form:column form:name="Col" form:label="Name"><form:text form:name="Cell"/></form:column></form:grid>"#;
     let anchor = |id: &str| format!(r#"<draw:control text:anchor-type="as-char" svg:width="1in" svg:height="0.3in" draw:control="{id}"/>"#);
     let content = format!(

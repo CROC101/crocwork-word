@@ -1,5 +1,5 @@
 //! Drawing shapes (ODF 1.3 §10.3: `draw:rect`, `draw:ellipse`, `draw:line`, and
-//! `draw:custom-shape` with its `draw:enhanced-geometry` type): opened as WordCraft shapes with
+//! `draw:custom-shape` with its `draw:enhanced-geometry` type): opened as crocwork Word shapes with
 //! their size, placement, fill, line and text, and written back as the same elements.
 
 use crate::odt::tests::{NS_T, content_of, package};
@@ -56,7 +56,7 @@ fn open() -> Document {
 #[test]
 fn shapes_open_with_their_kind_size_look_and_text() {
     let d = open();
-    // A line width no style states (the standard gives none): WordCraft's 0.25 pt.
+    // A line width no style states (the standard gives none): crocwork Word's 0.25 pt.
     let blue = Some((Rgb(0x34, 0x65, 0xa4), 0.25));
     assert_eq!(
         shapes(&d),
@@ -77,7 +77,7 @@ fn shapes_open_with_their_kind_size_look_and_text() {
             // From (3in, 0) to (1in, 1in): 2in × 1in, rising from its bottom left.
             (ShapeKind::Line, (144.0, 72.0), None, Some((Rgb(0, 0, 0), 2.0)), true, true, String::new()),
             (ShapeKind::Heart, (72.0, 72.0), None, None, true, false, String::new()),
-            // A geometry WordCraft has no shape for: drawn from its own path.
+            // A geometry crocwork Word has no shape for: drawn from its own path.
             (ShapeKind::Freeform, (72.0, 72.0), None, None, true, false, String::new()),
         ]
     );

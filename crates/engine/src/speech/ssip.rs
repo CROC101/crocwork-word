@@ -3,7 +3,7 @@
 //!
 //! Talking SSIP directly, instead of starting `spd-say`, keeps two promises `spd-say` can't: the
 //! sentence is always data (pipe mode runs a line starting with `!-!` as an SSIP command, and a
-//! document must never send commands), and stopping cancels only WordCraft's own speech
+//! document must never send commands), and stopping cancels only crocwork Word's own speech
 //! (`CANCEL self`), where `spd-say -C` would silence every client, a screen reader included.
 //!
 //! One connection speaks one sentence: it names the client, asks for the begin, end, cancel and

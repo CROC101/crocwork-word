@@ -1,7 +1,7 @@
 //! A shape's line and fill beyond plain colour: arrowheads (ODF 1.3 §16.39 `draw:marker`,
 //! `draw:marker-start`/`-end`), dashes (§16.41 `draw:stroke-dash`) and gradients (§16.40
 //! `draw:gradient`), defined by name in the styles and used by graphic styles; read into
-//! WordCraft's arrowheads, dash patterns and gradient fills, and written back.
+//! crocwork Word's arrowheads, dash patterns and gradient fills, and written back.
 
 use crate::odt::tests::{NS_T, package, styles_of};
 use crate::odt::{export, import};

@@ -1,4 +1,4 @@
-//! An embedded spreadsheet in an ODT file (ODF 1.3 §10.4.6) opens as a picture WordCraft keeps
+//! An embedded spreadsheet in an ODT file (ODF 1.3 §10.4.6) opens as a picture crocwork Word keeps
 //! the object behind: saved as ODT it is the spreadsheet again; saved as DOCX it is the picture
 //! alone, never ODF markup. The ODT is original and synthetic, shaped like LibreOffice's.
 
@@ -20,7 +20,7 @@ fn odt() -> Vec<u8> {
         ("mimetype", b"application/vnd.oasis.opendocument.text"),
         ("content.xml", content.as_bytes()),
         ("Object 1/content.xml", sheet.as_bytes()),
-        ("ObjectReplacements/Object 1", b"VCLMTF not a picture WordCraft draws"),
+        ("ObjectReplacements/Object 1", b"VCLMTF not a picture crocwork Word draws"),
     ];
     for (name, data) in entries {
         z.start_file(name, o).unwrap();

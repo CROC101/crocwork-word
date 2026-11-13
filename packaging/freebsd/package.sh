@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build and package WordCraft for FreeBSD:
+# Build and package crocwork Word for FreeBSD:
 #
 #   $DIST/wordcraft-<version>-freebsd-<arch>.tar.gz   a /usr/local-style tree (<arch> is x86_64, or
 #       aarch64 when CARGO_BUILD_TARGET=aarch64-unknown-freebsd):
@@ -60,7 +60,7 @@ if [[ -n "${CARGO_BUILD_TARGET:-}" ]] && [[ "$(uname -s)" != FreeBSD ]]; then
 fi
 BASENAME="wordcraft-$VERSION-freebsd-$ARCH"
 
-echo "==> WordCraft $VERSION for FreeBSD $ARCH"
+echo "==> crocwork Word $VERSION for FreeBSD $ARCH"
 
 if [[ "$DRY_RUN" = 1 ]]; then
   echo "dry run: target=${CARGO_BUILD_TARGET:-native} arch=$ARCH"

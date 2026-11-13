@@ -26,7 +26,7 @@ pub trait Backend {
 /// Looks up the control key for an address (`HOST:PORT`).
 type KeyFinder = Box<dyn Fn(&str) -> Result<String, String> + Send>;
 
-/// A running WordCraft app, reached through its loopback control port.
+/// A running crocwork Word app, reached through its loopback control port.
 pub struct Remote {
     addr: String,
     conn: Option<(BufReader<TcpStream>, TcpStream)>,
@@ -209,7 +209,7 @@ impl Remote {
     ) -> Result<Value, String> {
         let unreachable = |addr: &str, e: std::io::Error, connected: bool| {
             let retry = if connected { String::new() } else { "; will retry on each call".to_string() };
-            format!("WordCraft app at {addr} is not reachable: {e}{retry}")
+            format!("crocwork Word app at {addr} is not reachable: {e}{retry}")
         };
         let mut first = true;
         let reply = loop {
@@ -236,7 +236,7 @@ impl Remote {
                         && !is_read_only(method, params)
                     {
                         return Err(format!(
-                            "outcome unknown: the connection to the WordCraft app at {} failed while sending `{method}` or waiting for its reply ({e}); it may have been executed, so it is not sent again. Inspect the document to check",
+                            "outcome unknown: the connection to the crocwork Word app at {} failed while sending `{method}` or waiting for its reply ({e}); it may have been executed, so it is not sent again. Inspect the document to check",
                             self.addr
                         ));
                     }
@@ -325,9 +325,9 @@ impl Backend for Remote {
 
     fn describe(&self) -> String {
         if self.connected {
-            format!("connected to the WordCraft app at {}", self.addr)
+            format!("connected to the crocwork Word app at {}", self.addr)
         } else {
-            format!("will connect to the WordCraft app at {} when it opens", self.addr)
+            format!("will connect to the crocwork Word app at {} when it opens", self.addr)
         }
     }
 }

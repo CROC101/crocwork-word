@@ -1202,7 +1202,7 @@ fn any_bold(s: &Session) -> bool {
 #[test]
 fn paste_from_another_program_does_not_bring_back_our_fragment() {
     // Review on #6225: when another program owns the clipboard, matching text must not make
-    // Paste put WordCraft's own formatted fragment back.
+    // Paste put crocwork Word's own formatted fragment back.
     let mut s = s();
     run(&mut s, "document.setText", json!({"text": "Bold"}));
     run(&mut s, "select.all", json!({}));
@@ -4691,7 +4691,7 @@ fn update_toc_clears_stale_field_result_for_docx_span() {
 }
 
 /// #877: computing a field's result clears `w:dirty` — the result is no longer stale, like
-/// Word's F9. A field WordCraft can't compute keeps the flag so Word refreshes it on open.
+/// Word's F9. A field crocwork Word can't compute keeps the flag so Word refreshes it on open.
 #[test]
 fn update_fields_clears_dirty() {
     let mut s = s();
@@ -4723,7 +4723,7 @@ fn update_fields_clears_dirty() {
 
 /// #877/#878: an imported TOC field whose begin marker carries `w:dirty` (a generator wrote a
 /// placeholder result and asked Word to refresh it on open) keeps the flag through saves until
-/// WordCraft computes the entries: Update Table replaces the placeholder in place (#878) and
+/// crocwork Word computes the entries: Update Table replaces the placeholder in place (#878) and
 /// clears the flag, like Word's F9. Undo brings the dirty imported field back.
 #[test]
 fn imported_dirty_toc_updates_in_place_and_clears() {
@@ -5541,7 +5541,7 @@ fn arrange_bounds_resizes_and_moves_objects() {
     assert_eq!(box_area(&mut s).rect, n);
 }
 
-/// A frame anchored to a page and moved in WordCraft is placed by its paragraph from then on: the
+/// A frame anchored to a page and moved in crocwork Word is placed by its paragraph from then on: the
 /// file's page number goes, or the save would put it back. Only resized, it stays on that page.
 #[test]
 fn an_odt_frame_moved_from_its_page_loses_the_page_number() {
@@ -8580,7 +8580,7 @@ fn word_xml_and_web_pages_saved_as_doc_open_by_content() {
     }
 }
 
-/// #569: a playlist (.m3u / .m3u8) — or any file with an extension WordCraft doesn't know —
+/// #569: a playlist (.m3u / .m3u8) — or any file with an extension crocwork Word doesn't know —
 /// opens as plain text with its encoding detected, like Word's text import; a binary file is a
 /// clean error, never garbage or a panic.
 #[test]
@@ -12079,7 +12079,7 @@ fn html_converted_to_docx_keeps_bold_headers_and_right_aligned_cells() {
 #[test]
 fn exported_page_images_draw_headers_at_full_strength() {
     // file.exportPng (and `wordcraft-cli render`) drew headers and footers dimmed, as the screen
-    // does while the body is edited; Word's exported pages and WordCraft's PDF don't.
+    // does while the body is edited; Word's exported pages and crocwork Word's PDF don't.
     let mut s = s();
     run(&mut s, "text.insert", json!({"text": "Body"}));
     let mut hp = wordcraft_doc::Paragraph::with_text("HEADER", wordcraft_doc::props::CharProps { size: Some(28.0), ..Default::default() });

@@ -14,7 +14,7 @@ use crate::props::{CharProps, LineSpacing, ParaProps};
 use crate::styles::StyleSheet;
 use crate::{Block, Document};
 
-/// Minimum font size allowed in points (WordCraft floor).
+/// Minimum font size allowed in points (crocwork Word floor).
 const MIN_SHRINK_FONT_SIZE: f32 = 4.0;
 
 /// Maximum font size allowed in points.

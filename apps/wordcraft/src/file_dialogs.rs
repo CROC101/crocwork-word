@@ -2,7 +2,7 @@
 //!
 //! The blocking `rfd::FileDialog` ran on the UI thread: on Linux the xdg-desktop-portal call
 //! blocked the event loop until the dialog closed, and with no parent window the dialog could open
-//! behind WordCraft, which then sat there frozen. Now the app's request ([`Services::file_dialog`])
+//! behind crocwork Word, which then sat there frozen. Now the app's request ([`Services::file_dialog`])
 //! is queued; the frame (which has the window) builds an `rfd::AsyncFileDialog` parented to the
 //! window, and a background thread waits for the answer, hands it to the app and wakes the UI.
 //!
@@ -37,7 +37,7 @@ pub type Hook = Box<dyn Fn(FileDialogRequest) -> Receiver<FileDialogAnswer>>;
 /// Cancels the portal Save dialog the launcher is waiting on, if any.
 ///
 /// The portal's dialog lives outside the app's window, so a portal that stops answering cannot be
-/// dismissed from WordCraft. Giving the dialog up (File › Open › Browse in WordCraft…) cancels the
+/// dismissed from crocwork Word. Giving the dialog up (File › Open › Browse in crocwork Word…) cancels the
 /// request: the waiting thread closes it and reports a cancellation, and the built-in browser
 /// opens instead. A no-op where Save As doesn't ask the portal (macOS and Windows).
 #[derive(Clone, Default)]

@@ -123,7 +123,7 @@ fn set_image_arboard(image: &wordcraft_ui_egui::system_clipboard::CopyImage) -> 
     })
 }
 
-/// Whether the system clipboard still holds WordCraft's last copy.
+/// Whether the system clipboard still holds crocwork Word's last copy.
 pub fn is_own() -> bool {
     platform::is_own()
 }
@@ -218,7 +218,7 @@ fn decoded_picture(clipboard: &mut arboard::Clipboard) -> Option<ClipboardPictur
         Err(arboard::Error::ConversionFailure) => Some(
             platform::encoded_picture()
                 .map(ClipboardPicture::Encoded)
-                .unwrap_or_else(|| ClipboardPicture::Unreadable("WordCraft can't decode its format".into())),
+                .unwrap_or_else(|| ClipboardPicture::Unreadable("crocwork Word can't decode its format".into())),
         ),
         Err(e) => {
             log::warn!("clipboard picture: {e}");
@@ -279,7 +279,7 @@ mod platform {
         }
     }
 
-    /// Whether WordCraft still owns the Wayland offer or X11 selection.
+    /// Whether crocwork Word still owns the Wayland offer or X11 selection.
     pub fn is_own() -> bool {
         if wayland() {
             if formats().iter().any(|m| m == OWNER_MIME) { read(OWNER_MIME, 16).is_some_and(|b| b == owner_token()) } else { false }
@@ -581,7 +581,7 @@ mod platform {
         Ok(out)
     }
 
-    const OWNER_FORMAT: &str = "WordCraft Copy Owner";
+    const OWNER_FORMAT: &str = "crocwork Word Copy Owner";
 
     /// Process-unique ownership token placed into Windows clipboard marker.
     fn owner_token() -> [u8; 16] {
@@ -600,7 +600,7 @@ mod platform {
         let _ = raw::set_without_clear(format.get(), &owner_token());
     }
 
-    /// Whether WordCraft still owns the Windows clipboard contents.
+    /// Whether crocwork Word still owns the Windows clipboard contents.
     pub fn is_own() -> bool {
         let Some(format) = raw::register_format(OWNER_FORMAT) else { return false };
         let Ok(_open) = Clipboard::new_attempts(10) else { return false };
@@ -713,7 +713,7 @@ mod platform {
         LAST_CHANGE_COUNT.store(count, std::sync::atomic::Ordering::Relaxed);
     }
 
-    /// Whether WordCraft still owns the macOS pasteboard.
+    /// Whether crocwork Word still owns the macOS pasteboard.
     pub fn is_own() -> bool {
         let count = NSPasteboard::generalPasteboard().changeCount();
         let recorded = LAST_CHANGE_COUNT.load(std::sync::atomic::Ordering::Relaxed);
@@ -796,7 +796,7 @@ mod platform {
     /// Record clipboard ownership on the fallback platform.
     pub fn record_own() {}
 
-    /// Whether WordCraft owns the clipboard on the fallback platform.
+    /// Whether crocwork Word owns the clipboard on the fallback platform.
     pub fn is_own() -> bool {
         false
     }

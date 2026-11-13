@@ -129,14 +129,14 @@ fn active_story(app: &WordApp, layout: &DocLayout) -> StoryRef {
     }
 }
 
-/// Whether the object under `hit` keeps its place and size: a chart or diagram WordCraft has no
+/// Whether the object under `hit` keeps its place and size: a chart or diagram crocwork Word has no
 /// model for can be selected and deleted, not moved or resized, so it gets no handles, no move
 /// cursor and no drag.
 fn fixed(app: &WordApp, hit: &ObjectHit) -> bool {
     matches!(hit_object(app, hit), Some(InlineObject::Graphic { .. })) && !size_only(app, hit)
 }
 
-/// Whether the object under `hit` is a chart or SmartArt that WordCraft can edit: it takes
+/// Whether the object under `hit` is a chart or SmartArt that crocwork Word can edit: it takes
 /// resize handles and is laid out again at the new size, but it can't be moved or turned.
 fn size_only(app: &WordApp, hit: &ObjectHit) -> bool {
     matches!(

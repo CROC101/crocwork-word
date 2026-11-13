@@ -1,4 +1,4 @@
-//! Text fields (ODF 1.3 §7.3–7.7) and the Word field codes WordCraft keeps them as.
+//! Text fields (ODF 1.3 §7.3–7.7) and the Word field codes crocwork Word keeps them as.
 //!
 //! Read: a field element becomes a field with that code and the element's text as its result:
 //! a date or time with its date style as a `\@` picture, a sequence numbering figures or
@@ -99,7 +99,7 @@ fn with_fixed(el: &str, fixed: bool) -> String {
 }
 
 /// The Word field code for the `text:` field element `local` with attributes `a`, or `None`
-/// when it is no field WordCraft keeps (then its text is read as text).
+/// when it is no field crocwork Word keeps (then its text is read as text).
 pub(super) fn instr_of(local: &str, a: &Attrs, picture: impl Fn(&str) -> Option<String>) -> Option<String> {
     // Fixed, unless it holds no value to be fixed at (LibreOffice's templates: a date that shows
     // the day the document is made from them).
@@ -173,7 +173,7 @@ pub(super) fn instr_of(local: &str, a: &Attrs, picture: impl Fn(&str) -> Option<
                 _ => format!("REF {name} \\h"),
             })
         }
-        // The sender's details (§7.3.6–7.3.7), from the application's user data: WordCraft's
+        // The sender's details (§7.3.6–7.3.7), from the application's user data: crocwork Word's
         // own `SENDER` field code, shown as its last result.
         _ if local.strip_prefix("sender-").is_some_and(|p| SENDER_PARTS.contains(&p)) => local.strip_prefix("sender-").map(|p| format!("SENDER {p}")),
         _ => {
@@ -379,7 +379,7 @@ pub(super) fn bib_tag(id: &str) -> Option<String> {
     (!t.is_empty()).then_some(t)
 }
 
-/// ODF bibliography types (§19.817 `text:bibliography-type`) and WordCraft's source kinds.
+/// ODF bibliography types (§19.817 `text:bibliography-type`) and crocwork Word's source kinds.
 const BIB_KINDS: [(&str, &str); 10] = [
     ("book", "book"),
     ("inbook", "bookSection"),

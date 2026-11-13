@@ -392,7 +392,7 @@ fn paragraph_spacing(a: &Attrs, sp: &mut Spacing) {
         sp.line = Some(LineSpacing::AtLeast(h.clamp(0.7, MAX_LEN)));
     }
     // Leading (§20.336: extra space between lines, above each line as LibreOffice draws it) has
-    // no WordCraft mode: at least a 12 pt line and the leading, which also puts the extra space
+    // no crocwork Word mode: at least a 12 pt line and the leading, which also puts the extra space
     // above the text.
     // LibreOffice also leaves the leading after the last line: space after the paragraph.
     if let Some(l) = len("style:line-spacing").filter(|l| *l >= 0.0) {
@@ -566,7 +566,7 @@ const MAX_STYLE_ID: usize = 64;
 /// The document style id for an ODF style: its name's letters and digits (LibreOffice's
 /// `Text_20_body` is `Textbody`), at most [`MAX_STYLE_ID`] of them.
 pub(super) fn style_id(odt: &str) -> String {
-    // LibreOffice's index styles are WordCraft's TOC styles.
+    // LibreOffice's index styles are crocwork Word's TOC styles.
     if let Some((id, _)) = super::writer::generating_style(odt) {
         return id;
     }
@@ -1011,7 +1011,7 @@ pub(super) struct ListLevel {
     pub(super) start: u32,
 }
 
-/// ODF number format (`style:num-format`, ODF 1.3 §19.500) → WordCraft's; an empty format shows
+/// ODF number format (`style:num-format`, ODF 1.3 §19.500) → crocwork Word's; an empty format shows
 /// no number.
 pub(super) fn num_format(f: &str) -> NumFormat {
     match f.trim() {
@@ -1375,7 +1375,7 @@ impl Styles {
     }
 
     /// Whether paragraph style `name`'s named styles state a size. Those that don't leave the size
-    /// to WordCraft's style for its kind, so text of any size isn't known to be the style's.
+    /// to crocwork Word's style for its kind, so text of any size isn't known to be the style's.
     pub(super) fn states_size(&self, name: &str) -> bool {
         self.chain(name).iter().any(|(_, s)| !s.auto && (s.fmt.size.is_some() || s.fmt.size_pct.is_some()))
     }
@@ -1591,7 +1591,7 @@ impl Styles {
     pub(super) fn is_named(&self, odt: &str) -> bool {
         let Some(s) = self.map.get(odt).filter(|s| !s.auto && !s.declared_auto && odt != "Standard") else { return false };
         let lower = |n: &str| n.to_ascii_lowercase().replace("_20_", " ");
-        // The kinds' styles, and the note text styles (WordCraft's Footnote Text and Endnote
+        // The kinds' styles, and the note text styles (crocwork Word's Footnote Text and Endnote
         // Text stand for them), are no custom styles.
         let special = |n: &str| kind_named(n).is_some() || matches!(n, "footnote" | "endnote");
         !(special(&lower(odt)) || s.display.as_deref().is_some_and(|d| special(&lower(d))))
@@ -1690,7 +1690,7 @@ impl Styles {
         // the paragraph's own.
         let named_at = chain.iter().take(kind_at).position(|(n, _)| self.is_named(n));
         let named = named_at.and_then(|i| chain.get(i)).map(|(n, _)| n.to_string()).or_else(|| {
-            // An index style the file names but doesn't define (WordCraft has its own).
+            // An index style the file names but doesn't define (crocwork Word has its own).
             let undefined = chain.last().map_or(Some(name), |(_, s)| s.parent.as_deref());
             undefined.filter(|n| super::writer::generating_style(n).is_some()).map(String::from)
         });

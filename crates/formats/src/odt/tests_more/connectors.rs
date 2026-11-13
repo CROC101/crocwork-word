@@ -1,5 +1,5 @@
 //! Connectors (ODF 1.3 §10.3.10 `draw:connector`): lines glued to other shapes' glue points
-//! (§9.2.19), read as WordCraft connectors glued to the shapes' connection sites, placed between
+//! (§9.2.19), read as crocwork Word connectors glued to the shapes' connection sites, placed between
 //! them, and written back glued.
 
 use crate::odt::import;

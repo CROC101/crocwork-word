@@ -60,7 +60,7 @@ fn page_settings_open() {
         (
             NumFormat::LowerRoman,
             Some(Rgb(0xff, 0xee, 0xcc)),
-            // At the margin, 1in from the edge (WordCraft measures from the edge).
+            // At the margin, 1in from the edge (crocwork Word measures from the edge).
             Some((BorderStyle::Single, 0.5, Some(Rgb(255, 0, 0)), 72.0)),
             NumFormat::LowerLetter,
             // ODF counts from 0: start value 4 is the fifth.
@@ -122,7 +122,7 @@ fn line_numbering_is_on_unless_it_says_otherwise() {
 #[test]
 fn a_page_layout_without_a_size_is_the_default_pages_size() {
     // LibreOffice's templates often state margins but no page size: it is the default paper's
-    // (the user's region's in WordCraft, as LibreOffice uses its own default).
+    // (the user's region's in crocwork Word, as LibreOffice uses its own default).
     let styles = format!(
         r#"<office:document-styles {}><office:automatic-styles><style:page-layout style:name="pm1"><style:page-layout-properties fo:margin-top="1in" fo:margin-bottom="1in" fo:margin-left="1.25in" fo:margin-right="1.25in"/></style:page-layout></office:automatic-styles><office:master-styles><style:master-page style:name="Standard" style:page-layout-name="pm1"/></office:master-styles></office:document-styles>"#,
         crate::odt::tests::NS_T

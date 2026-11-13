@@ -1,4 +1,4 @@
-//! Package parts WordCraft doesn't read (ODF 1.3 Part 2 §3): macros and dialogs (`Basic/`),
+//! Package parts crocwork Word doesn't read (ODF 1.3 Part 2 §3): macros and dialogs (`Basic/`),
 //! LibreOffice's interface configuration, `manifest.rdf` and other applications' files are kept
 //! as they are and written back with their manifest entries; the thumbnail and digital
 //! signatures, which describe the package as it was, are not.
@@ -13,7 +13,7 @@ const MODULE: &str = r#"<?xml version="1.0" encoding="UTF-8"?><script:module xml
 End Sub
 </script:module>"#;
 
-/// A package with parts WordCraft doesn't read, `extra` more files, and a manifest listing
+/// A package with parts crocwork Word doesn't read, `extra` more files, and a manifest listing
 /// some of them.
 fn odt(extra: &[(&str, &[u8])]) -> Vec<u8> {
     let content = format!(
@@ -100,7 +100,7 @@ fn parts_with_hostile_names_are_not_written() {
         assert!(file(&fs, name).is_none(), "{name}");
     }
     assert!(fs.iter().all(|(n, _)| !n.contains("..")));
-    // Parts named as WordCraft's own are WordCraft's.
+    // Parts named as crocwork Word's own are crocwork Word's.
     let own: [(&str, &[u8]); 2] = [("Pictures/stale.png", b"x"), ("ObjectReplacements/Object 9", b"x")];
     let fs = files(&export(&import(&odt(&own)).unwrap()).unwrap());
     assert!(file(&fs, "Pictures/stale.png").is_none() && file(&fs, "ObjectReplacements/Object 9").is_none());

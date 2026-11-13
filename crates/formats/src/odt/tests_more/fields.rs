@@ -1,5 +1,5 @@
 //! Text fields (ODF 1.3 §7): page number and count, dates and times, document information and
-//! bookmark references open as WordCraft fields and are written back as ODF fields.
+//! bookmark references open as crocwork Word fields and are written back as ODF fields.
 
 use crate::odt::tests::{NS_T, package};
 use crate::odt::{export, import};
@@ -343,7 +343,7 @@ fn user_fields_stay_user_fields() {
 #[test]
 fn sender_fields_stay_fields() {
     // LibreOffice's letter and fax templates: the sender's details (§7.3.6), shown as last filled
-    // in (WordCraft's `SENDER` field code), written back as the same fields.
+    // in (crocwork Word's `SENDER` field code), written back as the same fields.
     let d = import(&body(r#"<text:p><text:sender-firstname>Ada</text:sender-firstname> <text:sender-lastname>Lovelace</text:sender-lastname>, <text:sender-email>ada@example.org</text:sender-email></text:p>"#)).unwrap();
     assert_eq!(
         fields(&d),
@@ -360,7 +360,7 @@ fn sender_fields_stay_fields() {
 fn a_field_that_follows_the_document_says_so() {
     // §19.807: not fixed unless said; LibreOffice reads an author field without `text:fixed` as
     // fixed (an empty one stayed empty instead of showing the author), so WordCraft says it, as
-    // LibreOffice does. Sender fields it writes without, and so does WordCraft.
+    // LibreOffice does. Sender fields it writes without, and so does crocwork Word.
     let d = import(&body(r#"<text:p><text:author-name text:fixed="false"/> <text:sender-firstname>Ann</text:sender-firstname></text:p>"#)).unwrap();
     let c = crate::odt::tests::content_of(&export(&d).unwrap());
     assert!(c.contains(r#"<text:author-name text:fixed="false""#), "{c}");

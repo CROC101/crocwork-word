@@ -43,7 +43,7 @@ pub(super) struct Body<'a> {
     pub(super) sources: Vec<wordcraft_doc::Source>,
     /// The paragraph before had a page break after it: the next one starts a page.
     break_next: bool,
-    /// Shapes' ids (`xml:id`, `draw:id`) as WordCraft drawing ids, and where the shapes with one
+    /// Shapes' ids (`xml:id`, `draw:id`) as crocwork Word drawing ids, and where the shapes with one
     /// sit (kind, frame relative to its anchor, turn, placement, the paragraph they are in), for
     /// connectors glued to them.
     pub(super) conn_ids: HashMap<String, u32>,
@@ -132,7 +132,7 @@ pub(super) struct Body<'a> {
     paras_done: usize,
     /// `(width, height, picture bytes, alt text, equation read from an embedded `draw:object`)`.
     frame: Option<Frame>,
-    /// The first picture the open frame offers that WordCraft can't show: an object coming after it
+    /// The first picture the open frame offers that crocwork Word can't show: an object coming after it
     /// keeps it as its replacement.
     frame_unread: Option<Vec<u8>>,
     in_desc: bool,
@@ -184,7 +184,7 @@ pub(super) struct Body<'a> {
     shape_flip: (bool, bool),
     /// A freeform shape's paths (a polygon's, polyline's, path's or regular polygon's).
     shape_path: Option<std::sync::Arc<wordcraft_doc::freeform::Freeform>>,
-    /// A custom shape's geometry being read, when its type has no WordCraft kind: drawn from its
+    /// A custom shape's geometry being read, when its type has no crocwork Word kind: drawn from its
     /// own path and equations.
     geometry: Option<Box<super::geometry::Pending>>,
     /// That geometry's markup as read (see `ShapeExtra::odf_geometry`): being read, then
@@ -372,7 +372,7 @@ impl<'a> Body<'a> {
     /// [`Body::feed_at`] for a top-level list (§5.3.1): kept whole, as read, when each of its
     /// paragraphs is (a paragraph's own markup can't say how its list numbers and draws its
     /// labels: a label followed by a space, a picture bullet, an unnumbered header). Not one
-    /// continuing another by its `xml:id`, which WordCraft may write anew (one without its own
+    /// continuing another by its `xml:id`, which crocwork Word may write anew (one without its own
     /// is given one, for a list continuing it to name). `None` when it took the event.
     fn whole_list(&mut self, ev: Ev, at: (usize, usize)) -> Option<Ev> {
         match &ev {
@@ -457,7 +457,7 @@ impl<'a> Body<'a> {
     pub(super) fn feed_at(&mut self, ev: Ev, at: (usize, usize)) {
         self.hide_read();
         self.hidden_section(&ev);
-        // A body index, kept whole: its settings and templates, which WordCraft writes its own.
+        // A body index, kept whole: its settings and templates, which crocwork Word writes its own.
         match &ev {
             Ev::Start(q, _) => match &mut self.kept_index {
                 Some(k) => k.clean &= !(q.starts_with("draw:") || q.starts_with("office:annotation") || q.starts_with("text:change")),
@@ -1198,7 +1198,7 @@ impl Body<'_> {
         if self.tracked_context(q, a) {
             return;
         }
-        // A custom shape's geometry: its kind, or, for a type WordCraft has no kind for, its
+        // A custom shape's geometry: its kind, or, for a type crocwork Word has no kind for, its
         // path, worked out from its equations when the element ends. Its handles aren't read.
         if q == "draw:enhanced-geometry" && self.shape_kind.is_some() {
             let t = get(a, "draw:type").unwrap_or_default();
@@ -1316,7 +1316,7 @@ impl Body<'_> {
                 self.end_para();
                 let span = get(a, "table:number-columns-spanned").and_then(|v| v.trim().parse::<u32>().ok()).unwrap_or(1).clamp(1, 63);
                 let rows = get(a, "table:number-rows-spanned").and_then(|v| v.trim().parse::<u32>().ok()).unwrap_or(1).clamp(1, 1000);
-                // WordCraft's tables have their backgrounds on their cells: a row's or table's on
+                // crocwork Word's tables have their backgrounds on their cells: a row's or table's on
                 // those with none of their own, as it shows behind them. A cell with no style has
                 // its column's default cell style; LibreOffice doesn't apply a row's.
                 let behind = self.tables.last().and_then(|t| t.row_background.or(t.background));
@@ -1489,7 +1489,7 @@ impl Body<'_> {
                     let path = href.trim_start_matches("./");
                     // A frame may offer one picture in several formats, in order of preference
                     // (LibreOffice writes its own `.svm` metafile before a PNG): the first
-                    // WordCraft can read. An object's replacement is the first, kept whatever it
+                    // crocwork Word can read. An object's replacement is the first, kept whatever it
                     // is, also when the object is still to come.
                     if let Some(d) = (self.zip)(path) {
                         let readable = drawing::readable_picture(&d);
@@ -1509,7 +1509,7 @@ impl Body<'_> {
             }
             // An embedded object (ODF 1.3 §10.4.3): a formula sub-document's `content.xml` holds
             // a `math:math` tree (#3099), a chart's an `office:chart`. Other object kinds (and
-            // charts WordCraft can't edit) fall back to the frame's `draw:image` replacement
+            // charts crocwork Word can't edit) fall back to the frame's `draw:image` replacement
             // preview, read at `end` below.
             "object" | "object-ole" => {
                 if let Some(href) = get(a, "xlink:href") {
@@ -1782,7 +1782,7 @@ impl Body<'_> {
             self.shape_path = Some(std::sync::Arc::new(f));
             self.shape_geometry = keep(xml);
         } else if self.shape_kind == Some(wordcraft_doc::para::ShapeKind::Rectangle) {
-            // A preset WordCraft draws as a rectangle: its geometry kept as read.
+            // A preset crocwork Word draws as a rectangle: its geometry kept as read.
             self.shape_geometry = keep(xml);
         }
     }

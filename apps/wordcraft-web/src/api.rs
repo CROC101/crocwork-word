@@ -2,9 +2,9 @@
 //! app's own control channel, the one the desktop control server drives (`docs/control-protocol.md`).
 //!
 //! The crate owns the JavaScript side (`request`, `execute`, `commands`, `docInspect`, `uiInspect`,
-//! `screenshot`, as promises with a timeout). This module is WordCraft's part: a [`Request`] that
+//! `screenshot`, as promises with a timeout). This module is crocwork Word's part: a [`Request`] that
 //! queues a [`ControlRequest`] for the app, which answers it on its next frame, and waits for the
-//! reply. WordCraft's control request has no abandon state, so a call the page gave up on still runs
+//! reply. crocwork Word's control request has no abandon state, so a call the page gave up on still runs
 //! when the app reaches it, as it does for a desktop client that timed out.
 
 use std::rc::Rc;

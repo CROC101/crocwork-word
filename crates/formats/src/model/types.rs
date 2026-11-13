@@ -176,7 +176,7 @@ pub struct Img {
     pub crop: [f32; 4],
 }
 
-/// An embedded object WordCraft shows but doesn't edit, kept whole for saving back (ODF 1.3
+/// An embedded object crocwork Word shows but doesn't edit, kept whole for saving back (ODF 1.3
 /// §10.4.6 `draw:object`, a sub-document such as a spreadsheet, or §10.4.7 `draw:object-ole`).
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct OdfObject {
@@ -202,7 +202,7 @@ pub struct Chart {
     /// How a floating chart is placed and wrapped; `None`: in line with the text.
     pub float: Option<Box<wordcraft_doc::para::Float>>,
     /// The chart object as read (ODT), written back whole while the chart is unchanged, so it
-    /// keeps the look WordCraft doesn't model (its fonts, lines and colours).
+    /// keeps the look crocwork Word doesn't model (its fonts, lines and colours).
     pub source: Option<Arc<OdfObject>>,
 }
 
@@ -219,7 +219,7 @@ pub enum Inline {
     /// A chart or diagram known here only by its alt text: written where alt text has a place
     /// (an HTML or Markdown image), left out of editable formats so it never turns into body text.
     Figure(String),
-    /// A chart WordCraft can edit, `w` × `h` points: only in flows asked for boxes
+    /// A chart crocwork Word can edit, `w` × `h` points: only in flows asked for boxes
     /// ([`FlowOpts::boxes`]); others get its alt text as an [`Inline::Figure`].
     Chart(Chart),
     /// A content control holding plain `text` (a form control in ODT): only in flows asked for
@@ -229,7 +229,7 @@ pub enum Inline {
         text: String,
         fmt: Fmt,
     },
-    /// An equation in the linear format WordCraft keeps them in (`x=(-b±√(b^2-4ac))/2a`). Formats
+    /// An equation in the linear format crocwork Word keeps them in (`x=(-b±√(b^2-4ac))/2a`). Formats
     /// without equations write `linear` as text.
     Equation {
         linear: String,

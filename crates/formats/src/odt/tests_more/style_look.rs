@@ -1,4 +1,4 @@
-//! The look of the styles WordCraft maps ODT's to (Heading 1–6, Title, Quotations, Preformatted
+//! The look of the styles crocwork Word maps ODT's to (Heading 1–6, Title, Quotations, Preformatted
 //! Text): read from the file's own definitions on open, written from the document's on save, so
 //! headings look in each program as they did in the other.
 
@@ -31,7 +31,7 @@ fn a_heading_looks_as_the_file_defines_it() {
     let (pp, cp) = style_look(&d, "Heading1");
     assert_eq!(cp.font.as_deref(), Some("Liberation Sans"));
     assert_eq!((cp.size, cp.bold), (Some(18.0), Some(true)));
-    // Not WordCraft's blue: the file's heading has no colour of its own.
+    // Not crocwork Word's blue: the file's heading has no colour of its own.
     assert!(!matches!(cp.color, Some(TextColor::Rgb(c)) if c != Rgb(0, 0, 0)), "{:?}", cp.color);
     assert_eq!((pp.space_before, pp.space_after, pp.keep_next), (Some(12.0), Some(6.0), Some(true)));
     // The body text isn't touched: direct formatting stays empty.
@@ -50,7 +50,7 @@ fn a_size_in_percent_is_of_the_parent_size() {
 
 #[test]
 fn heading_styles_round_trip() {
-    // A new document's headings (WordCraft's look) keep it through an ODT save.
+    // A new document's headings (crocwork Word's look) keep it through an ODT save.
     let mut d = Document::new();
     let mut p = Paragraph::new();
     p.text = "Head".into();

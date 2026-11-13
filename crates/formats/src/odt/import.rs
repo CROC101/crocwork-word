@@ -244,7 +244,7 @@ fn custom_styles(blocks: &mut [FBlock], styles: &Styles, odt: Vec<String>) -> (V
             odt.push(n);
             defs.push(def);
         }
-        // A custom style, or an index style WordCraft has under its own id (TOC 1…).
+        // A custom style, or an index style crocwork Word has under its own id (TOC 1…).
         if (odt.contains(&name) || super::writer::generating_style(&name).is_some())
             && let Some(x) = p.extra.as_mut()
         {
@@ -255,7 +255,7 @@ fn custom_styles(blocks: &mut [FBlock], styles: &Styles, odt: Vec<String>) -> (V
 }
 
 /// Add the custom styles `named` (ODF names `odt`, parents first) to the document: each with its
-/// name, the style it is based on and its own formatting. A style WordCraft has under the same id
+/// name, the style it is based on and its own formatting. A style crocwork Word has under the same id
 /// takes the file's definition.
 fn add_custom_styles(doc: &mut Document, named: &[super::styles::NamedStyle], odt: &[String], tabs_from_indent: bool) {
     use super::styles::{Parent, style_id};
@@ -335,7 +335,7 @@ fn turned_off(mut chr: wordcraft_doc::props::CharProps, off: [bool; 4]) -> wordc
 }
 
 /// Give the document's style for paragraph kind `kind` the look the file gives its own: its text
-/// formatting, spacing, alignment and keep with next replace WordCraft's (a heading the file
+/// formatting, spacing, alignment and keep with next replace crocwork Word's (a heading the file
 /// leaves black isn't blue). Its outline level and other settings stay.
 fn apply_look(doc: &mut Document, kind: model::Kind, look: &super::styles::ParaLook) {
     let id = match kind {
@@ -459,7 +459,7 @@ fn each_body_para(blocks: &mut [Arc<wordcraft_doc::Block>], depth: usize, f: &mu
 /// and complex size it states (as bits).
 type SizeSource<'a> = (Option<&'a str>, Option<&'a str>, Option<u32>, Option<u32>);
 
-/// A complex-script size the same as the text's (what WordCraft writes for every script) is no size
+/// A complex-script size the same as the text's (what crocwork Word writes for every script) is no size
 /// of its own: a later change of size takes it along. The default's and the styles' go together,
 /// unless a run's complex size would change: a size stated alone, or another complex size between
 /// them, shows what's above it, so they stay as the file says. A run's goes where its stays the same.
@@ -816,7 +816,7 @@ struct Parsed {
     custom: Vec<wordcraft_doc::CustomProp>,
     /// The bibliography sources the citations carry.
     sources: Vec<wordcraft_doc::Source>,
-    /// The package's parts WordCraft doesn't read itself (macros…), kept for the next save.
+    /// The package's parts crocwork Word doesn't read itself (macros…), kept for the next save.
     kept: super::parts::Kept,
     /// Hidden form controls, kept for the next save.
     hidden_controls: Vec<String>,
@@ -824,7 +824,7 @@ struct Parsed {
     page_image: Option<(Vec<u8>, &'static str)>,
 }
 
-/// Hyphenation is a paragraph's in ODF (`fo:hyphenate`) and the document's in WordCraft (as in
+/// Hyphenation is a paragraph's in ODF (`fo:hyphenate`) and the document's in crocwork Word (as in
 /// Word): when any paragraph of `blocks` hyphenates (its `suppress_hyphens` read as
 /// `Some(false)`), the document does, and every other paragraph opts out; otherwise nothing is
 /// marked. Whether the document hyphenates.
@@ -845,7 +845,7 @@ fn hyphenation(blocks: &mut [FBlock]) -> bool {
 /// The content of a package that has none: an empty text.
 const EMPTY_CONTENT: &str = r#"<office:document-content xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"><office:body><office:text><text:p/></office:text></office:body></office:document-content>"#;
 
-/// The page size of a page layout that states none: WordCraft's default page's.
+/// The page size of a page layout that states none: crocwork Word's default page's.
 fn default_paper() -> (f32, f32) {
     let d = SectionProps::default();
     (d.page_w, d.page_h)
@@ -1083,7 +1083,7 @@ pub fn import_on(bytes: &[u8], page: &SectionProps) -> Result<Document, String> 
     Arc::make_mut(&mut doc.styles).default_chr.kern = kern.then_some(1.0);
     Arc::make_mut(&mut doc.styles).default_chr.overlay(&scripts);
     // The file's own, or none when it states none (each application then uses its own default):
-    // not the English of WordCraft's new documents.
+    // not the English of crocwork Word's new documents.
     Arc::make_mut(&mut doc.styles).default_chr.lang = default_lang;
     if let Some(t) = default_tab {
         doc.settings.default_tab = t;
@@ -1164,13 +1164,13 @@ pub(super) struct Pages {
     pub(super) doc: PageDoc,
 }
 
-/// Page settings that are the document's in WordCraft (and Word): the page colour (the first
+/// Page settings that are the document's in crocwork Word (and Word): the page colour (the first
 /// page style's background), footnote and endnote numbering (`text:notes-configuration`).
 #[derive(Clone, Default)]
 pub(super) struct PageDoc {
     pub(super) page_color: Option<wordcraft_doc::props::Rgb>,
     /// The first page style's background picture (§17.3 `style:background-image`): its package
-    /// path and WordCraft's fill for its repeat (tiled, stretched, or centred at its size).
+    /// path and crocwork Word's fill for its repeat (tiled, stretched, or centred at its size).
     pub(super) page_image: Option<(String, &'static str)>,
     /// Footnotes', then endnotes', number format and options.
     pub(super) notes: [Option<(wordcraft_doc::section::NumFormat, wordcraft_doc::section::NoteProps)>; 2],
@@ -1296,7 +1296,7 @@ fn read_pages(xml: &[u8], paper: (f32, f32)) -> Pages {
                 }
             }
             // A page background picture (§17.3, in `style:page-layout-properties`): §20.249
-            // `style:repeat` (repeat is the default) as WordCraft's tile, stretch, or centre.
+            // `style:repeat` (repeat is the default) as crocwork Word's tile, stretch, or centre.
             "background-image" if q.starts_with("style:") => {
                 if let (Some(l), Some(href)) =
                     (cur.as_ref().and_then(|n| layouts.get_mut(n)), get(&a, "xlink:href").map(str::trim).filter(|h| !h.is_empty() && h.len() <= 1024))
@@ -1487,7 +1487,7 @@ fn apply_layout(a: &Attrs, sec: &mut SectionProps) {
             // Any distance on the page (Word's 31 pt limit is for its own measure, from the edge).
             .then(|| wordcraft_doc::props::Border { space: pad.map_or(0.0, |p| p.clamp(0.0, 1584.0)), ..b })
     };
-    // ODF's border is at the margin, the text inside its padding; WordCraft measures the border
+    // ODF's border is at the margin, the text inside its padding; crocwork Word measures the border
     // from the page edge and the text margin from the edge too.
     let limit = sec.page_w.max(sec.page_h);
     let inset = |b: Option<wordcraft_doc::props::Border>, margin: &mut f32| {

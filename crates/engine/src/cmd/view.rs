@@ -153,7 +153,7 @@ pub fn specs() -> Vec<CommandSpec> {
         })
         .key("Mod+Alt+S")
         .pure(),
-        // View › Window across WordCraft windows (#322): the desktop app's native windows
+        // View › Window across crocwork Word windows (#322): the desktop app's native windows
         // perform these (see `Windows`), elsewhere they are disabled.
         CommandSpec::new("view.arrangeAll", "Arrange All", "View › Window", |s, _| {
             s.ui_requests.push(json!({"windows": "arrange"}));
@@ -225,7 +225,7 @@ pub struct Windows {
     pub sync_scroll: bool,
 }
 
-/// Another open WordCraft window.
+/// Another open crocwork Word window.
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct OtherWindow {
     pub id: u64,
@@ -237,7 +237,7 @@ fn windows_available(s: &Session) -> Option<&'static str> {
 }
 
 fn has_other_window(s: &Session) -> Option<&'static str> {
-    windows_available(s).or(if s.windows.others.is_empty() { Some("no other WordCraft window is open") } else { None })
+    windows_available(s).or(if s.windows.others.is_empty() { Some("no other crocwork Word window is open") } else { None })
 }
 
 /// The window a command means: `window`, or the only other one.
@@ -248,7 +248,7 @@ fn pick_window(s: &Session, v: &Value) -> Result<u64, CmdError> {
         Some(id) => Err(CmdError::Params(format!("no open window {id}"))),
         None => match others.as_slice() {
             [only] => Ok(only.id),
-            [] => Err(CmdError::Disabled("no other WordCraft window is open".into())),
+            [] => Err(CmdError::Disabled("no other crocwork Word window is open".into())),
             several => {
                 let list: Vec<String> = several.iter().map(|w| format!("{} ({})", w.id, w.title)).collect();
                 Err(CmdError::Params(format!("pass `window`: one of {}", list.join(", "))))

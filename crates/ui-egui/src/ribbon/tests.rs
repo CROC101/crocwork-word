@@ -343,7 +343,7 @@ fn listed_only(tag: &str) -> Vec<bool> {
 
 /// CP4.3: the menu's check marks are worked out one way (the tag, or the same proofing language
 /// named alike), not by a case per language: a bare or ISO 639-2 tag checks its language, and a
-/// region WordCraft proofs like another (New Zealand like the UK) doesn't check that one.
+/// region crocwork Word proofs like another (New Zealand like the UK) doesn't check that one.
 #[test]
 fn language_menu_checks_by_tag_or_proofing_language() {
     for (current, tag) in [
@@ -395,7 +395,7 @@ fn rows_are_matched_by_tag_not_by_display_name() {
     let entries = vec![("sr-Latn-BA".to_string(), "Serbian".to_string()), ("sr-Cyrl-BA".to_string(), "Serbian".to_string())];
     assert_eq!(language_checks("sr-Cyrl-BA", &entries).listed, [false, true]);
     // A variant on an otherwise equal tag is the row without it, unless a pack or the lists name
-    // the variant (Valencian is not Catalan); a language WordCraft has nothing for keeps its regions apart.
+    // the variant (Valencian is not Catalan); a language crocwork Word has nothing for keeps its regions apart.
     assert!(same_language("de-DE-1996", "de-DE") && same_language("de-DE", "de-DE-1996"));
     assert!(!same_language("ca-ES-valencia", "ca-ES"));
     assert!(!same_language("xx", "xx-AA"), "xx vs xx-AA");
@@ -459,7 +459,7 @@ fn other_regions_show_by_name_once() {
     assert_eq!(c.listed, listed_only("pt-BR"));
 }
 
-/// The Englishes WordCraft proofs differently are in the menu, checked by their tags, and
+/// The Englishes crocwork Word proofs differently are in the menu, checked by their tags, and
 /// every English region has a name (#1281, #1045).
 #[test]
 fn english_dialects_are_in_the_language_menu() {
@@ -488,7 +488,7 @@ fn indonesian_has_a_name_in_the_language_menu() {
     }
 }
 
-/// #3360, #3553: the Spanishes WordCraft proofs are in the menu, checked by their tags; other
+/// #3360, #3553: the Spanishes crocwork Word proofs are in the menu, checked by their tags; other
 /// Spanish regions show by name, and a bare `es` is Spain's.
 #[test]
 fn spanish_varieties_are_in_the_language_menu() {

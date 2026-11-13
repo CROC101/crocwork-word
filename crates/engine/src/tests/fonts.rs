@@ -382,7 +382,7 @@ fn a_huge_font_name_is_kept_short() {
 
 #[test]
 fn symbol_fonts_drawn_as_unicode_are_not_reported() {
-    // Word's bullets are Symbol characters; WordCraft draws them as their Unicode equivalents.
+    // Word's bullets are Symbol characters; crocwork Word draws them as their Unicode equivalents.
     let m = missing_in(doc_of(vec![para_in("\u{F0B7}", "Symbol"), para_in("\u{F0FC}", "Wingdings")]));
     assert!(m.is_empty(), "{m:?}");
 }

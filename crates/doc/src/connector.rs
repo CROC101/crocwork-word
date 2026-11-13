@@ -215,7 +215,7 @@ pub struct ShapeExtra {
     pub outline_fill: Option<crate::fill::Fill>,
     /// An ODF custom shape's geometry as read (its `draw:enhanced-geometry`, equations and
     /// handles), whose path the shape's freeform was worked out from: saved back as it was, so
-    /// LibreOffice draws its own shape (or a preset WordCraft draws as a rectangle: kept with
+    /// LibreOffice draws its own shape (or a preset crocwork Word draws as a rectangle: kept with
     /// it). Dropped when the shape is made another kind.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub odf_geometry: Option<std::sync::Arc<String>>,

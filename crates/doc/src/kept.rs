@@ -2,7 +2,7 @@
 //! back as it was: a paragraph keeps its source XML, which a writer uses as long as the
 //! paragraph still is what the reader made of it (its [`fingerprint`] unchanged). Anything the
 //! model has no place for (an unknown element, an attribute nobody reads) survives a save that
-//! way. Never saved with the document (WordCraft's own format), and not part of its content
+//! way. Never saved with the document (crocwork Word's own format), and not part of its content
 //! (`==` ignores it).
 
 use std::collections::{BTreeMap, HashMap};

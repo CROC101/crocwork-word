@@ -1,5 +1,5 @@
 //! Ruby (ODF 1.3 §6.4 `text:ruby`: a base text with ruby text over it, furigana or pinyin) read as
-//! WordCraft's Phonetic Guide and written back as ODF ruby.
+//! crocwork Word's Phonetic Guide and written back as ODF ruby.
 
 use crate::odt::tests::{NS_T, content_of, package};
 use crate::odt::{export, import};

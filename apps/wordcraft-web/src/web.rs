@@ -28,10 +28,10 @@ pub fn start() {
             log::error!("missing <canvas id=\"{CANVAS_ID}\">");
             return;
         };
-        // Host modes (`craft-web-host`): `?host=parent`, a same-origin page framing WordCraft, opens documents in
+        // Host modes (`craft-web-host`): `?host=parent`, a same-origin page framing crocwork Word, opens documents in
         // it and stores what it saves (`host`); unframed there is no parent, so that URL on its
         // own stays the normal app with downloads. `data-host="page"` on the canvas opts a page
-        // in instead: it runs WordCraft in its own document and talks over DOM `CustomEvent`s
+        // in instead: it runs crocwork Word in its own document and talks over DOM `CustomEvent`s
         // on the canvas (`host`). The host guards leaving the page, so this one doesn't.
         let bridge = crate::host::Bridge::detect(&canvas);
         let app_bridge = bridge.clone();
@@ -118,7 +118,7 @@ pub fn start() {
         if let Some(el) = document.get_element_by_id(LOADING_ID) {
             match result {
                 Ok(()) => el.remove(),
-                Err(e) => el.set_inner_html(&format!("<p>WordCraft failed to start: {e:?}</p><p>A browser with WebGPU or WebGL2 is required.</p>")),
+                Err(e) => el.set_inner_html(&format!("<p>crocwork Word failed to start: {e:?}</p><p>A browser with WebGPU or WebGL2 is required.</p>")),
             }
         }
     });

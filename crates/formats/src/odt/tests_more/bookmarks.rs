@@ -1,5 +1,5 @@
 //! Bookmarks (ODF 1.3 §6.2.1 `text:bookmark`, `text:bookmark-start`/`-end`): a point or the text
-//! between its start and end, in one paragraph or across several, kept as a WordCraft bookmark
+//! between its start and end, in one paragraph or across several, kept as a crocwork Word bookmark
 //! over that text (what a reference to it shows) and written back the same way.
 
 use crate::odt::tests::{NS_T, content_of, package};

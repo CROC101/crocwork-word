@@ -1,7 +1,7 @@
-//! WordCraft adapter for reading Word 97-2003 binary documents (`.doc`, [MS-DOC]).
+//! crocwork Word adapter for reading Word 97-2003 binary documents (`.doc`, [MS-DOC]).
 //!
 //! The file-format implementation lives in `craft-doc-binary`. This crate adapts the shared
-//! model to WordCraft's application model while keeping the public read and password APIs stable.
+//! model to crocwork Word's application model while keeping the public read and password APIs stable.
 //! Stories are converted paragraph by paragraph, and embedded media buffers are moved without a
 //! full-document serialization copy.
 //!
@@ -17,7 +17,7 @@ pub fn is_encrypted(bytes: &[u8]) -> bool {
     craft_doc_binary::is_encrypted(bytes)
 }
 
-/// Read a Word 97-2003 binary document into WordCraft's document model.
+/// Read a Word 97-2003 binary document into crocwork Word's document model.
 pub fn read(bytes: &[u8]) -> Result<wordcraft_doc::Document, DocbinError> {
     read_with_password(bytes, None)
 }

@@ -16,8 +16,8 @@ macro_rules! needs_catalogs {
     };
 }
 
-/// The translations in `code`'s embedded WordCraft catalog, plural forms apart: the fonts must
-/// cover WordCraft's own wording. (The shared catalog holds every app's; the CJK checks read it too.)
+/// The translations in `code`'s embedded crocwork Word catalog, plural forms apart: the fonts must
+/// cover crocwork Word's own wording. (The shared catalog holds every app's; the CJK checks read it too.)
 fn translations(code: &str) -> Vec<String> {
     let code = lang(code).code();
     CRAFT_I18N
@@ -730,7 +730,7 @@ fn a_polish_interface_writes_new_documents_in_polish() {
     let ctx = egui::Context::default();
     let frame = |app: &mut crate::WordApp| ctx.run_ui(egui::RawInput::default(), |ui| app.logic(ui.ctx())).drop_without_applying_deltas();
     frame(&mut app);
-    assert_eq!(app.session.editing_lang, None, "English interface: WordCraft's default, US English");
+    assert_eq!(app.session.editing_lang, None, "English interface: crocwork Word's default, US English");
     assert_eq!(app.session.doc.styles.default_chr.lang.as_deref(), Some("en-US"));
     app.run("ui.language", serde_json::json!({"value": "pl"})).unwrap();
     frame(&mut app);
@@ -1156,7 +1156,7 @@ fn a_context_lookup_never_borrows_the_plain_translation() {
     assert_eq!(get("spacing", "Open"), None);
 }
 
-/// WordCraft offers exactly the languages in `LANGUAGES` when craft-i18n is embedded, and English
+/// crocwork Word offers exactly the languages in `LANGUAGES` when craft-i18n is embedded, and English
 /// alone when it isn't: a missing catalog never fails, it shows English.
 #[test]
 fn the_languages_offered_are_the_embedded_ones_of_the_list() {
@@ -1170,7 +1170,7 @@ fn the_languages_offered_are_the_embedded_ones_of_the_list() {
         return;
     }
     let listed: Vec<&str> = LANGUAGES.iter().map(|l| l.code).collect();
-    assert_eq!(all, listed, "every language WordCraft lists has its catalog in craft-i18n");
+    assert_eq!(all, listed, "every language crocwork Word lists has its catalog in craft-i18n");
     assert!(Lang::from_code("pseudo").is_none(), "the pseudo locale is never a setting");
 }
 
@@ -1233,7 +1233,7 @@ fn arabic_lookups_keep_typing_order() {
     let ar = arabic_fixture(concat!(
         "\tTable of Contents\tجدول المحتويات\n",
         "\tPaste Special…\tلصق خاص…\n",
-        "\tAbout WordCraft\tحول WordCraft\n",
+        "\tAbout crocwork Word\tحول crocwork Word\n",
         "\tPassword:\tكلمة المرور:\n",
         "\tTable of\\nContents\tجدول\\nالمحتويات\n",
         "\tPage {page} of {pages}\tالصفحة {page} من {pages}\n",
@@ -1245,7 +1245,7 @@ fn arabic_lookups_keep_typing_order() {
     assert!(ar.rtl());
     assert_eq!(tr(ar, "Table of Contents"), "جدول المحتويات");
     assert_eq!(tr(ar, "Paste Special…"), "لصق خاص…");
-    assert_eq!(tr(ar, "About WordCraft"), "حول WordCraft");
+    assert_eq!(tr(ar, "About crocwork Word"), "حول crocwork Word");
     assert_eq!(tr(ar, "Password:"), "كلمة المرور:");
     // A two-line ribbon label keeps its two lines.
     assert_eq!(tr(ar, "Table of\nContents"), "جدول\nالمحتويات");

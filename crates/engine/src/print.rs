@@ -1,6 +1,6 @@
 //! Print settings (#641): which pages go out, how many copies, as a PDF.
 //!
-//! WordCraft prints through a PDF (the host opens it in the system's print flow), so the settings
+//! crocwork Word prints through a PDF (the host opens it in the system's print flow), so the settings
 //! that can be delivered are the ones that shape the PDF: the page range, odd/even pages, copies
 //! and collation. Physical sheet imposition is shared with the preview; printer choice and duplex
 //! are handled by the host.

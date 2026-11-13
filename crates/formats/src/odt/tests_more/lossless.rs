@@ -147,7 +147,7 @@ fn check(s: &Sample) {
     assert!(lost.is_empty(), "{}: lost on a second save:\n  {}", s.name, lost.join("\n  "));
 }
 
-/// Paragraphs and text WordCraft partly models: unknown elements, attributes and namespaces.
+/// Paragraphs and text crocwork Word partly models: unknown elements, attributes and namespaces.
 const TEXT: Sample = Sample {
     name: "text",
     content: r##"<office:automatic-styles><style:style style:name="P1" style:family="paragraph" style:parent-style-name="Standard"><style:paragraph-properties fo:margin-left="0.4in" wcx:spring="tight"/><style:text-properties fo:color="#336699" wcx:hue="warm"/></style:style><style:style style:name="T1" style:family="text"><style:text-properties fo:font-weight="bold" style:text-blinking="true"/></style:style></office:automatic-styles><office:body><office:text text:use-soft-page-breaks="true"><text:h text:outline-level="1">Orchard notes</text:h><text:p text:style-name="P1" wcx:mood="calm"><text:soft-page-break/>Pears ripen <text:span text:style-name="T1">late</text:span> in the year<text:hidden-text text:condition="ooow:1" text:string-value="quiet"/>, and <wcx:marker wcx:kind="star">apples</wcx:marker> early.</text:p><text:p>Second paragraph with a <text:note text:id="n1" text:note-class="footnote"><text:note-citation>1</text:note-citation><text:note-body><text:p>Footnote words.</text:p></text:note-body></text:note> note.</text:p></office:text></office:body>"##,
@@ -155,7 +155,7 @@ const TEXT: Sample = Sample {
     meta: "",
 };
 
-/// Style definitions WordCraft doesn't use: an unused list style, note and line numbering
+/// Style definitions crocwork Word doesn't use: an unused list style, note and line numbering
 /// settings, an outline style, unknown style attributes.
 const STYLES: Sample = Sample {
     name: "styles",
@@ -185,7 +185,7 @@ fn the_gate_sees_a_loss() {
     assert_eq!(lost, ["attr text:p@wcx:a", "el wcx:b", "word words"]);
 }
 
-/// Document properties WordCraft doesn't model.
+/// Document properties crocwork Word doesn't model.
 const META: Sample = Sample {
     name: "meta",
     content: r##"<office:body><office:text><text:p>Body.</text:p></office:text></office:body>"##,
@@ -201,7 +201,7 @@ const DECLS: Sample = Sample {
     meta: "",
 };
 
-/// Page layouts and master pages WordCraft partly models: the footnote separator, header
+/// Page layouts and master pages crocwork Word partly models: the footnote separator, header
 /// properties, a layout grid, a header with its own paragraph.
 const PAGES: Sample = Sample {
     name: "pages",
@@ -210,7 +210,7 @@ const PAGES: Sample = Sample {
     meta: "",
 };
 
-/// A table WordCraft partly models: unknown table, row and cell attributes.
+/// A table crocwork Word partly models: unknown table, row and cell attributes.
 const TABLE: Sample = Sample {
     name: "table",
     content: r##"<office:automatic-styles><style:style style:name="Tab1" style:family="table"><style:table-properties style:width="4in" table:align="margins" wcx:look="grid"/></style:style><style:style style:name="Tab1.A" style:family="table-column"><style:table-column-properties style:column-width="2in"/></style:style><style:style style:name="Tab1.A1" style:family="table-cell"><style:table-cell-properties fo:padding="0.04in" fo:border="0.5pt solid #000000" wcx:shade="soft"/></style:style></office:automatic-styles><office:body><office:text><table:table table:name="Grid" table:style-name="Tab1" wcx:role="data"><table:table-column table:style-name="Tab1.A" table:number-columns-repeated="2"/><table:table-row><table:table-cell table:style-name="Tab1.A1" office:value-type="string"><text:p>One</text:p></table:table-cell><table:table-cell table:style-name="Tab1.A1" office:value-type="string"><text:p>Two</text:p></table:table-cell></table:table-row></table:table><text:p>After.</text:p></office:text></office:body>"##,
@@ -242,7 +242,7 @@ const INDEXES: Sample = Sample {
     meta: "",
 };
 
-/// Pictures and shapes in the text: a cropped picture with its look (adjustments WordCraft
+/// Pictures and shapes in the text: a cropped picture with its look (adjustments crocwork Word
 /// doesn't model), a wrapped one with a contour, a shape, a group, and a picture in a table.
 const DRAWINGS: Sample = Sample {
     name: "drawings",
@@ -252,7 +252,7 @@ const DRAWINGS: Sample = Sample {
 };
 
 /// Comments in a paragraph: one over a range, with a reply, resolved, its text styled; one at a
-/// point; with what WordCraft doesn't model (an attribute, a styled paragraph in the comment).
+/// point; with what crocwork Word doesn't model (an attribute, a styled paragraph in the comment).
 const COMMENTS: Sample = Sample {
     name: "comments",
     content: r##"<office:automatic-styles><style:style style:name="T1" style:family="text"><style:text-properties fo:font-weight="bold" wcx:weight="kept"/></style:style></office:automatic-styles><office:body><office:text><text:p>Before <office:annotation office:name="Remark" loext:resolved="false" wcx:mark="kept"><dc:creator>Ada Lovelace</dc:creator><dc:date>2026-10-31T10:00:00</dc:date><meta:creator-initials>AL</meta:creator-initials><text:p>A <text:span text:style-name="T1">firm</text:span> remark.</text:p></office:annotation><office:annotation loext:parent-name="Remark" loext:resolved="true"><dc:creator>Alan Turing</dc:creator><dc:date>2026-10-31T11:00:00</dc:date><text:p>Agreed.</text:p></office:annotation>the words remarked on<office:annotation-end office:name="Remark"/> and a point<office:annotation><dc:creator>Grace Hopper</dc:creator><dc:date>2026-10-31T12:00:00</dc:date><text:p>Here.</text:p></office:annotation> after.</text:p></office:text></office:body>"##,
@@ -261,7 +261,7 @@ const COMMENTS: Sample = Sample {
 };
 
 /// Tracked changes: an insertion, a deletion (of text inserted before it, in part), a format
-/// change, a change's own remark (`office:change-info` paragraphs), and what WordCraft doesn't
+/// change, a change's own remark (`office:change-info` paragraphs), and what crocwork Word doesn't
 /// model on them.
 const CHANGES: Sample = Sample {
     name: "changes",
@@ -271,7 +271,7 @@ const CHANGES: Sample = Sample {
 };
 
 /// A text box with styled text in a styled frame, and a shape holding text, each with what
-/// WordCraft doesn't model.
+/// crocwork Word doesn't model.
 const TEXT_BOXES: Sample = Sample {
     name: "text boxes",
     content: r##"<office:automatic-styles><style:style style:name="fr1" style:family="graphic" style:parent-style-name="Frame"><style:graphic-properties style:wrap="parallel" fo:padding="0.05in" fo:border="0.5pt solid #000000" style:shadow="none" draw:shadow-opacity="100%" wcx:box="kept"/></style:style><style:style style:name="P1" style:family="paragraph"><style:paragraph-properties fo:text-align="center" wcx:para="kept"/></style:style><style:style style:name="gr1" style:family="graphic"><style:graphic-properties draw:fill-color="#ffcc00" draw:textarea-vertical-align="middle"/></style:style></office:automatic-styles><office:body><office:text><draw:frame draw:style-name="fr1" draw:name="Sender" text:anchor-type="page" text:anchor-page-number="1" svg:x="1in" svg:y="1in" svg:width="3in" draw:z-index="2"><draw:text-box fo:min-height="0.5in"><text:p>Our address</text:p></draw:text-box></draw:frame><text:p>A box <draw:frame draw:style-name="fr1" draw:name="Aside" text:anchor-type="paragraph" svg:width="2in" draw:z-index="0"><draw:text-box fo:min-height="0.5in"><text:p text:style-name="P1">Inside the box.</text:p><text:p>A second line.</text:p></draw:text-box></draw:frame>beside the text.</text:p><text:p>A shape <draw:custom-shape draw:style-name="gr1" draw:name="Sign" text:anchor-type="paragraph" svg:width="1in" svg:height="1in" draw:z-index="1"><text:p>Stop</text:p><draw:enhanced-geometry svg:viewBox="0 0 21600 21600" draw:type="octagon" draw:modifiers="5000" draw:enhanced-path="M ?f7 0 X 0 ?f8 L 0 ?f9 Y ?f7 21600 L ?f10 21600 X 21600 ?f9 L 21600 ?f8 Y ?f10 0 Z N"/></draw:custom-shape>with words.</text:p></office:text></office:body>"##,
@@ -548,7 +548,7 @@ fn a_paragraph_with_comments_is_written_as_read_while_they_are() {
 
 #[test]
 fn a_comment_answered_in_another_paragraph_is_written_from_the_model() {
-    // Its reply elsewhere in the file: the paragraph holding it isn't kept (WordCraft writes a
+    // Its reply elsewhere in the file: the paragraph holding it isn't kept (crocwork Word writes a
     // reply with what it answers), and the reply still names it.
     let content = COMMENTS.content.replace(
         r#"<office:annotation loext:parent-name="Remark" loext:resolved="true"><dc:creator>Alan Turing</dc:creator><dc:date>2026-10-31T11:00:00</dc:date><text:p>Agreed.</text:p></office:annotation>"#,
@@ -588,7 +588,7 @@ fn a_change_accepted_is_written_from_the_model_the_others_as_read() {
     assert!(c.contains(r#"text:id="ct12""#) && c.contains(r#"text:id="ct11""#) && c.contains(r#"text:id="ct13""#), "{c}");
     let back = import(&saved).unwrap();
     assert_eq!(back.revisions.len(), d.revisions.len() - 1, "{:?}", back.revisions);
-    // A change made in WordCraft next to the file's: its own id.
+    // A change made in crocwork Word next to the file's: its own id.
     let mut e = d.clone();
     e.settings.track_changes = true;
     if let Some(wordcraft_doc::Block::Para(p)) = e.body.get_mut(i).map(std::sync::Arc::make_mut) {
@@ -791,7 +791,7 @@ fn a_list_without_an_id_is_kept_and_given_one() {
 
 #[test]
 fn a_reference_mark_is_written_as_one_and_as_a_bookmark() {
-    // §6.6.2: `text:reference-ref` names a reference mark; WordCraft reads it as a bookmark (its
+    // §6.6.2: `text:reference-ref` names a reference mark; crocwork Word reads it as a bookmark (its
     // references, written from the model, are `text:bookmark-ref`): both are written.
     let content = r##"<office:body><office:text><text:p>See <text:reference-mark-start text:name="intro"/>the introduction<text:reference-mark-end text:name="intro"/> and <text:reference-mark text:name="point"/>here.</text:p><text:p>As said in <text:reference-ref text:reference-format="text" text:ref-name="intro">the introduction</text:reference-ref>.</text:p></office:text></office:body>"##;
     let d = import(&package(&Sample { name: "reference marks", content, styles: "", meta: "" })).unwrap();

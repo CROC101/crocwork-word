@@ -1,4 +1,4 @@
-//! Fields in an ODT file update in WordCraft as they do in Word: a reference to a bookmark shows
+//! Fields in an ODT file update in crocwork Word as they do in Word: a reference to a bookmark shows
 //! the bookmarked text (a bookmark over text, `text:bookmark-start`…`-end`, not a point). The
 //! ODT is original and synthetic, shaped like LibreOffice's.
 

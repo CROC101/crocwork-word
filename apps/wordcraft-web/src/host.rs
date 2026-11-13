@@ -1,18 +1,18 @@
-//! Host modes: a page that runs WordCraft (as an `<iframe>`, or in its own document) opens
+//! Host modes: a page that runs crocwork Word (as an `<iframe>`, or in its own document) opens
 //! documents in it and stores what it saves instead of the browser downloading. The messages and
 //! the two transports are `craft-web-host`'s (storytold/craft-libs), the same contract as the
-//! other Craft apps' bridges, with the `wordcraft:` prefix. This module is WordCraft's part of it.
+//! other Craft apps' bridges, with the `wordcraft:` prefix. This module is crocwork Word's part of it.
 //!
 //! - `?host=parent` (an `<iframe>`, such as a Nextcloud app) talks to the same-origin parent over
 //!   `postMessage`; `data-host="page"` on the canvas (the page's own document, no iframe) uses
 //!   DOM `CustomEvent`s on the canvas instead. `?host=parent` wins when both are present. With no
 //!   parent, or a parent on another origin, there is no bridge: the normal app with downloads.
-//! - `wordcraft:ready` once the app is running and listening; send a file now. WordCraft reads
+//! - `wordcraft:ready` once the app is running and listening; send a file now. crocwork Word reads
 //!   bytes, so it says `file: false` and a host sends `bytes`.
 //! - `wordcraft:open` (from the host): `{ name, bytes }`. It opens like a document picked with
 //!   File › Open or dropped on the window; a file over [`MAX_OPEN_BYTES`] is refused before it is
 //!   copied.
-//! - `wordcraft:save` (to the host): `{ name, saveAs, bytes }` for every file WordCraft would
+//! - `wordcraft:save` (to the host): `{ name, saveAs, bytes }` for every file crocwork Word would
 //!   otherwise download. The host stores it and reports failures itself. `saveAs` says whether
 //!   the file becomes the document's file:
 //!   - Save: `false`. It writes the opened file under its own name and format, as the desktop
@@ -53,7 +53,7 @@ pub struct Bridge {
 }
 
 impl Bridge {
-    /// The bridge for this page, or `None` when WordCraft isn't hosted: no `?host=parent` and no
+    /// The bridge for this page, or `None` when crocwork Word isn't hosted: no `?host=parent` and no
     /// `data-host="page"` on the canvas, an unframed `?host=parent` page (it stays the normal app
     /// with downloads), or a parent on another origin.
     pub fn detect(canvas: &web_sys::HtmlCanvasElement) -> Option<Self> {
@@ -115,7 +115,7 @@ impl Bridge {
 fn deliver_open(inbox: &Inbox, ctx: &egui::Context, name: &str, data: &FileData) {
     let name = if name == "document" { DEFAULT_NAME } else { name }.to_string();
     let FileData::Bytes(array) = data else {
-        log::warn!("host file {name} came as a File; WordCraft reads bytes only; not opened");
+        log::warn!("host file {name} came as a File; crocwork Word reads bytes only; not opened");
         return;
     };
     if data.size() > MAX_OPEN_BYTES as f64 {

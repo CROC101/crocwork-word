@@ -1,6 +1,6 @@
 //! Tables of contents and other generated indexes (ODF 1.3 §8: `text:table-of-content`,
 //! `text:illustration-index`, `text:table-index`, `text:alphabetical-index`,
-//! `text:bibliography`): opened as WordCraft's (Word's `TOC`, `INDEX` and `BIBLIOGRAPHY`
+//! `text:bibliography`): opened as crocwork Word's (Word's `TOC`, `INDEX` and `BIBLIOGRAPHY`
 //! fields around their entries, in the TOC styles), so Update Table works on them, and written
 //! back as ODF indexes LibreOffice updates.
 
@@ -54,14 +54,14 @@ fn a_table_of_contents_opens_as_wordcrafts() {
     assert_eq!(
         paras(&d),
         [
-            // Its title carries the field, as a table WordCraft inserts does.
+            // Its title carries the field, as a table crocwork Word inserts does.
             ("Table of Contents".to_string(), "TOCHeading".to_string(), vec![TOC_INSTR.to_string()]),
             ("Chapter 1\t1".into(), "TOC1".into(), vec![]),
             ("Section 1.1\t2".into(), "TOC2".into(), vec![]),
             ("After.".into(), String::new(), vec![]),
         ]
     );
-    // LibreOffice's Contents styles are WordCraft's TOC styles, with their look from the file.
+    // LibreOffice's Contents styles are crocwork Word's TOC styles, with their look from the file.
     let toc2 = d.styles.get("TOC2").unwrap();
     assert_eq!(toc2.name, "TOC 2");
     assert!(toc2.para.indent_left.is_some_and(|l| (l - 14.4).abs() < 0.01), "{:?}", toc2.para.indent_left);

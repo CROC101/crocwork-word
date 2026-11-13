@@ -23,7 +23,7 @@ pub struct Services {
     pub file_dialog: Option<Box<dyn Fn(FileDialogRequest) -> std::sync::mpsc::Receiver<FileDialogAnswer>>>,
     /// Desktop: stop waiting for the system file dialog the host is showing, if it can (a portal
     /// that never answers). The app calls it when it gives the dialog up (File › Open › Browse in
-    /// WordCraft…), so the host closes the request and answers as cancelled.
+    /// crocwork Word…), so the host closes the request and answers as cancelled.
     pub cancel_file_dialog: Option<Box<dyn Fn()>>,
     /// Web: open a file picker; the file arrives later through `inbox`.
     pub open_async: Option<Box<dyn Fn(&str)>>,
@@ -94,7 +94,7 @@ pub struct Services {
     pub forget_font: Option<Box<dyn Fn(&str)>>,
     /// Web: request browser to query and load local installed fonts (`window.queryLocalFonts()`).
     pub load_system_fonts: Option<Box<dyn Fn()>>,
-    /// Desktop: File › Options › General › Make WordCraft the default for Word documents (#295),
+    /// Desktop: File › Options › General › Make crocwork Word the default for Word documents (#295),
     /// only from that button (never a programmatic command). Windows opens the Settings app's
     /// Default apps page (apps can't set defaults themselves); Linux and BSD set it with
     /// `xdg-mime`. `None` (web, macOS) hides the button; macOS shows how to do it in Finder

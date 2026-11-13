@@ -1,5 +1,5 @@
 //! Form controls (ODF 1.3 §13: `office:forms` at the start of the text, each control placed by
-//! a `draw:control` in a paragraph) read as WordCraft content controls and written back:
+//! a `draw:control` in a paragraph) read as crocwork Word content controls and written back:
 //! text fields (`form:text`, `form:textarea`) as plain text controls, check boxes and radio
 //! buttons as check boxes (a radio button with round symbols), list boxes as drop-down lists,
 //! combo boxes as combo boxes, date fields as date controls. A control's name is its tag, a
@@ -21,7 +21,7 @@ const MAX_VALUE: usize = 10_000;
 pub(in crate::odt) const RADIO_ON: char = '\u{25C9}';
 pub(in crate::odt) const RADIO_OFF: char = '\u{25CB}';
 
-/// Form controls WordCraft has no kind for, kept verbatim (see [`ContentControl::form_xml`]):
+/// Form controls crocwork Word has no kind for, kept verbatim (see [`ContentControl::form_xml`]):
 /// every control of ODF 1.3 §13.5 but those it reads (text fields and areas, check boxes, option
 /// buttons, list and combo boxes, date fields) and hidden ones (kept apart).
 const KEPT: [&str; 12] = [
@@ -40,7 +40,7 @@ const KEPT: [&str; 12] = [
 ];
 /// Most bytes of a kept control's XML.
 const MAX_KEPT: usize = 64 * 1024;
-/// The namespace prefixes a kept control may use: those the content WordCraft writes declares.
+/// The namespace prefixes a kept control may use: those the content crocwork Word writes declares.
 const PREFIXES: [&str; 19] = [
     "office", "style", "text", "table", "draw", "fo", "xlink", "dc", "meta", "svg", "number", "form", "ooo", "ooow", "oooc", "script", "dom",
     "loext", "xml",
@@ -87,7 +87,7 @@ pub(in crate::odt) struct FormsReader {
     /// Hidden controls (§13.5.15 `form:hidden`: a name and a value the form sends, not shown),
     /// kept verbatim without their ids.
     pub(in crate::odt) hidden: Vec<String>,
-    /// A control WordCraft has no kind for being kept: its id, name, label, its XML so far (its
+    /// A control crocwork Word has no kind for being kept: its id, name, label, its XML so far (its
     /// id left out) and how many of its elements are open.
     kept: Option<Kept>,
 }
@@ -98,11 +98,11 @@ struct Kept {
     label: String,
     xml: String,
     open: usize,
-    /// It uses a prefix the content WordCraft writes doesn't declare: not kept.
+    /// It uses a prefix the content crocwork Word writes doesn't declare: not kept.
     foreign: bool,
 }
 
-/// Whether name `q` has a prefix the content WordCraft writes declares.
+/// Whether name `q` has a prefix the content crocwork Word writes declares.
 fn known(q: &str) -> bool {
     q.split_once(':').is_some_and(|(p, _)| PREFIXES.contains(&p))
 }
@@ -237,7 +237,7 @@ impl FormsReader {
             if k.open == 0
                 && let Some(k) = self.kept.take()
             {
-                // Too long to keep whole, or naming what WordCraft can't write: not kept.
+                // Too long to keep whole, or naming what crocwork Word can't write: not kept.
                 if k.xml.len() <= MAX_KEPT && !k.foreign && k.id.is_empty() {
                     self.hidden.push(k.xml);
                 } else if k.xml.len() <= MAX_KEPT && !k.foreign {

@@ -1,6 +1,6 @@
 //! Polygons, polylines, paths and regular polygons (ODF 1.3 §10.3.4–10.3.7, §10.3.9:
 //! `draw:polygon`, `draw:polyline`, `draw:path` with its SVG path data, `draw:regular-polygon`)
-//! and circles (§10.3.8): opened as WordCraft freeforms (curves followed by short straight
+//! and circles (§10.3.8): opened as crocwork Word freeforms (curves followed by short straight
 //! segments) and ellipses, and freeforms written back as paths.
 
 use crate::odt::tests::{NS_T, content_of, package};

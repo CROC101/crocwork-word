@@ -1,4 +1,4 @@
-//! A WordCraft started by an AppImage app inherits that app's `APPIMAGE`, which the self-update
+//! A crocwork Word started by an AppImage app inherits that app's `APPIMAGE`, which the self-update
 //! would take for this copy's file and replace (#5653). The real program, started both ways.
 
 use std::ffi::OsString;
@@ -91,7 +91,7 @@ fn starting_over_keeps_the_arguments() {
 fn its_own_images_variables_stay() {
     let exe = Path::new(env!("CARGO_BIN_EXE_wordcraft")).canonicalize().unwrap();
     let mount = exe.parent().unwrap();
-    let out = app(&["--version".into()], &mount.join("WordCraft.AppImage"), mount);
+    let out = app(&["--version".into()], &mount.join("crocwork Word.AppImage"), mount);
     let (stdout, stderr) = (String::from_utf8_lossy(&out.stdout), String::from_utf8_lossy(&out.stderr));
     assert!(out.status.success(), "status {:?}, stderr: {stderr}", out.status);
     assert!(stdout.starts_with("wordcraft "), "stdout: {stdout}");

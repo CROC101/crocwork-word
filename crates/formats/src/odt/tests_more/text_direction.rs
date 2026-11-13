@@ -1,6 +1,6 @@
 //! Turned text (ODF 1.3 §20.404 `style:writing-mode`, and LibreOffice's own
 //! `loext:writing-mode="bt-lr"` for text running upwards): a table cell's and a text box's text
-//! turned down (`tb-rl`) or up opens as WordCraft's cell text direction and text box direction,
+//! turned down (`tb-rl`) or up opens as crocwork Word's cell text direction and text box direction,
 //! and is written back the same way.
 
 use crate::odt::tests::{NS_T, content_of, package};

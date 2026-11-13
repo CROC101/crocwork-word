@@ -183,7 +183,7 @@ pub(in crate::odt) fn shape_look_attrs(look: &model::BoxLook, defs: &mut crate::
     a
 }
 
-/// A text box's default inner margins (left, top, right, bottom), points: WordCraft's and
+/// A text box's default inner margins (left, top, right, bottom), points: crocwork Word's and
 /// Word's (0.1" and 0.05").
 pub(in crate::odt) const DEFAULT_BOX_INSET: [f32; 4] = [7.2, 3.6, 7.2, 3.6];
 
@@ -250,8 +250,8 @@ impl Writer {
             x(&name),
             x(&replacement)
         );
-        // A picture shown that isn't the replacement (one WordCraft can't read) follows it; a
-        // placeholder is WordCraft's own, not the file's.
+        // A picture shown that isn't the replacement (one crocwork Word can't read) follows it; a
+        // placeholder is crocwork Word's own, not the file's.
         let other = o.replacement.as_ref().is_some_and(|r| r.as_slice() != img.data.as_slice());
         if other && crate::odt::objects::placeholder(&o.mime).as_deref() != Some(img.data.as_slice()) {
             let href = self.picture(img);
@@ -642,7 +642,7 @@ mod tests {
 
     #[test]
     fn an_object_never_takes_a_kept_objects_name() {
-        // Re-saving a file WordCraft saved: its `Object wc1` is kept as read, so a new object
+        // Re-saving a file crocwork Word saved: its `Object wc1` is kept as read, so a new object
         // (an edited paragraph's chart or formula) takes `Object wc2`, not the kept one's files.
         let mut w = Writer::with_prefix("wc");
         w.reserved = std::sync::Arc::new(["Object wc1/content.xml".to_string(), "Object wc3".to_string()].into_iter().collect());
@@ -656,7 +656,7 @@ mod tests {
 
     #[test]
     fn a_picture_never_takes_a_name_an_earlier_one_took() {
-        // Re-saving a file WordCraft saved: its `wcimage1.png` is kept as read, so the first new
+        // Re-saving a file crocwork Word saved: its `wcimage1.png` is kept as read, so the first new
         // picture skips to 2, and the second must not take 2 again (a duplicate zip entry fails
         // the save).
         let mut w = Writer::with_prefix("wc");

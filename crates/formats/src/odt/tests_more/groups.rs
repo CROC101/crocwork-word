@@ -1,5 +1,5 @@
 //! Groups of drawing shapes and pictures (ODF 1.3 §10.3.15 `draw:g`): the group is anchored and
-//! wraps as one, its members placed by their own positions in it; opened as a WordCraft group
+//! wraps as one, its members placed by their own positions in it; opened as a crocwork Word group
 //! and written back as one.
 
 use crate::odt::tests::{NS_T, content_of, package};
@@ -114,7 +114,7 @@ fn hostile_groups_do_not_panic() {
 #[test]
 fn a_diagram_is_saved_as_a_group_of_its_drawing() {
     // A SmartArt diagram (ODF has none): saved as a group of its shapes and its text in text
-    // boxes, so every reader draws it; WordCraft opens it back as a group.
+    // boxes, so every reader draws it; crocwork Word opens it back as a group.
     use wordcraft_doc::graphic::{Graphic, GraphicItem, GraphicKind, TextAlign};
     use wordcraft_doc::props::Rgb;
     let blue = Rgb(0x15, 0x60, 0x82);

@@ -20,20 +20,20 @@ pub(crate) const PROOFING_LANGUAGES: [(&str, &str); 16] = [
     ("es-UY", "Spanish (Uruguay)"),
 ];
 
-/// Every language WordCraft has an English name for, by tag: the Language menu's short list, the
+/// Every language crocwork Word has an English name for, by tag: the Language menu's short list, the
 /// Language dialog's built-in list, then the Language pack languages neither has (Bulgarian…).
 fn known() -> impl Iterator<Item = &'static (&'static str, &'static str)> {
     PROOFING_LANGUAGES.iter().chain(crate::dialogs_layout::LANGUAGES.iter()).chain(crate::language_packs::MORE_LANGUAGES.iter())
 }
 
-/// The language tag a document stores for text in a Language pack's language: the tag WordCraft
+/// The language tag a document stores for text in a Language pack's language: the tag crocwork Word
 /// already names for it (`nl` → `nl-NL`, `sr-latn` → `sr-Latn-RS`, `bg` → `bg-BG`), else the
 /// locale in BCP 47 case (`de-at` → `de-AT`). [`wordcraft_engine::packs::pack_for_tag`] finds the
 /// same pack again from it, so text marked in a pack's language is proofed by that pack.
 pub(crate) fn tag_for_pack(locale: &str) -> String {
     let wanted = locale.replace('_', "-");
     let exact = known().find(|(t, _)| t.eq_ignore_ascii_case(&wanted));
-    // A variant WordCraft names with its region (`ca-valencia` is `ca-ES-valencia`).
+    // A variant crocwork Word names with its region (`ca-valencia` is `ca-ES-valencia`).
     let regioned = || known().find(|(t, _)| t.contains('-') && wordcraft_engine::packs::without_region(t).eq_ignore_ascii_case(&wanted));
     if let Some((t, _)) = exact.or_else(|| named_starting(&wanted)).or_else(regioned) {
         return (*t).to_string();
@@ -57,7 +57,7 @@ pub(crate) fn tag_for_pack(locale: &str) -> String {
     parts.join("-")
 }
 
-/// The first language WordCraft names whose tag starts with `prefix` and a `-` (`bg` is
+/// The first language crocwork Word names whose tag starts with `prefix` and a `-` (`bg` is
 /// `bg-BG`, `sr-Latn` is `sr-Latn-RS`).
 fn named_starting(prefix: &str) -> Option<&'static (&'static str, &'static str)> {
     known().find(|(t, _)| {
@@ -67,7 +67,7 @@ fn named_starting(prefix: &str) -> Option<&'static (&'static str, &'static str)>
     })
 }
 
-/// A pack language's name for the lists, in English: the name WordCraft has for its tag, else the
+/// A pack language's name for the lists, in English: the name crocwork Word has for its tag, else the
 /// pack's own name (as shown, without format characters), else the tag.
 fn pack_language_name(tag: &str, endonym: &str) -> String {
     let named = language_name(Some(tag));
@@ -86,7 +86,7 @@ fn pack_languages(available: bool) -> Vec<(String, String)> {
 }
 
 /// Review › Language's and the status bar's short list, as (tag, English name): the languages
-/// WordCraft proofs itself, then each installed Language pack's language not among them, by name.
+/// crocwork Word proofs itself, then each installed Language pack's language not among them, by name.
 pub(crate) fn short_languages() -> Vec<(String, String)> {
     let mut out: Vec<(String, String)> = PROOFING_LANGUAGES.iter().map(|(t, n)| ((*t).to_string(), (*n).to_string())).collect();
     let mut more: Vec<(String, String)> = Vec::new();
@@ -102,7 +102,7 @@ pub(crate) fn short_languages() -> Vec<(String, String)> {
 }
 
 /// The Set Proofing Language dialog's list, as (tag, name in the interface language), sorted by
-/// name: every language WordCraft names, every installed Language pack's and every available
+/// name: every language crocwork Word names, every installed Language pack's and every available
 /// one's, each once.
 pub(crate) fn all_languages() -> Vec<(String, String)> {
     let mut out: Vec<(String, String)> = Vec::new();
@@ -177,7 +177,7 @@ enum NameParts {
     Regioned { language: String, region: String },
 }
 
-/// The English name of a proofing language tag, as the status bar shows it (no tag: WordCraft's
+/// The English name of a proofing language tag, as the status bar shows it (no tag: crocwork Word's
 /// default, US English): a listed language by its name; another region of one by the language
 /// and the region ("French (Canada)"); a bare language subtag by its usual variant; else the tag.
 pub(crate) fn language_name(tag: Option<&str>) -> String {
@@ -205,7 +205,7 @@ pub(super) fn display_name_with(tag: Option<&str>, translate: &dyn Fn(&str) -> S
 }
 
 /// The name a list shows for `tag` whose English name is `name`: [`display_name`] for the name
-/// WordCraft has for the tag, else `name` as it is (a pack's own name for a language WordCraft
+/// crocwork Word has for the tag, else `name` as it is (a pack's own name for a language crocwork Word
 /// has none for).
 pub(crate) fn display_of(tag: &str, name: &str) -> String {
     if name == language_name(Some(tag)) { display_name(Some(tag)) } else { name.to_string() }
@@ -233,7 +233,7 @@ fn name_parts(tag: Option<&str>) -> NameParts {
                 None => NameParts::Whole(tag.to_string()),
             }
         }
-        // A bare language subtag ("pt", "pl"): the variant WordCraft proofs.
+        // A bare language subtag ("pt", "pl"): the variant crocwork Word proofs.
         None => NameParts::Whole(match wordcraft_engine::proof::ProofLang::from_tag(Some(tag)) {
             wordcraft_engine::proof::ProofLang::Pl => "Polish".into(),
             wordcraft_engine::proof::ProofLang::Hr => "Croatian".into(),
@@ -354,7 +354,7 @@ pub(crate) fn caret_no_proof(app: &WordApp) -> bool {
     caret_char(app).no_proof
 }
 
-/// Does WordCraft check spelling and grammar in the caret's language at all (Bulgarian: no)?
+/// Does crocwork Word check spelling and grammar in the caret's language at all (Bulgarian: no)?
 pub(crate) fn caret_language_proofed(app: &WordApp) -> bool {
     wordcraft_engine::proof::has_dictionary(caret_lang_tag(app).as_deref())
 }
@@ -466,7 +466,7 @@ fn listed_parts(tag: &str) -> TagParts {
 
 /// Are `a` and `b` the same language as the lists show it: the same tag (any case), or tags that
 /// agree in script, region and variant (one lacking a script or region takes the one the lists name
-/// it with) and that WordCraft proofs alike ([`same_proofing`]): `nl` is the `nl-NL` row, `pl` the
+/// it with) and that crocwork Word proofs alike ([`same_proofing`]): `nl` is the `nl-NL` row, `pl` the
 /// `pl-PL` one, `ces` the `cs-CZ` one. Tags are compared, never the names the lists show for them.
 pub(crate) fn same_language(a: &str, b: &str) -> bool {
     if a.eq_ignore_ascii_case(b) {
@@ -478,7 +478,7 @@ pub(crate) fn same_language(a: &str, b: &str) -> bool {
     let (pa, pb) = (listed_parts(a), listed_parts(b));
     let agree = |x: &Option<String>, y: &Option<String>| x.is_none() || y.is_none() || x == y;
     // A language the lists name no region for (`xx`, `kl`) is not its regioned tag (`xx-AA`): they
-    // stay separate rows. Rules WordCraft has built in (`ces` for `cs-CZ`) match without one.
+    // stay separate rows. Rules crocwork Word has built in (`ces` for `cs-CZ`) match without one.
     use wordcraft_engine::proof::ProofLang;
     if pa.region.is_none() != pb.region.is_none() && matches!(ProofLang::from_tag(Some(a)), ProofLang::Pack(_) | ProofLang::Other) {
         return false;
@@ -512,10 +512,10 @@ fn variants_agree(a: &[String], b: &[String]) -> bool {
     !extra.iter().any(named)
 }
 
-/// Does WordCraft proof `a` and `b` the same way: the same built-in language, or two Language
+/// Does crocwork Word proof `a` and `b` the same way: the same built-in language, or two Language
 /// pack languages read from the same pack ([`wordcraft_engine::packs::pack_for_tag`]: `nl` and
 /// `nl-NL` are both the `nl` pack's, though their pack locales differ); with neither pack known,
-/// the same language and script whatever the region. Languages WordCraft has no rules or pack for
+/// the same language and script whatever the region. Languages crocwork Word has no rules or pack for
 /// are the same only when their language subtags are.
 fn same_proofing(a: &str, b: &str) -> bool {
     use wordcraft_engine::packs;

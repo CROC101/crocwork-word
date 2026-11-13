@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build and package WordCraft for Linux (<arch> is x86_64 or aarch64, or riscv64 when cross-compiling):
+# Build and package crocwork Word for Linux (<arch> is x86_64 or aarch64, or riscv64 when cross-compiling):
 #
 #   $DIST/wordcraft-<version>-linux-<arch>.AppImage  any distro with glibc >= the build host's
 #   $DIST/wordcraft-<version>-linux-<arch>.AppImage.zsync  delta updates (needs zsyncmake)
@@ -37,10 +37,10 @@ case "$ARCH" in
   aarch64 | arm64) ARCH=aarch64; DEB_ARCH=arm64 ;;
   *) echo "unsupported architecture $ARCH" >&2; exit 2 ;;
 esac
-export WORDCRAFT_MAINTAINER="${WORDCRAFT_MAINTAINER:-WordCraft maintainers <wordcraft@storyteller.ai>}"
+export WORDCRAFT_MAINTAINER="${WORDCRAFT_MAINTAINER:-crocwork Word maintainers <wordcraft@storyteller.ai>}"
 BASENAME="wordcraft-$VERSION-linux-$ARCH"
 
-echo "==> WordCraft $VERSION for Linux $ARCH ($FORMATS)"
+echo "==> crocwork Word $VERSION for Linux $ARCH ($FORMATS)"
 
 if [[ "$SKIP_BUILD" = 0 ]]; then
   if [[ -n "${CROSS_TARGET:-}" ]]; then
@@ -129,7 +129,7 @@ if has appimage; then
     printf '%s  %s\n' "$expected_sha" "$target" | sha256sum -c -
     return 0
   }
-  APPDIR="$WORK/WordCraft.AppDir"
+  APPDIR="$WORK/crocwork Word.AppDir"
   cp -R "$STAGE" "$APPDIR"
   ln -s usr/bin/wordcraft "$APPDIR/AppRun"
   cp "$HERE/$APP_ID.desktop" "$APPDIR/$APP_ID.desktop"

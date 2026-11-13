@@ -120,7 +120,7 @@ fn cm(v: f32) -> f32 {
 fn a_header_starts_at_the_page_margin_and_the_text_after_it() {
     // ODF puts the header at the page margin and the text below the header's band; Word measures
     // both from the page edge. Whether the band's height takes in its spacing the standard
-    // doesn't say: WordCraft adds it (a 2 cm header with 1 cm spacing puts the text 3 cm below
+    // doesn't say: crocwork Word adds it (a 2 cm header with 1 cm spacing puts the text 3 cm below
     // the margin).
     let content = format!(
         r#"<office:document-content {}><office:body><office:text><text:p>x</text:p></office:text></office:body></office:document-content>"#,
@@ -287,11 +287,11 @@ fn a_watermark_is_a_shape_in_the_header_and_reads_back_as_one() {
     );
 }
 
-/// A watermark added, changed or removed in WordCraft reaches a file's page definitions.
+/// A watermark added, changed or removed in crocwork Word reaches a file's page definitions.
 #[test]
 fn a_watermark_change_to_a_file_is_saved() {
     // A file's own page definitions were written back whatever happened to its watermark, so one
-    // added, changed or removed in WordCraft was gone from the saved file.
+    // added, changed or removed in crocwork Word was gone from the saved file.
     let ns = crate::odt::tests::NS_T;
     let styles = format!(
         r#"<office:document-styles {ns}><office:automatic-styles><style:page-layout style:name="pm1" style:page-usage="mirrored"><style:page-layout-properties fo:page-width="21cm" fo:page-height="29.7cm" fo:margin-top="2cm" fo:margin-bottom="2cm" fo:margin-left="2cm" fo:margin-right="2cm"/></style:page-layout></office:automatic-styles><office:master-styles><style:master-page style:name="Standard" style:page-layout-name="pm1"/></office:master-styles></office:document-styles>"#
@@ -336,7 +336,7 @@ fn a_watermark_change_to_a_file_is_saved() {
     assert!(s.contains(r#"style:page-usage="mirrored""#) && !s.contains(shape), "no text: {s}");
 }
 
-/// Different Odd & Even Pages turned on or off in WordCraft reaches a file's page definitions.
+/// Different Odd & Even Pages turned on or off in crocwork Word reaches a file's page definitions.
 #[test]
 fn different_odd_and_even_pages_changed_in_a_file_is_saved() {
     // A file's own page definitions were written back whatever happened to this setting, so the

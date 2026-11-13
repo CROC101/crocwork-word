@@ -191,7 +191,7 @@ pub struct Session {
     pub merge: crate::cmd::mailings::MergeState,
     /// Requests from commands to the UI (open a dialog, scroll…), drained by the front end.
     pub ui_requests: Vec<Value>,
-    /// View › Window: the other WordCraft windows and Side by Side (#322).
+    /// View › Window: the other crocwork Word windows and Side by Side (#322).
     pub windows: crate::cmd::view::Windows,
     /// Read Aloud player (Review › Speech).
     pub read_aloud: crate::speech::ReadAloud,
@@ -207,7 +207,7 @@ pub struct Session {
     /// Custom ribbon and Quick Access Toolbar (`tools.customizeRibbon`); the front end saves it too.
     pub ribbon: crate::RibbonLayout,
     /// The language new blank documents (and opened plain text) are written in, a BCP 47 tag;
-    /// `None` is WordCraft's default, US English. The front end sets it from the interface
+    /// `None` is crocwork Word's default, US English. The front end sets it from the interface
     /// language with [`Session::set_editing_language`] (a Polish interface writes Polish).
     pub editing_lang: Option<String>,
     /// Editing inside an equation: which one and the caret in it.

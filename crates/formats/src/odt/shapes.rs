@@ -1,6 +1,6 @@
 //! Drawing shapes (ODF 1.3 §10.3): `draw:rect`, `draw:ellipse`, `draw:line` and
 //! `draw:custom-shape`, whose `draw:enhanced-geometry` (§10.6.2) names its predefined geometry
-//! in `draw:type`. WordCraft's shape kinds both ways; LibreOffice rebuilds a predefined
+//! in `draw:type`. crocwork Word's shape kinds both ways; LibreOffice rebuilds a predefined
 //! geometry from its type alone, so only the type is written.
 
 use super::xml::{Attrs, get, length};
@@ -39,8 +39,8 @@ pub(super) fn element_kind(name: &str) -> ShapeKind {
 
 /// The kind of a custom shape of `draw:type` `t`: LibreOffice's own type names, and the
 /// DrawingML preset names it writes as `ooxml-…` for shapes from Word documents. A geometry
-/// WordCraft has no shape for is a rectangle.
-/// A preset geometry type WordCraft has no kind for: drawn as a rectangle (see [`kind_of`]), its
+/// crocwork Word has no shape for is a rectangle.
+/// A preset geometry type crocwork Word has no kind for: drawn as a rectangle (see [`kind_of`]), its
 /// geometry kept to be written back.
 pub(super) fn unknown_preset(t: &str) -> bool {
     let t = t.trim();
@@ -87,7 +87,7 @@ pub(super) fn connector_type(kind: ShapeKind) -> &'static str {
     }
 }
 
-/// WordCraft's connection site of a `kind` shape for ODF glue point `g` (§9.2.19: a shape's
+/// crocwork Word's connection site of a `kind` shape for ODF glue point `g` (§9.2.19: a shape's
 /// default glue points are 0 top, 1 right, 2 bottom, 3 left; see
 /// [`wordcraft_doc::connector::sites`]). `None` for a glue point of its own (4 on) or a shape
 /// without sides.

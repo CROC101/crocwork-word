@@ -24,7 +24,7 @@ use super::xml::{Ev, events, get};
 pub enum CryptError {
     /// The password doesn't decrypt it (the checksums don't match).
     WrongPassword,
-    /// An encryption WordCraft doesn't support, or a broken package.
+    /// An encryption crocwork Word doesn't support, or a broken package.
     Unsupported(String),
 }
 
@@ -46,7 +46,7 @@ const MAX_ITERATIONS: u32 = 10_000_000;
 /// Most files in a package decrypted.
 const MAX_FILES: usize = 10_000;
 /// Most PBKDF2 work (iterations times the key's 20-byte blocks) for a whole package: a thousand
-/// files as LibreOffice and WordCraft write them (100,000 iterations, a 32-byte key), so many
+/// files as LibreOffice and crocwork Word write them (100,000 iterations, a 32-byte key), so many
 /// files at the per-file cap can't add up to a hang.
 const MAX_WORK: u64 = 200_000_000;
 
@@ -227,7 +227,7 @@ fn checksum(kind: &str, deflated: &[u8]) -> Result<Vec<u8>, CryptError> {
 fn decrypt_file(data: &[u8], p: &Params, password: &str) -> Result<Vec<u8>, CryptError> {
     if p.algorithm != AES256_CBC {
         let what = if p.algorithm.to_ascii_lowercase().contains("blowfish") { "Blowfish".to_string() } else { format!("{:?}", p.algorithm) };
-        return Err(CryptError::Unsupported(format!("this file is encrypted with {what}, which WordCraft can't open")));
+        return Err(CryptError::Unsupported(format!("this file is encrypted with {what}, which crocwork Word can't open")));
     }
     let key = file_key(p, password)?;
     let plain = Zeroizing::new(cbc(&key, &p.iv, data, false)?);

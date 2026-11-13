@@ -5,7 +5,7 @@ use wordcraft_engine::Session;
 
 /// Paste Special lists and pastes the same formats the engine chose: the clipboard ownership
 /// result must survive into the dialog's payload, or another program's copy could be replaced
-/// by WordCraft's own fragment.
+/// by crocwork Word's own fragment.
 #[test]
 fn paste_special_dialog_keeps_the_clipboard_ownership_result() {
     let a = WordApp::new(Session::new(wordcraft_doc::Document::from_text("")), crate::Services::default());
@@ -2108,8 +2108,8 @@ fn window_drags(h: &mut egui_kittest::Harness<WordApp>, at: egui::Pos2) -> usize
 }
 
 /// #5124: behind a modal dialog the window still moves by its title bar, as in Word for Mac, where
-/// WordCraft draws it, or by the top of File's side menu, which covers it there; elsewhere the
-/// system's title bar does, and WordCraft's bar under it doesn't.
+/// crocwork Word draws it, or by the top of File's side menu, which covers it there; elsewhere the
+/// system's title bar does, and crocwork Word's bar under it doesn't.
 #[test]
 fn the_window_moves_by_its_title_bar_behind_a_modal_dialog() {
     for (mac, backstage) in [(true, false), (true, true), (false, false), (false, true)] {
@@ -2157,7 +2157,7 @@ fn modal_open_is_true_for_the_file_browser_a_modal_dialog_and_colors() {
 }
 
 /// #5124: whatever is open, a drag on the title bar macOS draws moves the window; where the system
-/// draws it, WordCraft's bar under it only does while nothing blocks it.
+/// draws it, crocwork Word's bar under it only does while nothing blocks it.
 #[test]
 fn the_title_bar_moves_the_window_in_every_modal_state() {
     for (state, modal) in [("none", false), ("find", false), ("font", true), ("fileBrowser", true), ("colors", true)] {

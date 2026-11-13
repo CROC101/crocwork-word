@@ -237,7 +237,7 @@ pub(in crate::odt) fn text_props(f: &Fmt) -> String {
     if let Some(c) = f.background {
         p.push_str(&format!(" fo:background-color=\"#{}\"", c.hex().to_ascii_lowercase()));
     }
-    // One size in WordCraft's model is every script's in ODF's, as bold is: without these,
+    // One size in crocwork Word's model is every script's in ODF's, as bold is: without these,
     // LibreOffice shows Asian and complex-script text at the default size whatever was chosen.
     if let Some(s) = f.size {
         p.push_str(&format!(" fo:font-size=\"{0}\" style:font-size-asian=\"{0}\"", pt(s)));
@@ -369,7 +369,7 @@ pub(in crate::odt) fn parent_style(k: Kind) -> &'static str {
     }
 }
 
-/// The LibreOffice style (name and display name) standing for WordCraft's table of contents,
+/// The LibreOffice style (name and display name) standing for crocwork Word's table of contents,
 /// table of figures and index heading styles, which LibreOffice's indexes are generated in:
 /// TOC 1–9 are Contents 1–9, TOC Heading is Contents Heading, Table of Figures is Figure Index 1.
 pub(in crate::odt) fn generated_style(id: &str) -> Option<(String, String)> {
@@ -382,7 +382,7 @@ pub(in crate::odt) fn generated_style(id: &str) -> Option<(String, String)> {
     })
 }
 
-/// The WordCraft style (id and name) a LibreOffice index style `odt` stands for (the reverse
+/// The crocwork Word style (id and name) a LibreOffice index style `odt` stands for (the reverse
 /// of [`generated_style`]).
 pub(in crate::odt) fn generating_style(odt: &str) -> Option<(String, String)> {
     let n = odt.strip_prefix("Contents_20_").and_then(|n| n.parse::<u8>().ok()).filter(|n| (1..=10).contains(n));

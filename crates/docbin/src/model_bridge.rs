@@ -1,4 +1,4 @@
-//! Bounded conversion from the shared Word model to WordCraft's app model.
+//! Bounded conversion from the shared Word model to crocwork Word's app model.
 //!
 //! The model crates intentionally have independent Rust types. Convert document stories a
 //! paragraph at a time, recursively through tables, so a large document never needs a second
@@ -115,7 +115,7 @@ fn glossary_value(source: craft_wordmodel::BuildingBlock) -> Result<wordcraft_do
 
 /// Converts the shared reader's model without copying the full document or its embedded media.
 ///
-/// The DOC reader leaves WordCraft-only transient fit state, editor fragments, and style change
+/// The DOC reader leaves crocwork Word-only transient fit state, editor fragments, and style change
 /// annotations at their defaults; the persistent document fields are transferred here. Body and
 /// table-cell stories are mapped one paragraph at a time, while shared media buffers are moved.
 pub fn from_shared_model(source: craft_wordmodel::Document) -> Result<wordcraft_doc::Document, DocbinError> {

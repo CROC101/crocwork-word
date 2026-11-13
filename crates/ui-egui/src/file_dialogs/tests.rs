@@ -252,7 +252,7 @@ fn answer_all(shown: &Shown, picked: &[&str]) {
     tx.send(Ok(picked.iter().map(|p| p.to_string()).collect())).unwrap();
 }
 
-/// Giving the system dialog up (File › Open › Browse in WordCraft…) tells the host to cancel its
+/// Giving the system dialog up (File › Open › Browse in crocwork Word…) tells the host to cancel its
 /// waiting request, so a portal that stopped answering cannot keep Save As stuck.
 #[cfg(not(target_arch = "wasm32"))]
 #[test]

@@ -1,6 +1,6 @@
 //! Where a picture's frame sits and how text wraps around it (ODF 1.3 §19.11 `text:anchor-type`,
 //! §20.2xx `style:wrap`, `style:run-through`, `style:horizontal-pos`/`-rel`,
-//! `style:vertical-pos`/`-rel`, `fo:margin-*` of `style:graphic-properties`), and WordCraft's
+//! `style:vertical-pos`/`-rel`, `fo:margin-*` of `style:graphic-properties`), and crocwork Word's
 //! [`Float`] for it, both ways.
 
 use super::strokes::Defs;
@@ -18,7 +18,7 @@ use wordcraft_doc::props::Rgb;
 const MAX_LEN: f32 = 1584.0;
 
 /// A drawing shape's fill colour when no style gives one (§20.119 `draw:fill-color` has no
-/// default): WordCraft's shape blue.
+/// default): crocwork Word's shape blue.
 const SHAPE_FILL: Rgb = Rgb(0x15, 0x60, 0x82);
 
 /// A drawing shape's line colour when no style gives one (§20.408 `svg:stroke-color` has no
@@ -95,7 +95,7 @@ fn clip_rect(v: &str) -> Option<[f32; 4]> {
 }
 
 /// A frame's contour (§10.4.11 `draw:contour-polygon`: its `draw:points` in its `svg:viewBox`)
-/// as a wrap polygon in WordCraft's wrap space (21600 across the object each way). `None` without
+/// as a wrap polygon in crocwork Word's wrap space (21600 across the object each way). `None` without
 /// three usable points.
 pub(super) fn contour_polygon(a: &Attrs) -> Option<std::sync::Arc<wordcraft_doc::wrap::WrapPolygon>> {
     let vb: Vec<f64> = get(a, "svg:viewBox")?.split(|c: char| c == ',' || c.is_whitespace()).filter_map(|v| v.parse().ok()).collect();
@@ -255,7 +255,7 @@ impl Graphic {
     }
 
     /// The look of drawing shape `kind` in this style: a solid fill and line where the styles
-    /// say nothing (the standard gives `draw:fill` and `draw:stroke` no default), in WordCraft's
+    /// say nothing (the standard gives `draw:fill` and `draw:stroke` no default), in crocwork Word's
     /// colours and line width (nor do `draw:fill-color`, `svg:stroke-color` and
     /// `svg:stroke-width` have defaults); a line has no fill.
     pub(super) fn shape_look(&self, kind: ShapeKind, defs: &Defs) -> BoxLook {
@@ -270,7 +270,7 @@ impl Graphic {
             Some("none") => None,
             _ => Some((self.stroke_color.unwrap_or(SHAPE_LINE), self.stroke_width.filter(|w| *w > 0.0).unwrap_or(HAIRLINE))),
         };
-        // Only a shape that says it grows to its text does: WordCraft's fit shrinks it too.
+        // Only a shape that says it grows to its text does: crocwork Word's fit shrinks it too.
         let (dash, arrows) = self.stroke_extra(line.map_or(HAIRLINE, |l| l.1), defs);
         BoxLook {
             fill,
@@ -438,7 +438,7 @@ pub(super) fn page_of(anchor: Option<&str>, number: Option<&str>, g: &Graphic) -
 const MAX_ANCHOR_PAGE: u32 = 1_000_000;
 
 /// A drawing's place in the stacking order (§19.231 `draw:z-index`, from 0 at the bottom) as
-/// WordCraft's [`Float::z`] (higher on top, 0 for unknown): one more.
+/// crocwork Word's [`Float::z`] (higher on top, 0 for unknown): one more.
 pub(super) fn z_of(a: &Attrs) -> u32 {
     get(a, "draw:z-index").and_then(|v| v.trim().parse::<u32>().ok()).map_or(0, |z| z.saturating_add(1))
 }
@@ -449,7 +449,7 @@ pub(crate) fn z_index(float: Option<&Float>) -> u32 {
 }
 
 /// How far a frame `h` points tall in line with the text is raised from standing on the
-/// baseline (points, negative lowered; WordCraft keeps it in an inline [`Float`]'s `y`): its
+/// baseline (points, negative lowered; crocwork Word keeps it in an inline [`Float`]'s `y`): its
 /// `style:vertical-pos` relative to the baseline (§20.387, §20.388; LibreOffice's placement
 /// when no `style:vertical-rel` is given) — `top` stands on it, `middle` is centred on it,
 /// `bottom` hangs from it, `from-top` has its top `svg:y` below it. Relative to the text
@@ -497,7 +497,7 @@ const TEXT_DESCENT: f32 = 0.216;
 /// Most operations of a `draw:transform` read.
 const MAX_TRANSFORMS: usize = 16;
 
-/// A `draw:transform` (ODF 1.3 §19.228) of an object `w` × `h`, as WordCraft places it: the
+/// A `draw:transform` (ODF 1.3 §19.228) of an object `w` × `h`, as crocwork Word places it: the
 /// offset of its unrotated box and its clockwise turn about the box's centre, in degrees
 /// (0–360). The file's operations apply in turn to the object's own coordinates, whose origin
 /// is its top left corner: `rotate` turns it anticlockwise (radians), `translate` moves it and
@@ -580,7 +580,7 @@ pub(super) fn turned(f: &Float) -> bool {
 /// horizontal and vertical axes export with `page` anchor; mixed or paragraph-relative frames
 /// export with `paragraph` (or `char` for line-relative vertical) anchor to preserve placement.
 pub(super) fn frame_of(f: &Float, w: f32, h: f32) -> (&'static str, String, String) {
-    // A page number holds until it is placed by its paragraph: moved in WordCraft.
+    // A page number holds until it is placed by its paragraph: moved in crocwork Word.
     let by_paragraph =
         matches!(f.h_rel, Anchor::Column | Anchor::Character) || matches!(f.v_rel, Anchor::Paragraph | Anchor::Line | Anchor::Character);
     let anchor = if (f.page > 0 && !by_paragraph) || (f.h_rel == Anchor::Page && f.v_rel == Anchor::Page) {

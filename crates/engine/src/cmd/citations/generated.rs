@@ -200,7 +200,7 @@ pub fn update_generated(s: &mut Session) -> Result<(), CmdError> {
     let mut i = 0;
     while i < s.doc.body.len() {
         // A list held as a field around its entries (as Word and ODT files hold them): made the
-        // field's own paragraph, as WordCraft inserts one, its old entries rebuilt below.
+        // field's own paragraph, as crocwork Word inserts one, its old entries rebuilt below.
         // What follows its closing field end, and its first paragraph's properties and section
         // break, are the document's and stay.
         // (The field it is made: what comes before it in its paragraph may hold other fields.)

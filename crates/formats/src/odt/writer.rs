@@ -33,7 +33,7 @@ struct ListOut {
     start: u32,
 }
 
-/// WordCraft number format → ODF's `style:num-format` (ODF 1.3 §19.500); formats ODF lacks are
+/// crocwork Word number format → ODF's `style:num-format` (ODF 1.3 §19.500); formats ODF lacks are
 /// written as decimal.
 pub(super) fn odf_num_format(f: wordcraft_doc::section::NumFormat) -> &'static str {
     use wordcraft_doc::section::NumFormat as F;
@@ -235,7 +235,7 @@ pub(super) struct Writer {
     kept_lists: usize,
     /// The reference marks (§6.6.2) begun over text in the paragraph being written, to end.
     refs_open: std::collections::BTreeSet<String>,
-    /// The file's own package paths, kept as read: names WordCraft's own pictures don't take.
+    /// The file's own package paths, kept as read: names crocwork Word's own pictures don't take.
     pub(super) reserved: std::sync::Arc<std::collections::BTreeSet<String>>,
     pub(super) kept_used: super::kept::Needed,
     /// The file's own master pages are written (its page setup is as read): kept markup may
@@ -1098,7 +1098,7 @@ impl Writer {
             for (l, out) in kinds.iter().enumerate() {
                 let ordered = &out.ordered;
                 let lv = l + 1;
-                // The level's own place, else WordCraft's default: 36 pt a level, hanging 18 pt.
+                // The level's own place, else crocwork Word's default: 36 pt a level, hanging 18 pt.
                 let (indent, hanging) = out.label.and_then(|lb| lb.position()).unwrap_or((36.0 * lv as f32, 18.0));
                 let align = match out.label.and_then(|lb| lb.align) {
                     Some(Align::Right) => " fo:text-align=\"end\"",
@@ -1113,7 +1113,7 @@ impl Writer {
                 );
                 if *ordered {
                     let fmt = ["1", "a", "i"].get(l % 3).copied().unwrap_or("1");
-                    // The level's own label, else WordCraft's default for the level.
+                    // The level's own label, else crocwork Word's default for the level.
                     let attrs = match out.label {
                         Some(lb) if lb.format != wordcraft_doc::section::NumFormat::Bullet => {
                             let mut a = format!(" style:num-format=\"{}\"", odf_num_format(lb.format));
@@ -1211,7 +1211,7 @@ impl Writer {
             } else {
                 ("", props.as_str())
             };
-            // Laid out where WordCraft places it, not held in the text's area: said, as the
+            // Laid out where crocwork Word places it, not held in the text's area: said, as the
             // standard gives no default (§20.267) and a file's default style may say otherwise.
             let flow = if props.contains("style:flow-with-text") { "" } else { " style:flow-with-text=\"false\"" };
             s.push_str(&format!(

@@ -231,8 +231,8 @@ fn chosen_type(filters: &[Filter], picked: Option<usize>) -> Option<usize> {
 /// The GTK file chooser keeps the typed name when another type is picked. Only a name that
 /// still has the extension the dialog opened with (`opened_with`, e.g. `Document1.docx` with
 /// PDF picked) or none gets the type's extension, as PolyMeilex/rfd#341 does. An extension the
-/// user explicitly typed that WordCraft saves (e.g. `art.txt` with PDF untouched) is kept,
-/// and so does one of the type's own extensions. Any extension that WordCraft does not save
+/// user explicitly typed that crocwork Word saves (e.g. `art.txt` with PDF untouched) is kept,
+/// and so does one of the type's own extensions. Any extension that crocwork Word does not save
 /// (e.g. `scan.2024`) is treated as part of the stem, and the type's extension is added.
 pub fn with_chosen_type(path: &Path, opened_with: Option<&str>, chosen: &[String]) -> PathBuf {
     let Some(first) = chosen.first() else { return path.to_path_buf() };
@@ -509,11 +509,11 @@ mod tests {
             ("/docs/LETTER.DOCX", opened, &pdf, "/docs/LETTER.pdf"),
             // No extension: takes the picked type's extension.
             ("/docs/report", opened, &pdf, "/docs/report.pdf"),
-            // An extension WordCraft doesn't save is part of the name.
+            // An extension crocwork Word doesn't save is part of the name.
             ("/docs/scan.2024", opened, &pdf, "/docs/scan.2024.pdf"),
-            // An opened extension WordCraft doesn't save (e.g. .5 in Report 1.5) is kept as part of the stem.
+            // An opened extension crocwork Word doesn't save (e.g. .5 in Report 1.5) is kept as part of the stem.
             ("/docs/Report 1.5", Some("Report 1.5"), &docx, "/docs/Report 1.5.docx"),
-            // Typed, an extension WordCraft saves is the user's: kept, whatever the type says.
+            // Typed, an extension crocwork Word saves is the user's: kept, whatever the type says.
             ("/docs/notes.txt", opened, &pdf, "/docs/notes.txt"),
             ("/docs/page.html", opened, &pdf, "/docs/page.html"),
             ("/docs/file.rtf", opened, &pdf, "/docs/file.rtf"),

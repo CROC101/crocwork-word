@@ -1,5 +1,5 @@
 //! Heading numbering (ODF 1.3 §16.34 `text:outline-style`): the outline style's levels number the
-//! headings of those levels; WordCraft numbers them through the heading styles, as Word does.
+//! headings of those levels; crocwork Word numbers them through the heading styles, as Word does.
 
 use crate::odt::tests::{NS_T, package};
 use crate::odt::{export, import};
@@ -136,7 +136,7 @@ fn a_custom_style_with_an_outline_level_stays_the_paragraphs_style() {
     let mut d = in_custom_style(HEAD, r#"<text:p text:style-name="Head">Annual report edition</text:p>"#);
     let p = d.body[0].as_para().unwrap().props.clone();
     assert_eq!(p.style.as_deref(), Some("Head"));
-    assert_eq!(d.styles.resolve_para(&p).outline_level, Some(0), "still a heading in WordCraft");
+    assert_eq!(d.styles.resolve_para(&p).outline_level, Some(0), "still a heading in crocwork Word");
     let look = d.styles.resolve_char(p.style.as_deref(), &Default::default());
     assert_eq!((look.size, look.bold), (26.0, true));
     let r = d.body[0].as_para().unwrap().runs.first().unwrap().props.clone();

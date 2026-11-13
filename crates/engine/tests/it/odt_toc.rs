@@ -1,5 +1,5 @@
 //! A table of contents in an ODT file (ODF 1.3 §8.3 `text:table-of-content`) opens as one
-//! WordCraft updates: References › Update Table regenerates its entries from the document's
+//! crocwork Word updates: References › Update Table regenerates its entries from the document's
 //! headings, with or without a title, and it is saved back as an ODF table of contents. The ODT
 //! is original and synthetic, shaped like LibreOffice's.
 

@@ -147,7 +147,7 @@ fn frames_sharing_a_picture_all_show_it() {
 fn embedded_formula_object_reads_its_mathml() {
     // #3099: LibreOffice saves an equation as a `draw:object` (a formula sub-document whose
     // own `content.xml` is MathML) plus a `draw:image` replacement preview in LibreOffice's
-    // own metafile format, which WordCraft can't decode as a picture. The object's MathML
+    // own metafile format, which crocwork Word can't decode as a picture. The object's MathML
     // must be read instead of silently dropping the frame (blank equation).
     let math = r#"<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>E</mi><mo stretchy="false">=</mo><msup><mi mathvariant="italic">mc</mi><mn>2</mn></msup></mrow><annotation encoding="StarMath 5.0">E=mc^2</annotation></semantics></math>"#;
     let frame = r#"<draw:frame svg:width="0.5in" svg:height="0.2in"><draw:object xlink:href="./Object 1"/><draw:image xlink:href="./ObjectReplacements/Object 1"/></draw:frame>"#;
@@ -1327,7 +1327,7 @@ pub(super) fn content_of(bytes: &[u8]) -> String {
 
 /// Entry `name` of a package, as text.
 /// `d` saved from its model alone, as after an edit: nothing written as it was read (for tests
-/// of how WordCraft writes what it models).
+/// of how crocwork Word writes what it models).
 pub(crate) fn export_model(d: &wordcraft_doc::Document) -> Result<Vec<u8>, String> {
     let mut d = d.clone();
     d.kept.clear();
@@ -1436,7 +1436,7 @@ fn unequal_columns_keep_their_widths_and_columns_without_a_gap_have_none() {
     let out = entry(&export(&doc).unwrap(), "styles.xml");
     assert!(out.contains(r#"<style:columns fo:column-count="2"><style:column style:rel-width"#), "{out}");
     assert_eq!(widths(&import(&export(&doc).unwrap()).unwrap()), [(148.8, 14.4), (304.8, 0.0)]);
-    // Equal shares: equal columns with their gap. No gap stated and no shares: WordCraft's half
+    // Equal shares: equal columns with their gap. No gap stated and no shares: crocwork Word's half
     // inch (the standard gives none).
     let equal = styles.replace(r#"rel-width="2*""#, r#"rel-width="1*""#);
     let c = import(&package(&content, Some(&equal))).unwrap().last_section.columns;

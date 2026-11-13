@@ -119,7 +119,7 @@ fn has_chart(s: &Session) -> Option<&'static str> {
     match selected(s) {
         Some((_, InlineObject::Graphic { graphic, .. })) if graphic.chart.is_some() => None,
         Some((_, InlineObject::Graphic { graphic, .. })) if graphic.kind == GraphicKind::Chart => {
-            Some("this chart was made in another program: WordCraft shows it but can't edit it")
+            Some("this chart was made in another program: crocwork Word shows it but can't edit it")
         }
         _ => Some("select a chart first"),
     }
@@ -196,7 +196,7 @@ fn edit(s: &mut Session, f: impl Fn(&mut ChartSpec) -> Result<(), CmdError>) -> 
 
 /// Draw the chart of `o` again at its current size (after a resize, or when it opens), if it
 /// has a model. It keeps the chart as read (its `source`): the chart itself is unchanged, and
-/// saving writes that back with the look WordCraft doesn't model.
+/// saving writes that back with the look crocwork Word doesn't model.
 pub fn redraw(o: &mut InlineObject, theme: &[Rgb]) {
     if let InlineObject::Graphic { w, h, graphic, .. } = o
         && let Some(spec) = graphic.chart.as_deref()

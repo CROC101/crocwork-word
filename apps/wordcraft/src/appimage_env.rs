@@ -2,8 +2,8 @@
 //!
 //! The AppImage runtime gives the program it starts `APPIMAGE` (the image's file), `APPDIR` (where
 //! it is mounted), `ARGV0` and `OWD`, and whatever that program starts inherits them. So an AppImage
-//! app that opens a document through `xdg-open` starts an installed WordCraft with *its* `APPIMAGE`,
-//! and the self-update, which trusts that variable, replaces the other app's file with WordCraft.
+//! app that opens a document through `xdg-open` starts an installed crocwork Word with *its* `APPIMAGE`,
+//! and the self-update, which trusts that variable, replaces the other app's file with crocwork Word.
 //!
 //! This copy is in the image only when its executable is under `APPDIR`. Otherwise the variables
 //! are another program's, and the process starts over without them, before anything reads them.
@@ -21,7 +21,7 @@ const RUNTIME_VARS: [&str; 4] = ["APPIMAGE", "APPDIR", "ARGV0", "OWD"];
 
 /// Whether the executable runs from the image mounted at `appdir`. Anything unclear counts as not:
 /// the update then goes through the package or the plain file this copy really is, and at worst
-/// says it can't, where the other answer would overwrite a file that isn't WordCraft's.
+/// says it can't, where the other answer would overwrite a file that isn't crocwork Word's.
 fn runs_from_image(exe: Option<&Path>, appdir: Option<&OsStr>) -> bool {
     let (Some(exe), Some(appdir)) = (exe, appdir) else { return false };
     let appdir = Path::new(appdir);

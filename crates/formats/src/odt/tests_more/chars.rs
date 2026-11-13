@@ -438,12 +438,12 @@ fn the_default_language_is_the_files_and_written_back_from_the_model() {
     assert!(default_style(&styles).contains(r#"fo:language="de" fo:country="DE""#), "{styles}");
     assert!(!styles.contains(r#"fo:language="en""#), "no style says English: {styles}");
     assert_eq!(import(&saved).unwrap().styles.default_chr.lang.as_deref(), Some("de-DE"));
-    // Saved as read, the styles WordCraft adds beside the file's don't say English either.
+    // Saved as read, the styles crocwork Word adds beside the file's don't say English either.
     let styles = crate::odt::tests::entry(&export(&d).unwrap(), "styles.xml");
     assert!(!styles.contains(r#"fo:language="en""#), "{styles}");
 }
 
-/// The document's language as WordCraft has it is Normal's (a Word file's Normal may state
+/// The document's language as crocwork Word has it is Normal's (a Word file's Normal may state
 /// another than its defaults): that is what the default style says when written from the model.
 #[test]
 fn the_documents_language_written_is_normals() {
@@ -463,7 +463,7 @@ fn the_documents_language_written_is_normals() {
 #[test]
 fn a_file_stating_no_language_has_none_and_writes_none() {
     let d = import(&with_default_text("", "")).unwrap();
-    assert_eq!(d.styles.default_chr.lang, None, "not the English of WordCraft's new documents");
+    assert_eq!(d.styles.default_chr.lang, None, "not the English of crocwork Word's new documents");
     let saved = crate::odt::tests::export_model(&d).unwrap();
     assert!(!crate::odt::tests::entry(&saved, "styles.xml").contains("fo:language"));
     assert_eq!(import(&saved).unwrap().styles.default_chr.lang, None);
@@ -562,7 +562,7 @@ fn a_style_with_no_parent_has_the_default_styles_language() {
     check(&import(&crate::odt::tests::export_model(&d).unwrap()).unwrap());
 }
 
-/// WordCraft's own documents say their language, so a reader doesn't use its own default.
+/// crocwork Word's own documents say their language, so a reader doesn't use its own default.
 #[test]
 fn a_new_documents_language_is_stated() {
     let styles = crate::odt::tests::entry(&export(&wordcraft_doc::Document::new()).unwrap(), "styles.xml");

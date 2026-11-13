@@ -220,7 +220,7 @@ impl WordApp {
 }
 
 /// Is `path` a Word template by its extension (`.dotx`, `.dotm`, `.dot`, in any case)? These are
-/// the template types WordCraft registers with the platform.
+/// the template types crocwork Word registers with the platform.
 pub fn is_word_template(path: &str) -> bool {
     std::path::Path::new(path)
         .extension()

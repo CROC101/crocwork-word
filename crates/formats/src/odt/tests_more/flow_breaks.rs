@@ -2,7 +2,7 @@
 //! (`fo:break-after`), lines kept together (`fo:keep-together`), widow and orphan control
 //! (`fo:widows`, `fo:orphans`), hyphenation (`fo:hyphenate`), a table's alignment and width
 //! (`table:align`, `style:rel-width`) and its rows' heights (`style:row-height`,
-//! `style:min-row-height`), read into WordCraft's document and written back.
+//! `style:min-row-height`), read into crocwork Word's document and written back.
 
 use crate::odt::tests::{NS_T, content_of, package};
 use crate::odt::{export, import};
@@ -56,7 +56,7 @@ fn kept_lines_and_widow_control_are_read_and_written() {
 
 #[test]
 fn a_hyphenated_paragraph_makes_the_document_hyphenate() {
-    // Hyphenation is a paragraph's in ODF, the document's in WordCraft: the document hyphenates
+    // Hyphenation is a paragraph's in ODF, the document's in crocwork Word: the document hyphenates
     // and the other paragraphs opt out.
     let d = doc(&para_style("P1", "", r#"fo:hyphenate="true""#), r#"<text:p text:style-name="P1">Hyphenated.</text:p><text:p>Not.</text:p>"#);
     assert!(d.settings.auto_hyphenation);

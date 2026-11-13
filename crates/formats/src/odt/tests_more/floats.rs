@@ -291,7 +291,7 @@ fn a_cropped_picture_keeps_its_crop() {
 #[test]
 fn contour_wrapping_and_its_outline_are_kept() {
     // `style:wrap-contour` with `outside` (Word's Tight) or `full` (Through), and the outline
-    // (`draw:contour-polygon`) in the frame's view box, as WordCraft's wrap polygon.
+    // (`draw:contour-polygon`) in the frame's view box, as crocwork Word's wrap polygon.
     let png = {
         let img = image::RgbaImage::from_fn(10, 10, |_, _| image::Rgba([0, 0, 0, 255]));
         let mut b = Vec::new();
@@ -356,13 +356,13 @@ fn a_drawing_outside_any_paragraph_belongs_to_the_next_one() {
 
 #[test]
 fn a_frame_keeps_its_place_in_the_stacking_order() {
-    // §19.231 `draw:z-index`: 0 at the bottom; WordCraft's z counts from 1 (0 is unknown).
+    // §19.231 `draw:z-index`: 0 at the bottom; crocwork Word's z counts from 1 (0 is unknown).
     let d = open(r#"style:wrap="run-through""#, r#"text:anchor-type="paragraph" draw:z-index="3""#);
     assert_eq!(float(&d).z, 4);
     let saved = crate::odt::tests::export_model(&d).unwrap();
     assert!(crate::odt::tests::entry(&saved, "content.xml").contains(r#"draw:z-index="3""#));
     assert_eq!(float(&import(&saved).unwrap()).z, 4);
-    // Unknown (inserted in WordCraft): at the bottom, in document order.
+    // Unknown (inserted in crocwork Word): at the bottom, in document order.
     let d = open(r#"style:wrap="run-through""#, r#"text:anchor-type="paragraph""#);
     assert_eq!(float(&d).z, 0);
     assert!(crate::odt::tests::entry(&crate::odt::tests::export_model(&d).unwrap(), "content.xml").contains(r#"draw:z-index="0""#));
@@ -433,7 +433,7 @@ fn a_frame_offering_several_formats_shows_the_first_it_can_read() {
     // to show, and the picture was gone once the paragraph was written from the model.
     let png = [b"\x89PNG\r\n\x1a\n".as_slice(), &[7u8; 64]].concat();
     let other = [b"\x89PNG\r\n\x1a\n".as_slice(), &[9u8; 64]].concat();
-    let svm = b"VCLMTF a metafile WordCraft can't draw".to_vec();
+    let svm = b"VCLMTF a metafile crocwork Word can't draw".to_vec();
     let frame = |images: &[&str]| {
         let images: String = images.iter().map(|h| format!(r#"<draw:image xlink:href="{h}"/>"#)).collect();
         format!(

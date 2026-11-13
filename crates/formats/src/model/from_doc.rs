@@ -158,7 +158,7 @@ fn extra_of(e: &CharProps) -> Option<Box<CharProps>> {
     (x != CharProps::default()).then(|| Box::new(x))
 }
 
-/// Whether character style `id` of `doc` is one of its own rather than one WordCraft gives links,
+/// Whether character style `id` of `doc` is one of its own rather than one crocwork Word gives links,
 /// note and comment marks or placeholders.
 pub fn is_custom_char_style(doc: &Document, id: &str) -> bool {
     let builtin =

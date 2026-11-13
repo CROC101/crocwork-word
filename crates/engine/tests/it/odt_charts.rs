@@ -1,5 +1,5 @@
 //! A chart in an ODT file (ODF 1.3 §10.4.3, an embedded `office:chart` object) opens as a chart
-//! WordCraft draws and edits: Chart Design's commands change it like a chart made here. The ODT
+//! crocwork Word draws and edits: Chart Design's commands change it like a chart made here. The ODT
 //! is original and synthetic, shaped like LibreOffice's.
 
 use std::io::Write;
