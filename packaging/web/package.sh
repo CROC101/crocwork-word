@@ -33,6 +33,21 @@ cp -R "$SITE/." "$WORK/$NAME/"
 cp "$HERE/_headers" "$HERE/.htaccess" "$WORK/$NAME/"
 cp "$HERE/README.md" "$WORK/$NAME/HOSTING.md"
 copy_docs "$WORK/$NAME"
+# Script faces the app fetches at start (packaging/web/fonts.txt), each with its OFL licence.
+if [[ -n "${CRAFT_FONTS_DIR:-}" ]]; then
+  FONTS="$WORK/$NAME/fonts"
+  mkdir -p "$FONTS"
+  grep -v '^#' "$HERE/fonts.txt" | grep -v '^[[:space:]]*$' > "$FONTS/list.txt"
+  while IFS='|' read -r _ file; do
+    file="$(echo "$file" | xargs)"
+    mkdir -p "$FONTS/$(dirname "$file")"
+    cp "$CRAFT_FONTS_DIR/fonts/$file" "$FONTS/$file"
+    cp "$CRAFT_FONTS_DIR/fonts/$(dirname "$file")/OFL.txt" "$FONTS/$(dirname "$file")/"
+  done < "$FONTS/list.txt"
+elif [[ -n "${CRAFT_FONTS_REQUIRED:-}" ]]; then
+  echo "error: CRAFT_FONTS_DIR unset; the web build would draw Thai, Indic and CJK as boxes" >&2
+  exit 1
+fi
 rm -f "$DIST/$NAME.zip"
 (cd "$WORK" && zip -qr9 "$DIST/$NAME.zip" "$NAME")
 echo "wrote $DIST/$NAME.zip"
