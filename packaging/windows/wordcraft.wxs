@@ -82,62 +82,62 @@
         <RegistryValue Root="HKMU" Key="Software\Classes\Applications\wordcraft.exe" Name="FriendlyAppName" Value="crocwork Word" Type="string" />
         <RegistryValue Root="HKMU" Key="Software\Classes\Applications\wordcraft.exe\shell\open\command" Value="&quot;[#WordcraftExe]&quot; &quot;%1&quot;" Type="string" />
 
-        <ProgId Id="crocwork Word.Document" Description="Word Document" Icon="WordcraftExe" IconIndex="0" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\crocwork Word.Document\shell\open\command" Value="&quot;[#WordcraftExe]&quot; &quot;%1&quot;" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\.docx\OpenWithProgids" Name="crocwork Word.Document" Value="" Type="string" />
+        <ProgId Id="WordCraft.Document" Description="Word Document" Icon="WordcraftExe" IconIndex="0" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\WordCraft.Document\shell\open\command" Value="&quot;[#WordcraftExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\.docx\OpenWithProgids" Name="WordCraft.Document" Value="" Type="string" />
         <RegistryValue Root="HKMU" Key="Software\Classes\Applications\wordcraft.exe\SupportedTypes" Name=".docx" Value="" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\crocwork Word\Capabilities\FileAssociations" Name=".docx" Value="crocwork Word.Document" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\crocwork Word\Capabilities\FileAssociations" Name=".docx" Value="WordCraft.Document" Type="string" />
 
-        <ProgId Id="crocwork Word.DocumentMacroEnabled" Description="Word Macro-Enabled Document" Icon="WordcraftExe" IconIndex="0" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\crocwork Word.DocumentMacroEnabled\shell\open\command" Value="&quot;[#WordcraftExe]&quot; &quot;%1&quot;" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\.docm\OpenWithProgids" Name="crocwork Word.DocumentMacroEnabled" Value="" Type="string" />
+        <ProgId Id="WordCraft.DocumentMacroEnabled" Description="Word Macro-Enabled Document" Icon="WordcraftExe" IconIndex="0" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\WordCraft.DocumentMacroEnabled\shell\open\command" Value="&quot;[#WordcraftExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\.docm\OpenWithProgids" Name="WordCraft.DocumentMacroEnabled" Value="" Type="string" />
         <RegistryValue Root="HKMU" Key="Software\Classes\Applications\wordcraft.exe\SupportedTypes" Name=".docm" Value="" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\crocwork Word\Capabilities\FileAssociations" Name=".docm" Value="crocwork Word.DocumentMacroEnabled" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\crocwork Word\Capabilities\FileAssociations" Name=".docm" Value="WordCraft.DocumentMacroEnabled" Type="string" />
 
-        <ProgId Id="crocwork Word.Template" Description="Word Template" Icon="WordcraftExe" IconIndex="0" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\crocwork Word.Template\shell\open\command" Value="&quot;[#WordcraftExe]&quot; &quot;%1&quot;" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\.dotx\OpenWithProgids" Name="crocwork Word.Template" Value="" Type="string" />
+        <ProgId Id="WordCraft.Template" Description="Word Template" Icon="WordcraftExe" IconIndex="0" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\WordCraft.Template\shell\open\command" Value="&quot;[#WordcraftExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\.dotx\OpenWithProgids" Name="WordCraft.Template" Value="" Type="string" />
         <RegistryValue Root="HKMU" Key="Software\Classes\Applications\wordcraft.exe\SupportedTypes" Name=".dotx" Value="" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\crocwork Word\Capabilities\FileAssociations" Name=".dotx" Value="crocwork Word.Template" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\crocwork Word\Capabilities\FileAssociations" Name=".dotx" Value="WordCraft.Template" Type="string" />
 
-        <ProgId Id="crocwork Word.TemplateMacroEnabled" Description="Word Macro-Enabled Template" Icon="WordcraftExe" IconIndex="0" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\crocwork Word.TemplateMacroEnabled\shell\open\command" Value="&quot;[#WordcraftExe]&quot; &quot;%1&quot;" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\.dotm\OpenWithProgids" Name="crocwork Word.TemplateMacroEnabled" Value="" Type="string" />
+        <ProgId Id="WordCraft.TemplateMacroEnabled" Description="Word Macro-Enabled Template" Icon="WordcraftExe" IconIndex="0" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\WordCraft.TemplateMacroEnabled\shell\open\command" Value="&quot;[#WordcraftExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\.dotm\OpenWithProgids" Name="WordCraft.TemplateMacroEnabled" Value="" Type="string" />
         <RegistryValue Root="HKMU" Key="Software\Classes\Applications\wordcraft.exe\SupportedTypes" Name=".dotm" Value="" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\crocwork Word\Capabilities\FileAssociations" Name=".dotm" Value="crocwork Word.TemplateMacroEnabled" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\crocwork Word\Capabilities\FileAssociations" Name=".dotm" Value="WordCraft.TemplateMacroEnabled" Type="string" />
 
-        <ProgId Id="crocwork Word.LegacyDocument" Description="Legacy Word Document" Icon="WordcraftExe" IconIndex="0" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\crocwork Word.LegacyDocument\shell\open\command" Value="&quot;[#WordcraftExe]&quot; &quot;%1&quot;" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\.doc\OpenWithProgids" Name="crocwork Word.LegacyDocument" Value="" Type="string" />
+        <ProgId Id="WordCraft.LegacyDocument" Description="Legacy Word Document" Icon="WordcraftExe" IconIndex="0" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\WordCraft.LegacyDocument\shell\open\command" Value="&quot;[#WordcraftExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\.doc\OpenWithProgids" Name="WordCraft.LegacyDocument" Value="" Type="string" />
         <RegistryValue Root="HKMU" Key="Software\Classes\Applications\wordcraft.exe\SupportedTypes" Name=".doc" Value="" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\crocwork Word\Capabilities\FileAssociations" Name=".doc" Value="crocwork Word.LegacyDocument" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\crocwork Word\Capabilities\FileAssociations" Name=".doc" Value="WordCraft.LegacyDocument" Type="string" />
 
-        <ProgId Id="crocwork Word.LegacyTemplate" Description="Legacy Word Template" Icon="WordcraftExe" IconIndex="0" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\crocwork Word.LegacyTemplate\shell\open\command" Value="&quot;[#WordcraftExe]&quot; &quot;%1&quot;" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\.dot\OpenWithProgids" Name="crocwork Word.LegacyTemplate" Value="" Type="string" />
+        <ProgId Id="WordCraft.LegacyTemplate" Description="Legacy Word Template" Icon="WordcraftExe" IconIndex="0" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\WordCraft.LegacyTemplate\shell\open\command" Value="&quot;[#WordcraftExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\.dot\OpenWithProgids" Name="WordCraft.LegacyTemplate" Value="" Type="string" />
         <RegistryValue Root="HKMU" Key="Software\Classes\Applications\wordcraft.exe\SupportedTypes" Name=".dot" Value="" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\crocwork Word\Capabilities\FileAssociations" Name=".dot" Value="crocwork Word.LegacyTemplate" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\crocwork Word\Capabilities\FileAssociations" Name=".dot" Value="WordCraft.LegacyTemplate" Type="string" />
 
-        <ProgId Id="crocwork Word.RichText" Description="Rich Text Document" Icon="WordcraftExe" IconIndex="0" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\crocwork Word.RichText\shell\open\command" Value="&quot;[#WordcraftExe]&quot; &quot;%1&quot;" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\.rtf\OpenWithProgids" Name="crocwork Word.RichText" Value="" Type="string" />
+        <ProgId Id="WordCraft.RichText" Description="Rich Text Document" Icon="WordcraftExe" IconIndex="0" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\WordCraft.RichText\shell\open\command" Value="&quot;[#WordcraftExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\.rtf\OpenWithProgids" Name="WordCraft.RichText" Value="" Type="string" />
         <RegistryValue Root="HKMU" Key="Software\Classes\Applications\wordcraft.exe\SupportedTypes" Name=".rtf" Value="" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\crocwork Word\Capabilities\FileAssociations" Name=".rtf" Value="crocwork Word.RichText" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\crocwork Word\Capabilities\FileAssociations" Name=".rtf" Value="WordCraft.RichText" Type="string" />
 
-        <ProgId Id="crocwork Word.OpenDocumentText" Description="OpenDocument Text" Icon="WordcraftExe" IconIndex="0" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\crocwork Word.OpenDocumentText\shell\open\command" Value="&quot;[#WordcraftExe]&quot; &quot;%1&quot;" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\.odt\OpenWithProgids" Name="crocwork Word.OpenDocumentText" Value="" Type="string" />
+        <ProgId Id="WordCraft.OpenDocumentText" Description="OpenDocument Text" Icon="WordcraftExe" IconIndex="0" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\WordCraft.OpenDocumentText\shell\open\command" Value="&quot;[#WordcraftExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\.odt\OpenWithProgids" Name="WordCraft.OpenDocumentText" Value="" Type="string" />
         <RegistryValue Root="HKMU" Key="Software\Classes\Applications\wordcraft.exe\SupportedTypes" Name=".odt" Value="" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\crocwork Word\Capabilities\FileAssociations" Name=".odt" Value="crocwork Word.OpenDocumentText" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\crocwork Word\Capabilities\FileAssociations" Name=".odt" Value="WordCraft.OpenDocumentText" Type="string" />
 
-        <ProgId Id="crocwork Word.Markdown" Description="Markdown Document" Icon="WordcraftExe" IconIndex="0" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\crocwork Word.Markdown\shell\open\command" Value="&quot;[#WordcraftExe]&quot; &quot;%1&quot;" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\.md\OpenWithProgids" Name="crocwork Word.Markdown" Value="" Type="string" />
+        <ProgId Id="WordCraft.Markdown" Description="Markdown Document" Icon="WordcraftExe" IconIndex="0" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\WordCraft.Markdown\shell\open\command" Value="&quot;[#WordcraftExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\.md\OpenWithProgids" Name="WordCraft.Markdown" Value="" Type="string" />
         <RegistryValue Root="HKMU" Key="Software\Classes\Applications\wordcraft.exe\SupportedTypes" Name=".md" Value="" Type="string" />
 
-        <ProgId Id="crocwork Word.PlainText" Description="Text Document" Icon="WordcraftExe" IconIndex="0" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\crocwork Word.PlainText\shell\open\command" Value="&quot;[#WordcraftExe]&quot; &quot;%1&quot;" Type="string" />
-        <RegistryValue Root="HKMU" Key="Software\Classes\.txt\OpenWithProgids" Name="crocwork Word.PlainText" Value="" Type="string" />
+        <ProgId Id="WordCraft.PlainText" Description="Text Document" Icon="WordcraftExe" IconIndex="0" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\WordCraft.PlainText\shell\open\command" Value="&quot;[#WordcraftExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKMU" Key="Software\Classes\.txt\OpenWithProgids" Name="WordCraft.PlainText" Value="" Type="string" />
         <RegistryValue Root="HKMU" Key="Software\Classes\Applications\wordcraft.exe\SupportedTypes" Name=".txt" Value="" Type="string" />
       </Component>
 

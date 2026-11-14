@@ -60,14 +60,14 @@
     ],
     [
       "-1",
-      "Software\\Classes\\crocwork Word.Document\\shell\\open\\command",
+      "Software\\Classes\\WordCraft.Document\\shell\\open\\command",
       "",
       "\"[#WordcraftExe]\" \"%1\""
     ],
     [
       "-1",
       "Software\\Classes\\.docx\\OpenWithProgids",
-      "crocwork Word.Document",
+      "WordCraft.Document",
       ""
     ],
     [
@@ -80,18 +80,18 @@
       "-1",
       "Software\\crocwork Word\\Capabilities\\FileAssociations",
       ".docx",
-      "crocwork Word.Document"
+      "WordCraft.Document"
     ],
     [
       "-1",
-      "Software\\Classes\\crocwork Word.DocumentMacroEnabled\\shell\\open\\command",
+      "Software\\Classes\\WordCraft.DocumentMacroEnabled\\shell\\open\\command",
       "",
       "\"[#WordcraftExe]\" \"%1\""
     ],
     [
       "-1",
       "Software\\Classes\\.docm\\OpenWithProgids",
-      "crocwork Word.DocumentMacroEnabled",
+      "WordCraft.DocumentMacroEnabled",
       ""
     ],
     [
@@ -104,18 +104,18 @@
       "-1",
       "Software\\crocwork Word\\Capabilities\\FileAssociations",
       ".docm",
-      "crocwork Word.DocumentMacroEnabled"
+      "WordCraft.DocumentMacroEnabled"
     ],
     [
       "-1",
-      "Software\\Classes\\crocwork Word.Template\\shell\\open\\command",
+      "Software\\Classes\\WordCraft.Template\\shell\\open\\command",
       "",
       "\"[#WordcraftExe]\" \"%1\""
     ],
     [
       "-1",
       "Software\\Classes\\.dotx\\OpenWithProgids",
-      "crocwork Word.Template",
+      "WordCraft.Template",
       ""
     ],
     [
@@ -128,18 +128,18 @@
       "-1",
       "Software\\crocwork Word\\Capabilities\\FileAssociations",
       ".dotx",
-      "crocwork Word.Template"
+      "WordCraft.Template"
     ],
     [
       "-1",
-      "Software\\Classes\\crocwork Word.TemplateMacroEnabled\\shell\\open\\command",
+      "Software\\Classes\\WordCraft.TemplateMacroEnabled\\shell\\open\\command",
       "",
       "\"[#WordcraftExe]\" \"%1\""
     ],
     [
       "-1",
       "Software\\Classes\\.dotm\\OpenWithProgids",
-      "crocwork Word.TemplateMacroEnabled",
+      "WordCraft.TemplateMacroEnabled",
       ""
     ],
     [
@@ -152,18 +152,18 @@
       "-1",
       "Software\\crocwork Word\\Capabilities\\FileAssociations",
       ".dotm",
-      "crocwork Word.TemplateMacroEnabled"
+      "WordCraft.TemplateMacroEnabled"
     ],
     [
       "-1",
-      "Software\\Classes\\crocwork Word.LegacyDocument\\shell\\open\\command",
+      "Software\\Classes\\WordCraft.LegacyDocument\\shell\\open\\command",
       "",
       "\"[#WordcraftExe]\" \"%1\""
     ],
     [
       "-1",
       "Software\\Classes\\.doc\\OpenWithProgids",
-      "crocwork Word.LegacyDocument",
+      "WordCraft.LegacyDocument",
       ""
     ],
     [
@@ -176,18 +176,18 @@
       "-1",
       "Software\\crocwork Word\\Capabilities\\FileAssociations",
       ".doc",
-      "crocwork Word.LegacyDocument"
+      "WordCraft.LegacyDocument"
     ],
     [
       "-1",
-      "Software\\Classes\\crocwork Word.LegacyTemplate\\shell\\open\\command",
+      "Software\\Classes\\WordCraft.LegacyTemplate\\shell\\open\\command",
       "",
       "\"[#WordcraftExe]\" \"%1\""
     ],
     [
       "-1",
       "Software\\Classes\\.dot\\OpenWithProgids",
-      "crocwork Word.LegacyTemplate",
+      "WordCraft.LegacyTemplate",
       ""
     ],
     [
@@ -200,18 +200,18 @@
       "-1",
       "Software\\crocwork Word\\Capabilities\\FileAssociations",
       ".dot",
-      "crocwork Word.LegacyTemplate"
+      "WordCraft.LegacyTemplate"
     ],
     [
       "-1",
-      "Software\\Classes\\crocwork Word.RichText\\shell\\open\\command",
+      "Software\\Classes\\WordCraft.RichText\\shell\\open\\command",
       "",
       "\"[#WordcraftExe]\" \"%1\""
     ],
     [
       "-1",
       "Software\\Classes\\.rtf\\OpenWithProgids",
-      "crocwork Word.RichText",
+      "WordCraft.RichText",
       ""
     ],
     [
@@ -224,18 +224,18 @@
       "-1",
       "Software\\crocwork Word\\Capabilities\\FileAssociations",
       ".rtf",
-      "crocwork Word.RichText"
+      "WordCraft.RichText"
     ],
     [
       "-1",
-      "Software\\Classes\\crocwork Word.OpenDocumentText\\shell\\open\\command",
+      "Software\\Classes\\WordCraft.OpenDocumentText\\shell\\open\\command",
       "",
       "\"[#WordcraftExe]\" \"%1\""
     ],
     [
       "-1",
       "Software\\Classes\\.odt\\OpenWithProgids",
-      "crocwork Word.OpenDocumentText",
+      "WordCraft.OpenDocumentText",
       ""
     ],
     [
@@ -248,18 +248,18 @@
       "-1",
       "Software\\crocwork Word\\Capabilities\\FileAssociations",
       ".odt",
-      "crocwork Word.OpenDocumentText"
+      "WordCraft.OpenDocumentText"
     ],
     [
       "-1",
-      "Software\\Classes\\crocwork Word.Markdown\\shell\\open\\command",
+      "Software\\Classes\\WordCraft.Markdown\\shell\\open\\command",
       "",
       "\"[#WordcraftExe]\" \"%1\""
     ],
     [
       "-1",
       "Software\\Classes\\.md\\OpenWithProgids",
-      "crocwork Word.Markdown",
+      "WordCraft.Markdown",
       ""
     ],
     [
@@ -270,14 +270,14 @@
     ],
     [
       "-1",
-      "Software\\Classes\\crocwork Word.PlainText\\shell\\open\\command",
+      "Software\\Classes\\WordCraft.PlainText\\shell\\open\\command",
       "",
       "\"[#WordcraftExe]\" \"%1\""
     ],
     [
       "-1",
       "Software\\Classes\\.txt\\OpenWithProgids",
-      "crocwork Word.PlainText",
+      "WordCraft.PlainText",
       ""
     ],
     [

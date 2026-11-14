@@ -129,7 +129,7 @@ if has appimage; then
     printf '%s  %s\n' "$expected_sha" "$target" | sha256sum -c -
     return 0
   }
-  APPDIR="$WORK/crocwork Word.AppDir"
+  APPDIR="$WORK/WordCraft.AppDir"
   cp -R "$STAGE" "$APPDIR"
   ln -s usr/bin/wordcraft "$APPDIR/AppRun"
   cp "$HERE/$APP_ID.desktop" "$APPDIR/$APP_ID.desktop"
