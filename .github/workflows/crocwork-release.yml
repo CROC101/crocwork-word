@@ -23,7 +23,7 @@ concurrency:
 env:
   CARGO_TERM_COLOR: always
   CARGO_INCREMENTAL: 0
-  CRAFT_FONTS_REF: b076417b5880bd4154bd22f00695b1d28c6bea83
+  CRAFT_FONTS_REF: c1db6d1a8ed772191241c3d185e2104be84d8691
   TRUNK_VERSION: 0.21.14
   TRUNK_SHA256: f2b4680cd239693a646a2795e4633c625328d7b2a044fbe749fa3a2fe9e7036b
 
@@ -35,9 +35,17 @@ jobs:
     env:
       CRAFT_I18N_DIR: ${{ github.workspace }}/craft-i18n
       CRAFT_I18N_REQUIRED: "1"
+      CRAFT_FONTS_DIR: ${{ github.workspace }}/craft-fonts
+      CRAFT_FONTS_REQUIRED: "1"
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: storytold/craft-fonts
+          ref: ${{ env.CRAFT_FONTS_REF }}
+          path: craft-fonts
           persist-credentials: false
       - uses: step-security/dtolnay-rust-toolchain@8dd607977d06adf4ed49b190381e74c17a9dd25f # v1.0.0
         with:

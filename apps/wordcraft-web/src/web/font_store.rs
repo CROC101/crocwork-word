@@ -114,3 +114,49 @@ pub fn load_all(ctx: egui::Context) {
         ctx.request_repaint();
     });
 }
+
+/// Fetch `url` (relative to the page) as bytes.
+async fn fetch(url: &str) -> Result<Vec<u8>, String> {
+    let window = web_sys::window().ok_or("no window")?;
+    let resp: web_sys::Response = wasm_bindgen_futures::JsFuture::from(window.fetch_with_str(url))
+        .await
+        .map_err(js)?
+        .dyn_into()
+        .map_err(js)?;
+    if !resp.ok() {
+        return Err(format!("HTTP {}", resp.status()));
+    }
+    let buf = wasm_bindgen_futures::JsFuture::from(resp.array_buffer().map_err(js)?).await.map_err(js)?;
+    Ok(js_sys::Uint8Array::new(&buf).to_vec())
+}
+
+/// Add the script faces the site serves beside the app (`fonts/list.txt`, one
+/// `family | file` per line, written by packaging/web/package.sh). The web build embeds no
+/// Thai, Arabic, Indic or CJK face, so without these that text drew as boxes. Fetched one at a
+/// time in list order (small faces first), added for this run only, repainting after each.
+pub fn load_served(ctx: egui::Context) {
+    wasm_bindgen_futures::spawn_local(async move {
+        let list = match fetch("fonts/list.txt").await {
+            Ok(bytes) => String::from_utf8_lossy(&bytes).into_owned(),
+            Err(e) => {
+                log::info!("no served fonts: {e}");
+                return;
+            }
+        };
+        for line in list.lines().map(str::trim).filter(|l| !l.is_empty() && !l.starts_with('#')) {
+            let Some((family, file)) = line.split_once('|').map(|(a, b)| (a.trim(), b.trim())) else { continue };
+            // the list is ours, but a path that climbs out of fonts/ is never fetched
+            if file.contains("..") || file.starts_with('/') || file.contains(':') {
+                continue;
+            }
+            match fetch(&format!("fonts/{file}")).await {
+                Ok(bytes) if bytes.len() <= wordcraft_fonts::MAX_FONT_FILE_BYTES => {
+                    wordcraft_fonts::FontDb::global().add_document_fonts(vec![(bytes, family.to_owned())]);
+                    ctx.request_repaint();
+                }
+                Ok(_) => log::warn!("served font {file} is too large; skipped"),
+                Err(e) => log::warn!("served font {file}: {e}"),
+            }
+        }
+    });
+}

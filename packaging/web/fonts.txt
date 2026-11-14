@@ -1,0 +1,21 @@
+# Script faces served beside the web app (fonts/ in the zip), from a craft-fonts checkout
+# ($CRAFT_FONTS_DIR). The wasm embeds none of them, so the app fetches these at start, in this
+# order: small faces first, CJK last. Format: family | file under craft-fonts/fonts/
+# shortcut: every visitor fetches all of them (about 30 MB, then from the HTTP cache); load the CJK
+# faces only when such text appears if first visits on phones get slow.
+Noto Sans Thai | noto-sans-thai/NotoSansThai.ttf
+Noto Sans Hebrew | noto-sans-hebrew/NotoSansHebrew-Regular.ttf
+Noto Sans Devanagari | noto-sans-devanagari/NotoSansDevanagari-Regular.ttf
+Noto Sans Gurmukhi | noto-sans-gurmukhi/NotoSansGurmukhi.ttf
+Noto Sans Tamil | noto-sans-tamil/NotoSansTamil.ttf
+Noto Sans Symbols | noto-sans-symbols/NotoSansSymbols.ttf
+Noto Sans Bengali | noto-sans-bengali/NotoSansBengali.ttf
+Noto Sans Malayalam | noto-sans-malayalam/NotoSansMalayalam.ttf
+Noto Sans Oriya | noto-sans-oriya/NotoSansOriya.ttf
+Noto Sans Kannada | noto-sans-kannada/NotoSansKannada.ttf
+Noto Sans Gujarati | noto-sans-gujarati/NotoSansGujarati.ttf
+Noto Sans Telugu | noto-sans-telugu/NotoSansTelugu.ttf
+Noto Sans Symbols 2 | noto-sans-symbols-2/NotoSansSymbols2-Regular.ttf
+NanumGothic | nanum-gothic/NanumGothic-Regular.ttf
+BIZ UDPGothic | biz-ud-pgothic/BIZUDPGothic-Regular.ttf
+Noto Sans CJK SC | noto-sans-cjk-sc/NotoSansCJKsc-Regular.otf
