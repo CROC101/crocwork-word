@@ -3,6 +3,7 @@
 # CROC101/software-empire (apps/toolboxes/tools/craft); change it there, not here.
 # Every action is pinned to a commit and nothing calls another repository's workflow.
 # The builds are unsigned: Windows SmartScreen warns on first run.
+# rebrand.mjs keeps or cuts each "# >name" ... "# <name" block for the app ("!name": when off).
 name: crocwork release
 
 on:
@@ -122,4 +123,4 @@ jobs:
         run: |
           cd dist && sha256sum * > SHA256SUMS
           gh release create "$TAG" * --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "$TAG" \
-            --notes "Web zip and Windows x64 installer (unsigned). Checksums in SHA256SUMS."
+            --notes "Unsigned builds of this app (see the workflow for which). Checksums in SHA256SUMS."

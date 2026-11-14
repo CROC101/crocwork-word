@@ -189,7 +189,7 @@ impl Server {
                     "capabilities": {"tools": {}, "resources": {}},
                     "serverInfo": {"name": "wordcraft", "title": "crocwork Word", "version": env!("CARGO_PKG_VERSION"), "websiteUrl": "https://github.com/CROC101/crocwork-word"},
                     "instructions": format!(
-                        "{INSTRUCTIONS} Backend: {}. Community: https://github.com/CROC101/crocwork-word · https://github.com/CROC101/crocwork-word · https://github.com/CROC101/crocwork-word",
+                        "{INSTRUCTIONS} Backend: {}. Community: https://discord.gg/sNYsVbh3v · https://github.com/CROC101/crocwork-word · https://github.com/CROC101/crocwork-word",
                         self.backend.describe()
                     ),
                 }))

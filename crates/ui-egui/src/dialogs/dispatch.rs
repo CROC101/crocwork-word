@@ -1177,7 +1177,7 @@ fn about_dialog(ui: &mut Ui, d: &mut Dialog) -> bool {
             ui.label(tl!("A free, open-source word processor written from scratch in Rust.\nPart of the Crafting Apps from the crocwork team."));
             ui.add_space(6.0);
             ui.hyperlink_to(tl!("github.com/CROC101/crocwork-word"), "https://github.com/CROC101/crocwork-word");
-            ui.hyperlink_to(tl!("Join us on Discord: github.com/CROC101/crocwork-word"), "https://github.com/CROC101/crocwork-word");
+            ui.hyperlink_to(tl!("Join us on Discord: discord.gg/sNYsVbh3v"), "https://discord.gg/sNYsVbh3v");
             ui.hyperlink_to(tl!("Source code: github.com/CROC101/crocwork-word"), "https://github.com/CROC101/crocwork-word");
             ui.add_space(6.0);
             ui.label(egui::RichText::new(tl!("MIT OR Apache-2.0. Copyright (c) 2026 ArtCraft Team and the WordCraft contributors.")).small().weak());

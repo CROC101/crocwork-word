@@ -15,7 +15,7 @@
     <Property Id="ARPPRODUCTICON" Value="WordcraftIcon.ico" />
     <Property Id="ARPURLINFOABOUT" Value="https://github.com/CROC101/crocwork-word" />
     <Property Id="ARPURLUPDATEINFO" Value="https://github.com/CROC101/crocwork-word" />
-    <Property Id="ARPHELPLINK" Value="https://github.com/CROC101/crocwork-word" />
+    <Property Id="ARPHELPLINK" Value="https://discord.gg/sNYsVbh3v" />
 
     <!-- Installer UI (#198): WixUI_Minimal is welcome + license, progress, then a finish page so
          people can see the install worked. Its dialogs and bitmaps are WiX's own

@@ -803,7 +803,7 @@ impl WordApp {
                 ));
             }
             "ui.discord" => {
-                self.canvas.open_url = Some("https://github.com/CROC101/crocwork-word".into());
+                self.canvas.open_url = Some("https://discord.gg/sNYsVbh3v".into());
                 json!({})
             }
             "ui.caretAnimation" => {
